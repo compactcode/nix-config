@@ -24,13 +24,10 @@ delib.module {
 
       zsh = {
         enable = true;
-
         # auto complete ghost text
         autosuggestion.enable = true;
-
         prezto = {
           enable = true;
-
           pmodules = [
             "completion" # auto completion
             "directory" # auto pushd/popd
