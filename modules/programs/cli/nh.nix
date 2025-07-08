@@ -5,7 +5,7 @@
 }:
 delib.module {
   # nix cli helper
-  name = "programs.nh";
+  name = "programs.cli.nh";
 
   home.ifEnabled = {
     programs.nh = {
