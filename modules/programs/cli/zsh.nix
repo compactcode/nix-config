@@ -7,13 +7,16 @@ delib.module {
 
   home.ifEnabled = {
     programs = {
+      # use atuin history search
+      atuin.enableZshIntegration = true;
+
       # use fzf completion
       fzf.enableZshIntegration = true;
 
-      # use starship for prompt
+      # use starship prompt
       starship.enableZshIntegration = true;
 
-      # use zoxide for smarter directory navigation
+      # use zoxide smarter directory navigation
       zoxide.enableZshIntegration = true;
 
       zsh = {
