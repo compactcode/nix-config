@@ -5,8 +5,11 @@ delib.module {
 
   home.ifEnabled = {
     programs = {
-      # use starship for the prompt
+      # use starship for prompt
       starship.enableZshIntegration = true;
+
+      # use zoxide for smarter directory navigation
+      zoxide.enableZshIntegration = true;
 
       zsh = {
         enable = true;
