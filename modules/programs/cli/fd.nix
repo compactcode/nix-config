@@ -3,6 +3,8 @@ delib.module {
   # find replacement
   name = "programs.cli.fd";
 
+  options = delib.singleEnableOption true;
+
   home.ifEnabled = {
     programs.fd = {
       enable = true;

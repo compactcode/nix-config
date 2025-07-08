@@ -3,6 +3,8 @@ delib.module {
   # grep replacement
   name = "programs.cli.ripgrep";
 
+  options = delib.singleEnableOption true;
+
   home.ifEnabled = {...}: {
     programs.ripgrep = {
       enable = true;

@@ -3,6 +3,8 @@ delib.module {
   # shell history database
   name = "programs.cli.atuin";
 
+  options = delib.singleEnableOption true;
+
   home.ifEnabled = {
     programs.atuin = {
       enable = true;
