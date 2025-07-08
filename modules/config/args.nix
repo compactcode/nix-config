@@ -6,11 +6,15 @@ delib.module {
     shared = attrsLegacyOption {};
   };
 
-  nixos.always = {cfg, ...}: {
+  darwin.always = {cfg, ...}: {
     _module.args = cfg.shared;
   };
 
   home.always = {cfg, ...}: {
+    _module.args = cfg.shared;
+  };
+
+  nixos.always = {cfg, ...}: {
     _module.args = cfg.shared;
   };
 }
