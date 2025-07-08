@@ -5,6 +5,9 @@ delib.module {
 
   home.ifEnabled = {
     programs = {
+      # use fzf completion
+      fzf.enableZshIntegration = true;
+
       # use starship for prompt
       starship.enableZshIntegration = true;
 
