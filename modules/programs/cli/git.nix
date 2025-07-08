@@ -1,6 +1,6 @@
 {delib, ...}:
 delib.module {
-  # version control
+  # version control system
   name = "programs.cli.git";
 
   home.ifEnabled = {myconfig, ...}: {

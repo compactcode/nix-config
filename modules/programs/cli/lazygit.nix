@@ -1,6 +1,6 @@
 {delib, ...}:
 delib.module {
-  # version control ui
+  # git ui
   name = "programs.cli.lazygit";
 
   options = {myconfig, ...} @ args: delib.singleEnableOption myconfig.host.isDesktop args;
