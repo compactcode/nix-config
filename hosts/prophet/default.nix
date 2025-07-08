@@ -8,14 +8,13 @@ delib.host {
   rice = "catppuccin";
   type = "desktop";
 
-  homeManagerSystem = "x86_64-linux";
-
-  home.home.stateVersion = "24.05";
-
   myconfig.disko = {
     enable = true;
     device = "/dev/disk/by-id/nvme-KXG6AZNV512G_TOSHIBA_79CS12AKTYSQ";
   };
+
+  homeManagerSystem = "x86_64-linux";
+  home.home.stateVersion = "24.05";
 
   nixos = {
     nixpkgs.hostPlatform = "x86_64-linux";
