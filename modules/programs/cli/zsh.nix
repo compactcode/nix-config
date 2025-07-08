@@ -10,6 +10,9 @@ delib.module {
       # use atuin history search
       atuin.enableZshIntegration = true;
 
+      # use direnv for environment management
+      direnv.enableZshIntegration = true;
+
       # use fzf completion
       fzf.enableZshIntegration = true;
 
