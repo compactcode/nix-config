@@ -1,0 +1,24 @@
+# CPU: Intel Core i7-8565U
+# GPU: Nvidia Quadro P520
+# Motherboard: ThinkPad P43s
+{delib, ...}:
+delib.host {
+  name = "prophet";
+
+  rice = "catppuccin";
+  type = "desktop";
+
+  homeManagerSystem = "x86_64-linux";
+
+  home.home.stateVersion = "24.05";
+
+  myconfig.disko = {
+    enable = true;
+    device = "/dev/disk/by-id/nvme-KXG6AZNV512G_TOSHIBA_79CS12AKTYSQ";
+  };
+
+  nixos = {
+    nixpkgs.hostPlatform = "x86_64-linux";
+    system.stateVersion = "24.05";
+  };
+}
