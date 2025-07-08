@@ -4,21 +4,26 @@ delib.module {
   name = "programs.cli.zsh";
 
   home.ifEnabled = {
-    programs.zsh = {
-      enable = true;
+    programs = {
+      # use starship for the prompt
+      starship.enableZshIntegration = true;
 
-      # auto complete ghost text
-      autosuggestion.enable = true;
-
-      prezto = {
+      zsh = {
         enable = true;
 
-        pmodules = [
-          "completion" # auto completion
-          "directory" # auto pushd/popd
-          "editor" # emacs key bindings
-          "history" # history setup
-        ];
+        # auto complete ghost text
+        autosuggestion.enable = true;
+
+        prezto = {
+          enable = true;
+
+          pmodules = [
+            "completion" # auto completion
+            "directory" # auto pushd/popd
+            "editor" # emacs key bindings
+            "history" # history setup
+          ];
+        };
       };
     };
 
