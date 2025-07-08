@@ -3,6 +3,8 @@ delib.module {
   # shell
   name = "programs.cli.zsh";
 
+  options = delib.singleEnableOption true;
+
   home.ifEnabled = {
     programs = {
       # use fzf completion

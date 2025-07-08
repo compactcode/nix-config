@@ -3,6 +3,8 @@ delib.module {
   # version control system
   name = "programs.cli.git";
 
+  options = delib.singleEnableOption true;
+
   home.ifEnabled = {myconfig, ...}: {
     programs.git = {
       enable = true;
@@ -20,8 +22,8 @@ delib.module {
         ".direnv"
         "node_modules"
       ];
-      userName = myconfig.constants.username;
-      userEmail = myconfig.constants.email;
+      userName = myconfig.constants.userfullname;
+      userEmail = myconfig.constants.useremail;
     };
 
     home = {

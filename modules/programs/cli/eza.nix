@@ -3,6 +3,8 @@ delib.module {
   # ls replacement
   name = "programs.cli.eza";
 
+  options = delib.singleEnableOption true;
+
   home.ifEnabled = {
     programs.eza = {
       enable = true;

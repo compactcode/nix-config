@@ -7,17 +7,21 @@
 delib.module {
   name = "programs.cli.fzf";
 
+  options = delib.singleEnableOption true;
+
   home.ifEnabled = {
-    fzf = {
-      enable = true;
-      # use fd for listing files
-      defaultCommand = "${lib.getExe pkgs.fd} --type f";
-      defaultOptions = [
-        # search bar at the top
-        "--reverse"
-        # display results inline instead of fullscreen
-        "--height 40%"
-      ];
+    programs = {
+      fzf = {
+        enable = true;
+        # use fd for listing files
+        defaultCommand = "${lib.getExe pkgs.fd} --type f";
+        defaultOptions = [
+          # search bar at the top
+          "--reverse"
+          # display results inline instead of fullscreen
+          "--height 40%"
+        ];
+      };
     };
 
     home.shellAliases = {
