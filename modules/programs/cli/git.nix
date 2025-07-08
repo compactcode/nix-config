@@ -26,6 +26,7 @@ delib.module {
 
     home = {
       shellAliases = {
+        g = "git";
         ga = "git add";
         gars = "git add . && git reset --hard";
         gc = "git commit";
