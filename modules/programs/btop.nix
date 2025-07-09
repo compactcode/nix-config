@@ -1,7 +1,9 @@
 {delib, ...}:
 delib.module {
   # system monitor
-  name = "programs.cli.btop";
+  name = "programs.btop";
+
+  options = delib.singleEnableOption true;
 
   home.ifEnabled = {
     programs.btop = {

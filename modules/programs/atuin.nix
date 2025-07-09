@@ -1,7 +1,7 @@
 {delib, ...}:
 delib.module {
   # shell history database
-  name = "programs.cli.atuin";
+  name = "programs.atuin";
 
   options = delib.singleEnableOption true;
 

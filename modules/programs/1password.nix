@@ -6,7 +6,7 @@
 }:
 delib.module {
   # password manager
-  name = "programs.gui.1password";
+  name = "programs.1password";
 
   options = delib.singleEnableOption true;
 

@@ -1,7 +1,7 @@
 {delib, ...}:
 delib.module {
   # cat replacement
-  name = "programs.cli.bat";
+  name = "programs.bat";
 
   options = delib.singleEnableOption true;
 
