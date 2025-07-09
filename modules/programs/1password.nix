@@ -16,6 +16,11 @@ delib.module {
         "1password"
       ];
     };
+
+    programs = {
+      # password manager cli
+      _1password.enable = true;
+    };
   };
 
   nixos.ifEnabled = {myconfig, ...}: {
