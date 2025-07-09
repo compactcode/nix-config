@@ -1,7 +1,7 @@
 {delib, ...}:
 delib.module {
   # grep replacement
-  name = "programs.cli.ripgrep";
+  name = "progams.ripgrep";
 
   options = delib.singleEnableOption true;
 

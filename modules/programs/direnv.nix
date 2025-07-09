@@ -1,7 +1,7 @@
 {delib, ...}:
 delib.module {
   # environment loading
-  name = "programs.cli.direnv";
+  name = "progams.direnv";
 
   options = delib.singleEnableOption true;
 

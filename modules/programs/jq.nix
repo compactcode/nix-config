@@ -1,7 +1,7 @@
 {delib, ...}:
 delib.module {
   # json manipulation
-  name = "programs.cli.jq";
+  name = "progams.jq";
 
   options = delib.singleEnableOption true;
 

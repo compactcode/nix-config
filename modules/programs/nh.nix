@@ -5,7 +5,7 @@
 }:
 delib.module {
   # nix cli helper
-  name = "programs.cli.nh";
+  name = "progams.nh";
 
   options = delib.singleEnableOption true;
 
