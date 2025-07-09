@@ -3,7 +3,7 @@
 ## 1. Overview
 This project uses [nixvim](https://github.com/nix-community/nixvim) to configure neovim.
 
-## 2. Plugin Layout
+## 2. Nixvim Layout
 - `modules/programs/nixvim/default.nix`: is the entry point
 - `modules/programs/nixvim/plugin/*.nix`: contains a file for each plugin
 

@@ -7,6 +7,8 @@ This project uses [denix](https://github.com/yunfachi/denix) to configure module
 - `modules/programs/*.nix`: for program configuration
 - `modules/services/*.nix`: for service configuration
 
+Modules are imported automatically by convention.
+
 ## 3. Module Structure
 Use this code as an example when modifying a module.
 
@@ -43,4 +45,4 @@ delib.module {
 ## 4. Rules
 
 - Prefer using `programs` or `services` wrappers where possible.
-- When adding a new module, only create the module file, never attempt to enable it.
+- When adding a new module, only create the module, DO NOT attempt to import anything.
