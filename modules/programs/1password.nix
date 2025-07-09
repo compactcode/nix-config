@@ -34,6 +34,22 @@ delib.module {
         polkitPolicyOwners = [myconfig.constants.username];
       };
     };
+
+    systemd = {
+      user.services = {
+        # start 1password so the daemon is available
+        _1password = {
+          description = "1password";
+          wantedBy = ["graphical-session.target"];
+          wants = ["graphical-session.target"];
+          after = ["graphical-session.target"];
+          serviceConfig = {
+            Type = "simple";
+            ExecStart = "${lib.getExe' pkgs._1password-gui "1password"} --silent";
+          };
+        };
+      };
+    };
   };
 
   home.ifEnabled = {myconfig, ...}: {
