@@ -13,6 +13,12 @@ delib.host {
 
   darwin = {
     nixpkgs.hostPlatform = "aarch64-darwin";
-    system.stateVersion = 5;
+
+    system = {
+      stateVersion = 5;
+
+      # mdm user
+      primaryUser = "shanon";
+    };
   };
 }
