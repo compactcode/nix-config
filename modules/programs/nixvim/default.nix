@@ -15,6 +15,13 @@ delib.module {
     programs.nixvim = {
       enable = true;
 
+      colorschemes.catppuccin = {
+        enable = true;
+        settings = {
+          flavour = "mocha";
+        };
+      };
+
       plugins = {
         # lazy loading
         lz-n.enable = true;
