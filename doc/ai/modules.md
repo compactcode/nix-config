@@ -13,7 +13,6 @@ Use this code as an example when modifying a module.
 ```nix
 {delib, ...}:
 delib.module {
-  # NOTE: this name must match the directory structure.
   name = "programs.bat";
 
   options = delib.singleEnableOption true;
@@ -27,7 +26,7 @@ delib.module {
 
   # nixos options go here, remove if not relevant
   nixos.ifEnabled = {
-    boot.zfs= {
+    boot.zfs = {
       enable = true;
     };
   };
@@ -41,4 +40,7 @@ delib.module {
 }
 ```
 
-Prefer using `programs` or `services` wrappers where possible
+## 4. Rules
+
+- Prefer using `programs` or `services` wrappers where possible.
+- When adding a new module, only create the module file, never attempt to enable it.
