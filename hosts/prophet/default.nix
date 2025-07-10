@@ -8,9 +8,13 @@ delib.host {
   rice = "catppuccin-mocha";
   type = "desktop";
 
-  myconfig.disko = {
-    enable = true;
-    device = "/dev/disk/by-id/nvme-KXG6AZNV512G_TOSHIBA_79CS12AKTYSQ";
+  myconfig = {
+    hardware.bluetooth.enable = true;
+
+    disko = {
+      enable = true;
+      device = "/dev/disk/by-id/nvme-KXG6AZNV512G_TOSHIBA_79CS12AKTYSQ";
+    };
   };
 
   homeManagerSystem = "x86_64-linux";
