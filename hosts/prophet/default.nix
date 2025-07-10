@@ -9,12 +9,14 @@ delib.host {
   type = "desktop";
 
   myconfig = {
-    hardware.bluetooth.enable = true;
-
     disko = {
       enable = true;
       device = "/dev/disk/by-id/nvme-KXG6AZNV512G_TOSHIBA_79CS12AKTYSQ";
     };
+
+    hardware.bluetooth.enable = true;
+
+    services.hyprland.enable = true;
   };
 
   homeManagerSystem = "x86_64-linux";
