@@ -5,7 +5,7 @@
 delib.host {
   name = "alchemist";
 
-  rice = "catppuccin";
+  rice = "catppuccin-mocha";
   type = "desktop";
 
   homeManagerSystem = "aarch64-darwin";

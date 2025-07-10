@@ -5,7 +5,7 @@
 delib.host {
   name = "prophet";
 
-  rice = "catppuccin";
+  rice = "catppuccin-mocha";
   type = "desktop";
 
   myconfig.disko = {
