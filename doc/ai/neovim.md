@@ -5,7 +5,7 @@ This project uses [nixvim](https://github.com/nix-community/nixvim) to configure
 
 ## 2. Nixvim Layout
 - `modules/programs/nixvim/default.nix`: is the entry point
-- `modules/programs/nixvim/plugin/*.nix`: contains a file for each plugin
+- `modules/programs/nixvim/plugins/*.nix`: contains a file for each plugin
 
 Modules are imported automatically by convention.
 
@@ -16,23 +16,24 @@ Use this code as an example when modifying a plugin.
 {delib, ...}:
 delib.module {
   # language parsing
-  name = "programs.nixvim.plugins.treesitter";
+  name = "programs.nixvim.plugins.flash";
 
   options = delib.singleEnableOption true;
 
   home.ifEnabled.programs.nixvim = {
-    plugins = {
-      treesitter = {
-        enable = true;
-        # highlight embedded lua
-        nixvimInjections = true;
-        settings = {
-          # replace default highlighting
-          highlight.enable = true;
-          # replace default indenting
-          indent.enable = true;
-        };
-      };
+    keymaps = [
+      {
+        key = "S";
+        action = "<cmd>lua require(\"flash\").treesitter()<cr>";
+        options = {desc = "select using treesitter";};
+      }
+    ];
+
+    plugins.flash = {
+      enable = true;
+
+      # add jump labels to the default search
+      settings.modes.search.enabled = true;
     };
   };
 }
