@@ -22,7 +22,7 @@ delib.module {
         # replace the docker socket
         dockerSocket.enable = true;
         # replace the docker command
-        dockerCompat.enable = true;
+        dockerCompat = true;
       };
     };
   };
