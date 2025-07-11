@@ -50,6 +50,7 @@ delib.rice {
       btop.enable = true;
       kitty.enable = true;
       swaylock.enable = true;
+      waybar.enable = true;
     };
   };
 
