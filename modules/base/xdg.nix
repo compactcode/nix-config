@@ -6,11 +6,12 @@
 delib.module {
   name = "xdg";
 
-  options = {myconfig, ...}:
-    with delib; {
+  options = {myconfig, ...}: {
+    xdg = with delib; {
       enable = boolOption myconfig.host.isDesktop;
       projectHome = strOption "${homeconfig.home.homeDirectory}/Projects";
     };
+  };
 
   home.ifEnabled = {cfg, ...}: {
     xdg = {
