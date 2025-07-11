@@ -31,7 +31,7 @@ delib.module {
       # password manager gui
       _1password-gui = {
         enable = true;
-        polkitPolicyOwners = [myconfig.constants.username];
+        polkitPolicyOwners = [myconfig.users.primary.id];
       };
     };
 
@@ -54,7 +54,7 @@ delib.module {
 
   home.ifEnabled = {myconfig, ...}: {
     # allow signing commits with our ssh key
-    home.file.".ssh/allowed_signers".text = "* ${myconfig.constants.usersshkey}";
+    home.file.".ssh/allowed_signers".text = "* ${myconfig.users.primary.sshkey}";
 
     programs = {
       # configure signing
@@ -71,7 +71,7 @@ delib.module {
             };
             format = "ssh";
           };
-          user.signingkey = myconfig.constants.usersshkey;
+          user.signingkey = myconfig.users.primary.sshkey;
         };
       };
 

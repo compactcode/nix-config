@@ -22,8 +22,8 @@ delib.module {
         ".direnv"
         "node_modules"
       ];
-      userName = myconfig.constants.userfullname;
-      userEmail = myconfig.constants.useremail;
+      userName = myconfig.users.primary.name;
+      userEmail = myconfig.users.primary.email;
     };
 
     home = {

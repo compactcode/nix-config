@@ -11,7 +11,7 @@ delib.host {
   homeManagerSystem = "aarch64-darwin";
   home.home.stateVersion = "24.05";
 
-  darwin = {
+  darwin = {myconfig, ...}: {
     nixpkgs.hostPlatform = "aarch64-darwin";
 
     # enable touch id for sudo
@@ -35,10 +35,10 @@ delib.host {
         # remap capslock to control
         remapCapsLockToControl = true;
       };
+
       stateVersion = 5;
 
-      # mdm user
-      primaryUser = "shanon";
+      primaryUser = myconfig.users.primary.id;
     };
   };
 }
