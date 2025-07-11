@@ -16,7 +16,10 @@ delib.host {
 
     hardware.bluetooth.enable = true;
 
-    services.hyprland.enable = true;
+    services = {
+      hyprland.enable = true;
+      tlp.enable = true;
+    };
   };
 
   homeManagerSystem = "x86_64-linux";
