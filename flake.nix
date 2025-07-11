@@ -33,19 +33,18 @@
   };
 
   outputs = {denix, ...} @ inputs: let
-    mkConfigurations = moduleSystem:
+    mkConfigurations = moduleSystem: homeManagerUser:
       denix.lib.configurations {
-        inherit moduleSystem;
-        homeManagerUser = "compactcode";
+        inherit moduleSystem homeManagerUser;
 
         paths = [./hosts ./modules ./rices];
 
         specialArgs = {
-          inherit inputs;
+          inherit homeManagerUser inputs;
         };
       };
   in {
-    nixosConfigurations = mkConfigurations "nixos";
-    darwinConfigurations = mkConfigurations "darwin";
+    nixosConfigurations = mkConfigurations "nixos" "shandogs";
+    darwinConfigurations = mkConfigurations "darwin" "shanon";
   };
 }
