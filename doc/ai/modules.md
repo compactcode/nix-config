@@ -4,8 +4,10 @@
 This project uses [denix](https://github.com/yunfachi/denix) to configure modules.
 
 ## 2. Module Layout
+- `modules/hardware/*.nix`: for hardware configuration
 - `modules/programs/*.nix`: for program configuration
 - `modules/services/*.nix`: for service configuration
+- `modules/base/*.nix`: for everything else
 
 Modules are imported automatically by convention.
 
