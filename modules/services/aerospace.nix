@@ -34,6 +34,14 @@ delib.module {
           alt-shift-ctrl-cmd-8 = "workspace 8";
           alt-shift-ctrl-cmd-9 = "workspace 9";
 
+          alt-shift-ctrl-cmd-s = "exec-and-forget open -a ~/Applications/Home\\ Manager\\ Apps/Slack.app";
+          alt-shift-ctrl-cmd-t = "exec-and-forget open -a ~/Applications/Home\\ Manager\\ Apps/Kitty.app";
+          alt-shift-ctrl-cmd-c = "exec-and-forget open -a /System/Applications/Calendar.app";
+
+          alt-shift-ctrl-cmd-m = "exec-and-forget open -a /System/Applications/Mail.app";
+          alt-shift-ctrl-cmd-n = "exec-and-forget open -a /Applications/Google\\ Chrome.app";
+          alt-shift-ctrl-cmd-o = "exec-and-forget open -a ~/Applications/Home\\ Manager\\ Apps/Obsidian.app";
+
           alt-shift-ctrl-1 = "move-node-to-workspace 1";
           alt-shift-ctrl-2 = "move-node-to-workspace 2";
           alt-shift-ctrl-3 = "move-node-to-workspace 3";
