@@ -49,6 +49,7 @@ delib.rice {
       bat.enable = true;
       btop.enable = true;
       kitty.enable = true;
+      swaylock.enable = true;
     };
   };
 

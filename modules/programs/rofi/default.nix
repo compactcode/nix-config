@@ -6,10 +6,11 @@
 delib.module {
   name = "programs.rofi";
 
-  options = {myconfig, ...}:
-    with delib; {
+  options = {myconfig, ...}: {
+    programs.rofi = with delib; {
       enable = boolOption myconfig.services.hyprland.enable;
     };
+  };
 
   home.ifEnabled = {
     home.packages = [
