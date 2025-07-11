@@ -88,7 +88,7 @@ delib.rice {
       polarity = "dark";
 
       targets = {
-        console = true;
+        console.enable = true;
       };
     };
   };
