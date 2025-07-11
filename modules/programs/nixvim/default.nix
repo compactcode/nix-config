@@ -1,6 +1,8 @@
 {
   delib,
   inputs,
+  lib,
+  pkgs,
   ...
 }:
 delib.module {
@@ -30,6 +32,17 @@ delib.module {
       withNodeJs = false;
       withPerl = false;
       withRuby = false;
+    };
+
+    xdg = lib.mkIf (pkgs.stdenv.isLinux) {
+      # add launcher for neovim
+      desktopEntries.nvim = {
+        categories = ["Utility" "TextEditor"];
+        exec = "kitty -e nvim";
+        genericName = "Text Editor";
+        icon = "nvim";
+        name = "Neovim";
+      };
     };
   };
 }
