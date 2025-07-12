@@ -56,6 +56,7 @@ delib.rice {
       kde.enable = true;
       kitty.enable = true;
       lazygit.enable = true;
+      mpv.enable = true;
       rofi.enable = true;
       swaylock.enable = true;
       waybar.enable = true;
