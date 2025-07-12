@@ -55,8 +55,13 @@ delib.host {
       };
     };
 
-    # enable gpu support for applications like btop
-    nixpkgs.config.rocmSupport = true;
+    networking.hostName = "pheonix";
+
+    nixpkgs = {
+      # enable gpu support for applications like btop
+      config.rocmSupport = true;
+      hostPlatform = "x86_64-linux";
+    };
 
     services = {
       # periodic ssd maintenance
@@ -66,8 +71,6 @@ delib.host {
         ACTION=="add", SUBSYSTEM=="pci", DRIVER=="pcieport", ATTR{power/wakeup}="disabled"
       '';
     };
-
-    nixpkgs.hostPlatform = "x86_64-linux";
 
     system.stateVersion = "23.11";
   };
