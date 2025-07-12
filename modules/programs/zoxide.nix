@@ -1,7 +1,7 @@
 {delib, ...}:
 delib.module {
   # smart cd with jumping
-  name = "progams.zoxide";
+  name = "programs.zoxide";
 
   options = delib.singleEnableOption true;
 

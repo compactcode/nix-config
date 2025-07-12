@@ -1,7 +1,7 @@
 {delib, ...}:
 delib.module {
   # version control system
-  name = "progams.git";
+  name = "programs.git";
 
   options = delib.singleEnableOption true;
 

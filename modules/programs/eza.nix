@@ -1,7 +1,7 @@
 {delib, ...}:
 delib.module {
   # ls replacement
-  name = "progams.eza";
+  name = "programs.eza";
 
   options = delib.singleEnableOption true;
 

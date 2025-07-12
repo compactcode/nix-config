@@ -1,7 +1,7 @@
 {delib, ...}:
 delib.module {
   # shell prompt
-  name = "progams.starship";
+  name = "programs.starship";
 
   options = delib.singleEnableOption true;
 

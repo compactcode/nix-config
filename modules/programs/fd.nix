@@ -1,7 +1,7 @@
 {delib, ...}:
 delib.module {
   # find replacement
-  name = "progams.fd";
+  name = "programs.fd";
 
   options = delib.singleEnableOption true;
 

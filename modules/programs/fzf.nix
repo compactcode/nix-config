@@ -5,7 +5,7 @@
   ...
 }:
 delib.module {
-  name = "progams.fzf";
+  name = "programs.fzf";
 
   options = delib.singleEnableOption true;
 

@@ -1,7 +1,7 @@
 {delib, ...}:
 delib.module {
   # github cli
-  name = "progams.gh";
+  name = "programs.gh";
 
   options = delib.singleEnableOption true;
 

@@ -1,7 +1,7 @@
 {delib, ...}:
 delib.module {
   # screen locker
-  name = "progams.swaylock";
+  name = "programs.swaylock";
 
   options = {myconfig, ...}: {
     programs.swaylock = with delib; {

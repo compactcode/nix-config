@@ -1,7 +1,7 @@
 {delib, ...}:
 delib.module {
   # shell
-  name = "progams.zsh";
+  name = "programs.zsh";
 
   options = delib.singleEnableOption true;
 
