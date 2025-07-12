@@ -45,9 +45,13 @@ delib.rice {
   };
 
   home = {
+    # enable for stylix
+    gtk.enable = true;
+
     stylix.targets = {
       bat.enable = true;
       btop.enable = true;
+      gtk.enable = true;
       kitty.enable = true;
       swaylock.enable = true;
       waybar.enable = true;
