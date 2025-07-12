@@ -51,8 +51,11 @@ delib.rice {
     stylix.targets = {
       bat.enable = true;
       btop.enable = true;
+      gnome.enable = true;
       gtk.enable = true;
+      kde.enable = true;
       kitty.enable = true;
+      lazygit.enable = true;
       swaylock.enable = true;
       waybar.enable = true;
     };
@@ -94,6 +97,7 @@ delib.rice {
       polarity = "dark";
 
       targets = {
+        chromium.enable = true;
         console.enable = true;
       };
     };
