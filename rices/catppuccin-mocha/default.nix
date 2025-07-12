@@ -59,6 +59,7 @@ delib.rice {
       rofi.enable = true;
       swaylock.enable = true;
       waybar.enable = true;
+      zathura.enable = true;
     };
   };
 
