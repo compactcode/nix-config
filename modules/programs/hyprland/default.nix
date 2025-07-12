@@ -1,7 +1,7 @@
 {delib, ...}:
 delib.module {
   # window manager
-  name = "services.hyprland";
+  name = "programs.hyprland";
 
   options = delib.singleEnableOption false;
 

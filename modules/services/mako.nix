@@ -5,7 +5,7 @@ delib.module {
 
   options = {myconfig, ...}: {
     services.mako = with delib; {
-      enable = boolOption myconfig.services.hyprland.enable;
+      enable = boolOption myconfig.programs.hyprland.enable;
     };
   };
 

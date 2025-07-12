@@ -8,7 +8,7 @@ delib.module {
 
   options = {myconfig, ...}: {
     programs.rofi = with delib; {
-      enable = boolOption myconfig.services.hyprland.enable;
+      enable = boolOption myconfig.programs.hyprland.enable;
     };
   };
 

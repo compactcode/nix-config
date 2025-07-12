@@ -5,7 +5,7 @@ delib.module {
 
   options = {myconfig, ...}: {
     programs.waybar = with delib; {
-      enable = boolOption myconfig.services.hyprland.enable;
+      enable = boolOption myconfig.programs.hyprland.enable;
     };
   };
 

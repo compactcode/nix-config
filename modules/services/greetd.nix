@@ -10,7 +10,7 @@ delib.module {
 
   options = {myconfig, ...}: {
     services.greetd = with delib; {
-      enable = boolOption myconfig.services.hyprland.enable;
+      enable = boolOption myconfig.programs.hyprland.enable;
     };
   };
 

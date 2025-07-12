@@ -9,7 +9,7 @@ delib.module {
 
   options = {myconfig, ...}: {
     services.swayidle = with delib; {
-      enable = boolOption myconfig.services.hyprland.enable;
+      enable = boolOption myconfig.programs.hyprland.enable;
     };
   };
 
