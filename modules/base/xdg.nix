@@ -1,6 +1,7 @@
 {
   delib,
   homeconfig,
+  pkgs,
   ...
 }:
 delib.module {
@@ -16,6 +17,7 @@ delib.module {
   home.ifEnabled = {cfg, ...}: {
     xdg = {
       enable = true;
+
       # create default desktop directories
       userDirs = {
         enable = true;
@@ -24,6 +26,19 @@ delib.module {
           XDG_PROJECTS_DIR = cfg.projectHome;
         };
       };
+    };
+  };
+
+  nixos.ifEnabled = {
+    # allow applications to request system resources
+    xdg.portal = {
+      enable = true;
+
+      config.common.default = ["gtk"];
+
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+      ];
     };
   };
 }

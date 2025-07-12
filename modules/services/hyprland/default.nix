@@ -60,6 +60,13 @@ delib.module {
           source = ./scripts/project.sh;
         };
       };
+
+      portal = {
+        config.hyprland.default = [
+          "hyprland"
+          "gtk" # fallback for filepicker
+        ];
+      };
     };
   };
 }
