@@ -1,5 +1,6 @@
 {
   delib,
+  lib,
   pkgs,
   ...
 }:
@@ -9,7 +10,9 @@ delib.module {
 
   options = delib.singleEnableOption true;
 
-  nixos.ifEnabled = {
+  nixos.ifEnabled = {...}: {
+    myconfig.programs.grimblast.editor = "${lib.getExe pkgs.pinta}";
+
     environment.systemPackages = [pkgs.pinta];
   };
 }
