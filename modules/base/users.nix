@@ -38,12 +38,10 @@ delib.module {
   };
 
   nixos.always = {cfg, ...}: {
-    users = {
-      users.${cfg.primary.id} = {
-        isNormalUser = true;
-        initialPassword = cfg.primary.id;
-        extraGroups = ["wheel"];
-      };
+    users.users.${cfg.primary.id} = {
+      isNormalUser = true;
+      initialPassword = cfg.primary.id;
+      extraGroups = ["wheel"];
     };
   };
 }

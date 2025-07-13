@@ -1,4 +1,8 @@
-{delib, ...}:
+{
+  delib,
+  pkgs,
+  ...
+}:
 delib.module {
   # shell
   name = "programs.zsh";
@@ -44,5 +48,11 @@ delib.module {
         md = "mkdir -p";
       };
     };
+  };
+
+  nixos.ifEnabled = {
+    users.defaultUserShell = pkgs.zsh;
+
+    programs.zsh.enable = true;
   };
 }
