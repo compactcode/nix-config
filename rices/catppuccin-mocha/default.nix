@@ -45,7 +45,7 @@ delib.rice {
   };
 
   home = {
-    # enable for stylix
+    # allow stylix to inject styles
     gtk.enable = true;
 
     stylix.targets = {
@@ -58,6 +58,7 @@ delib.rice {
       lazygit.enable = true;
       mpv.enable = true;
       rofi.enable = true;
+      starship.enable = true;
       swaylock.enable = true;
       waybar.enable = true;
       yazi.enable = true;
