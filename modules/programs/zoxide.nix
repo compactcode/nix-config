@@ -8,6 +8,7 @@ delib.module {
   home.ifEnabled = {
     programs.zoxide = {
       enable = true;
+      enableZshIntegration = true;
     };
   };
 }

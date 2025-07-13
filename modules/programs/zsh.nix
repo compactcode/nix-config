@@ -11,21 +11,6 @@ delib.module {
 
   home.ifEnabled = {
     programs = {
-      # use atuin history search
-      atuin.enableZshIntegration = true;
-
-      # use direnv for environment management
-      direnv.enableZshIntegration = true;
-
-      # use fzf completion
-      fzf.enableZshIntegration = true;
-
-      # use starship prompt
-      starship.enableZshIntegration = true;
-
-      # use zoxide smarter directory navigation
-      zoxide.enableZshIntegration = true;
-
       zsh = {
         enable = true;
         # auto complete ghost text

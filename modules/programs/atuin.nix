@@ -8,6 +8,7 @@ delib.module {
   home.ifEnabled = {
     programs.atuin = {
       enable = true;
+      enableZshIntegration = true;
       settings = {
         # search bar at the top
         invert = true;

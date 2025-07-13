@@ -13,6 +13,7 @@ delib.module {
     programs = {
       fzf = {
         enable = true;
+        enableZshIntegration = true;
         # use fd for listing files
         defaultCommand = "${lib.getExe pkgs.fd} --type f";
         defaultOptions = [

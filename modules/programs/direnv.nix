@@ -8,6 +8,7 @@ delib.module {
   home.ifEnabled = {
     programs.direnv = {
       enable = true;
+      enableZshIntegration = true;
       # faster nix handling
       nix-direnv.enable = true;
     };

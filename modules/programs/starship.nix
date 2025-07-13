@@ -8,6 +8,7 @@ delib.module {
   home.ifEnabled = {
     programs.starship = {
       enable = true;
+      enableZshIntegration = true;
     };
   };
 }
