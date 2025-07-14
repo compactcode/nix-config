@@ -3,7 +3,7 @@ delib.module {
   # git ui
   name = "programs.lazygit";
 
-  options = {myconfig, ...} @ args: delib.singleEnableOption myconfig.host.isDesktop args;
+  options = delib.singleEnableOption true;
 
   home.ifEnabled = {
     programs.lazygit = {
