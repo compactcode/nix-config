@@ -7,9 +7,9 @@
 delib.module {
   name = "xdg";
 
-  options = {myconfig, ...}: {
+  options = {...}: {
     xdg = with delib; {
-      enable = boolOption myconfig.host.isDesktop;
+      enable = boolOption pkgs.stdenv.isLinux;
       projectHome = strOption "${homeconfig.home.homeDirectory}/Projects";
     };
   };
