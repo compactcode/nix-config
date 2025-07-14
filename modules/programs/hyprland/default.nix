@@ -22,6 +22,61 @@ delib.module {
           kb_options = "ctrl:nocaps";
         };
 
+        bind = [
+          # applications tied to particular workspaces
+          "$mod, a, exec, ~/.local/share/rofi/project.sh"
+          "$mod, e, exec, ~/.local/share/hyprland/project.sh 3"
+          "$mod, n, exec, ~/.local/share/hyprland/focus.sh 1 firefox firefox"
+          "$mod, o, exec, ~/.local/share/hyprland/focus.sh 4 obsidian obsidian"
+          "$mod, r, exec, ~/.local/share/hyprland/focus.sh 5 Slack slack"
+          "$mod, s, exec, ~/.local/share/hyprland/project.sh 2"
+
+          # applications
+          "$mod, i, exec, rofi -show drun"
+          "$mod, b, exec, ~/.local/share/rofi/bookmark.sh"
+          "$mod, t, exec, kitty"
+          "$mod, f, exec, kitty yazi"
+          "$mod, p, exec, grimblast --notify edit area"
+          "$mod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+
+          # focused window actions
+          "$mod, w, togglefloating,"
+          "$mod, q, killactive,"
+
+          # open scratchpad
+          "$mod, c, togglespecialworkspace, scratchpad"
+
+          # open workspaces
+          "$mod, TAB, workspace, previous"
+          "$mod, 1, workspace, 1"
+          "$mod, 2, workspace, 2"
+          "$mod, 3, workspace, 3"
+          "$mod, 4, workspace, 4"
+          "$mod, 5, workspace, 5"
+          "$mod, 6, workspace, 6"
+          "$mod, 7, workspace, 7"
+          "$mod, 8, workspace, 8"
+          "$mod, 9, workspace, 9"
+
+          # move windows
+          "$mod+Shift, 1, movetoworkspace, 1"
+          "$mod+Shift, 2, movetoworkspace, 2"
+          "$mod+Shift, 3, movetoworkspace, 3"
+          "$mod+Shift, 4, movetoworkspace, 4"
+          "$mod+Shift, 5, movetoworkspace, 5"
+          "$mod+Shift, 6, movetoworkspace, 6"
+          "$mod+Shift, 7, movetoworkspace, 7"
+          "$mod+Shift, 8, movetoworkspace, 8"
+          "$mod+Shift, 9, movetoworkspace, 9"
+        ];
+
+        bindm = [
+          # move windows with left mouse
+          "$mod, mouse:272, movewindow"
+          # resize windows with right mouse
+          "$mod, mouse:273, resizewindow"
+        ];
+
         monitor = [
           # use default monitor resolutions
           ",preferred,auto,1"
