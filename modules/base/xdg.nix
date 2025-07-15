@@ -7,7 +7,7 @@
 delib.module {
   name = "xdg";
 
-  options = {...}: {
+  options = {
     xdg = with delib; {
       enable = boolOption pkgs.stdenv.isLinux;
       projectHome = strOption "${homeconfig.home.homeDirectory}/Projects";

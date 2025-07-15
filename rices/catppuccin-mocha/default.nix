@@ -44,29 +44,26 @@ delib.rice {
     };
   };
 
-  home = {
-    # allow stylix to inject styles
-    gtk.enable = true;
-
+  home = {myconfig, ...}: {
     stylix.targets = {
-      bat.enable = true;
-      btop.enable = true;
-      gnome.enable = true;
-      gtk.enable = true;
-      kde.enable = true;
-      kitty.enable = true;
-      lazygit.enable = true;
-      mpv.enable = true;
-      rofi.enable = true;
-      starship.enable = true;
-      swaylock.enable = true;
-      waybar.enable = true;
-      yazi.enable = true;
-      zathura.enable = true;
+      bat.enable = myconfig.programs.bat.enable;
+      btop.enable = myconfig.programs.btop.enable;
+      gnome.enable = myconfig.gtk.enable;
+      gtk.enable = myconfig.gtk.enable;
+      kde.enable = myconfig.gtk.enable;
+      kitty.enable = myconfig.programs.kitty.enable;
+      lazygit.enable = myconfig.programs.lazygit.enable;
+      mpv.enable = myconfig.programs.mpv.enable;
+      rofi.enable = myconfig.programs.rofi.enable;
+      starship.enable = myconfig.programs.starship.enable;
+      swaylock.enable = myconfig.programs.swaylock.enable;
+      waybar.enable = myconfig.programs.waybar.enable;
+      yazi.enable = myconfig.programs.yazi.enable;
+      zathura.enable = myconfig.programs.zathura.enable;
     };
   };
 
-  nixos = {
+  nixos = {myconfig, ...}: {
     imports = [inputs.stylix.nixosModules.stylix];
 
     stylix = {
@@ -108,7 +105,7 @@ delib.rice {
       polarity = "dark";
 
       targets = {
-        chromium.enable = true;
+        chromium.enable = myconfig.programs.chromium.enable;
         console.enable = true;
       };
     };
