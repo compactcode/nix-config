@@ -101,6 +101,9 @@ delib.module {
       };
     };
 
+    # automatic styling
+    stylix.targets.hyprland.enable = true;
+
     xdg = {
       dataFile = {
         # focus or create given application on a workspace
