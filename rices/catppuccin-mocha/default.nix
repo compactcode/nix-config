@@ -69,6 +69,8 @@ delib.rice {
         };
       };
 
+      image = ../wallpapers/space.jpg;
+
       # dark mode
       polarity = "dark";
     };
