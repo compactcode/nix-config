@@ -19,5 +19,8 @@ delib.module {
         icons = false;
       };
     };
+
+    # automatic styling
+    stylix.targets.mako.enable = true;
   };
 }
