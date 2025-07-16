@@ -13,7 +13,7 @@ delib.module {
     programs.swaylock.enable = true;
 
     # automatic styling
-    stylix.targets.rofi.enable = true;
+    stylix.targets.swaylock.enable = true;
   };
 
   nixos.ifEnabled = {
