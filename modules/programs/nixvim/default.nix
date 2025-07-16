@@ -17,6 +17,16 @@ delib.module {
     programs.nixvim = {
       enable = true;
 
+      # recognise slim-rails files
+      # https://github.com/slim-template/slim-rails/blob/a6ae6b27d625b3703d9447cb5737b7007ce7874e/lib/slim-rails/register_engine.rb#L34
+      autoCmd = [
+        {
+          event = ["BufRead" "BufNewFile"];
+          pattern = "*.slim";
+          command = "set filetype=slim";
+        }
+      ];
+
       colorschemes.catppuccin = {
         enable = true;
         settings = {
