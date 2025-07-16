@@ -110,6 +110,12 @@ delib.module {
       withRuby = false;
     };
 
+    home = {
+      shellAliases = {
+        v = "nvim";
+      };
+    };
+
     xdg = lib.mkIf (pkgs.stdenv.isLinux) {
       # add launcher for neovim
       desktopEntries.nvim = {
