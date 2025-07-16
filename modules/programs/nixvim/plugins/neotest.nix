@@ -32,28 +32,28 @@ delib.module {
         cmd = "Neotest";
         keys = [
           {
-            key = "gt";
-            value = "<cmd>lua require('neotest').jump.next({ status = 'failed' })<cr>";
+            __unkeyed-1 = "gt";
+            __unkeyed-2 = "<cmd>lua require('neotest').jump.next({ status = 'failed' })<cr>";
             desc = "jump to next failed test";
           }
           {
-            key = "<leader>ra";
-            value = "<cmd>lua require('neotest').run.run(vim.fn.expand(\"%\"))<cr>";
+            __unkeyed-1 = "<leader>ra";
+            __unkeyed-2 = "<cmd>lua require('neotest').run.run(vim.fn.expand(\"%\"))<cr>";
             desc = "run file";
           }
           {
-            key = "<leader>rn";
-            value = "<cmd>lua require('neotest').run.run()<cr>";
+            __unkeyed-1 = "<leader>rn";
+            __unkeyed-2 = "<cmd>lua require('neotest').run.run()<cr>";
             desc = "run nearest";
           }
           {
-            key = "<leader>ro";
-            value = "<cmd>lua require('neotest').output.open()<cr>";
+            __unkeyed-1 = "<leader>ro";
+            __unkeyed-2 = "<cmd>lua require('neotest').output.open()<cr>";
             desc = "test output";
           }
           {
-            key = "<leader>rr";
-            value = "<cmd>lua require('neotest').run.run_last()<cr>";
+            __unkeyed-1 = "<leader>rr";
+            __unkeyed-2 = "<cmd>lua require('neotest').run.run_last()<cr>";
             desc = "run last test";
           }
         ];
