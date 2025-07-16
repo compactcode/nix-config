@@ -10,5 +10,8 @@ delib.module {
       enable = true;
       enableZshIntegration = true;
     };
+
+    # automatic styling
+    stylix.targets.starship.enable = true;
   };
 }

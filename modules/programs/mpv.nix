@@ -11,5 +11,8 @@ delib.module {
 
   home.ifEnabled = {
     programs.mpv.enable = true;
+
+    # automatic styling
+    stylix.targets.mpv.enable = true;
   };
 }

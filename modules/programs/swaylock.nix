@@ -11,6 +11,9 @@ delib.module {
 
   home.ifEnabled = {
     programs.swaylock.enable = true;
+
+    # automatic styling
+    stylix.targets.rofi.enable = true;
   };
 
   nixos.ifEnabled = {

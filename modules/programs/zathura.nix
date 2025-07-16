@@ -11,5 +11,8 @@ delib.module {
 
   home.ifEnabled = {
     programs.zathura.enable = true;
+
+    # automatic styling
+    stylix.targets.zathura.enable = true;
   };
 }

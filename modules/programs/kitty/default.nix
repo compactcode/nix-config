@@ -68,7 +68,9 @@ delib.module {
       '';
     };
 
-    # focus or create tab
+    # automatic styling
+    stylix.targets.kitty.enable = true;
+
     # focus or create tab
     xdg.configFile."kitty/scripts/focus.sh" = {
       executable = true;

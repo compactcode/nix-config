@@ -4,6 +4,7 @@
   ...
 }:
 delib.module {
+  # application launcher
   name = "programs.rofi";
 
   options = {myconfig, ...}: {
@@ -18,27 +19,25 @@ delib.module {
       pkgs.buku
     ];
 
-    programs = {
-      # application launcher
-      rofi = {
-        enable = true;
-        package = pkgs.rofi-wayland;
-      };
+    programs.rofi = {
+      enable = true;
+      package = pkgs.rofi-wayland;
     };
 
-    xdg = {
-      dataFile = {
-        # open browser bookmark
-        "rofi/bookmark.sh" = {
-          executable = true;
-          source = ./scripts/bookmark.sh;
-        };
+    # automatic styling
+    stylix.targets.rofi.enable = true;
 
-        # focus/create kitty session
-        "rofi/project.sh" = {
-          executable = true;
-          source = ./scripts/project.sh;
-        };
+    xdg.dataFile = {
+      # open browser bookmark
+      "rofi/bookmark.sh" = {
+        executable = true;
+        source = ./scripts/bookmark.sh;
+      };
+
+      # focus/create kitty session
+      "rofi/project.sh" = {
+        executable = true;
+        source = ./scripts/project.sh;
       };
     };
   };
