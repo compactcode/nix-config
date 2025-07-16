@@ -11,6 +11,10 @@ delib.host {
   homeManagerSystem = "aarch64-darwin";
   home.home.stateVersion = "24.05";
 
+  myconfig = {
+    users.primary.sshkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAqk2PNxkCN+aDkyff2MyVp0bJ+QJo52t094WfUP9rHA";
+  };
+
   darwin = {myconfig, ...}: {
     nixpkgs.hostPlatform = "aarch64-darwin";
 
