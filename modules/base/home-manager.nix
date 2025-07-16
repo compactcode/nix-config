@@ -12,4 +12,13 @@ delib.module {
       useUserPackages = true;
     };
   };
+
+  nixos.ifEnabled = {
+    home-manager = {
+      # pass configured pkgs from system to home-manager
+      useGlobalPkgs = true;
+      # enable home.packages
+      useUserPackages = true;
+    };
+  };
 }
