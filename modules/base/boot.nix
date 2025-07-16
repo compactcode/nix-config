@@ -24,5 +24,7 @@ delib.module {
       # use the latest kernel
       kernelPackages = pkgs.linuxPackages_latest;
     };
+
+    stylix.targets.console.enable = true;
   };
 }

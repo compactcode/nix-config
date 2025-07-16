@@ -9,13 +9,12 @@ delib.module {
 
   options = {
     programs.chromium = with delib; {
-      enable = boolOption pkgs.stdenv.isDarwin;
+      enable = boolOption pkgs.stdenv.isLinux;
     };
   };
 
   home.ifEnabled = {
     programs = {
-      # web browser, needs kernel keyring access for 1password integration
       chromium = {
         enable = true;
         extensions = [
@@ -24,5 +23,9 @@ delib.module {
         ];
       };
     };
+  };
+
+  nixos.ifEnabled = {
+    stylix.targets.chromium.enable = true;
   };
 }

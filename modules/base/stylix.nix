@@ -13,7 +13,6 @@ delib.module {
   darwin.ifEnabled = {
     stylix = {
       enable = true;
-
       autoEnable = false;
     };
   };
@@ -38,16 +37,10 @@ delib.module {
 
   nixos.always.imports = [inputs.stylix.nixosModules.stylix];
 
-  nixos.ifEnabled = {myconfig, ...}: {
+  nixos.ifEnabled = {
     stylix = {
       enable = true;
-
       autoEnable = false;
-
-      targets = {
-        chromium.enable = myconfig.programs.chromium.enable;
-        console.enable = true;
-      };
     };
   };
 }
