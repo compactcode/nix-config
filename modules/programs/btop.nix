@@ -15,5 +15,8 @@ delib.module {
         proc_tree = true;
       };
     };
+
+    # automatic styling
+    stylix.targets.btop.enable = true;
   };
 }

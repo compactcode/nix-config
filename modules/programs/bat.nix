@@ -6,14 +6,15 @@ delib.module {
   options = delib.singleEnableOption true;
 
   home.ifEnabled = {
+    home.shellAliases = {
+      b = "bat";
+    };
+
     programs.bat = {
       enable = true;
     };
 
-    home = {
-      shellAliases = {
-        b = "bat";
-      };
-    };
+    # automatic styling
+    stylix.targets.bat.enable = true;
   };
 }

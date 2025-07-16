@@ -6,6 +6,10 @@ delib.module {
   options = delib.singleEnableOption true;
 
   home.ifEnabled = {
+    home.shellAliases = {
+      lg = "lazygit";
+    };
+
     programs.lazygit = {
       enable = true;
       settings = {
@@ -16,10 +20,7 @@ delib.module {
       };
     };
 
-    home = {
-      shellAliases = {
-        lg = "lazygit";
-      };
-    };
+    # automatic styling
+    stylix.targets.lazygit.enable = true;
   };
 }

@@ -10,6 +10,10 @@ delib.module {
   };
 
   home.ifEnabled = {
+    home.shellAliases = {
+      y = "yazi";
+    };
+
     programs.yazi = {
       enable = true;
       settings = {
@@ -59,5 +63,8 @@ delib.module {
         };
       };
     };
+
+    # automatic styling
+    stylix.targets.yazi.enable = true;
   };
 }

@@ -10,6 +10,10 @@ delib.module {
   options = delib.singleEnableOption true;
 
   home.ifEnabled = {
+    home.shellAliases = {
+      f = "fzf";
+    };
+
     programs = {
       fzf = {
         enable = true;
@@ -25,8 +29,7 @@ delib.module {
       };
     };
 
-    home.shellAliases = {
-      f = "fzf";
-    };
+    # automatic styling
+    stylix.targets.fzf.enable = true;
   };
 }
