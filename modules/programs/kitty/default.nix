@@ -12,16 +12,12 @@ delib.module {
     programs.kitty = {
       enable = true;
 
-      actionAliases = {
-        "focus_tab" = "launch --type=overlay kitty @ focus-tab";
-      };
-
       keybindings = {
-        "alt+e" = "focus_tab --match title:^editor$";
-        "alt+g" = "focus_tab --match title:^git$";
-        "alt+l" = "focus_tab --match title:^logs$";
-        "alt+p" = "focus_tab --match title:^processes$";
-        "alt+s" = "focus_tab --match title:^shell$";
+        "alt+e" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/focus.sh editor";
+        "alt+g" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/focus.sh git";
+        "alt+l" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/focus.sh logs";
+        "alt+p" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/focus.sh processes";
+        "alt+s" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/focus.sh shell";
       };
 
       settings = {
@@ -33,7 +29,7 @@ delib.module {
     };
 
     home.shellAliases = {
-      ko = "${homeconfig.xdg.configFile."kitty/scripts/focus.sh".source}";
+      ko = "${homeconfig.xdg.configHome}/kitty/scripts/focus.sh";
     };
 
     xdg.configFile."kitty/session-basic.conf" = {
