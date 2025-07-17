@@ -10,7 +10,6 @@ delib.module {
 
   options.programs.aider = with delib; {
     enable = boolOption true;
-    extraConfig = attrsOption {};
   };
 
   home.ifEnabled = {
@@ -19,6 +18,9 @@ delib.module {
         (pkgs.formats.yaml {}).generate "aider.conf.yml" {
           # disable automatic commit generation
           auto-commits = false;
+
+          # markdown style
+          code-theme = "github-dark";
 
           # styling with sylix
           user-input-color = base0B;
