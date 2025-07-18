@@ -11,7 +11,7 @@ delib.module {
 
       settings = {
         accordion-padding = 30;
-        default-root-container-layout = "tiles";
+        default-root-container-layout = "accordion";
         default-root-container-orientation = "auto";
 
         gaps = {
