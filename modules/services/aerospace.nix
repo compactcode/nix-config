@@ -51,6 +51,7 @@ delib.module {
           alt-shift-ctrl-6 = "move-node-to-workspace 6";
           alt-shift-ctrl-7 = "move-node-to-workspace 7";
           alt-shift-ctrl-8 = "move-node-to-workspace 8";
+          alt-shift-ctrl-9 = "move-node-to-workspace 9";
           alt-shift-ctrl-0 = "move-node-to-workspace 10";
 
           alt-shift-ctrl-a = "layout accordion horizontal vertical";
