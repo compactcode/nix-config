@@ -8,7 +8,7 @@ delib.module {
   # formatting
   name = "programs.nixvim.plugins.conform";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled.programs.nixvim = {
     plugins.conform-nvim = {

@@ -16,6 +16,11 @@ delib.host {
 
     hardware.bluetooth.enable = true;
 
+    # enable feature sets
+    features = {
+      development.enable = true;
+    };
+
     programs.hyprland.enable = true;
 
     services.tlp.enable = true;

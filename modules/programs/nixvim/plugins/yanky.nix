@@ -3,7 +3,7 @@ delib.module {
   # clipboard manager
   name = "programs.nixvim.plugins.yanky";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled.programs.nixvim = {
     keymaps = [

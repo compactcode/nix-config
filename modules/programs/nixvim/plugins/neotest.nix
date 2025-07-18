@@ -3,7 +3,7 @@ delib.module {
   # test runner
   name = "programs.nixvim.plugins.neotest";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled.programs.nixvim = {
     # enable colorscheme

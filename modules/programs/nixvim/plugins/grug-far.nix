@@ -2,7 +2,8 @@
 delib.module {
   # search and replace
   name = "programs.nixvim.plugins.grug-far";
-  options = delib.singleEnableOption true;
+
+  options = delib.singleEnableOption false;
 
   home.ifEnabled.programs.nixvim = {
     plugins.grug-far = {

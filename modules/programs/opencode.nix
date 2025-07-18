@@ -8,7 +8,7 @@ delib.module {
   # ai assistant
   name = "programs.opencode";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   darwin.ifEnabled = {
     # more frequent releases than nixpkgs

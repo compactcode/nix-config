@@ -14,6 +14,11 @@ delib.host {
       device = "/dev/disk/by-id/nvme-Samsung_SSD_970_EVO_Plus_2TB_S4J4NF0NA04068A";
     };
 
+    # enable feature sets
+    features = {
+      development.enable = true;
+    };
+
     programs.hyprland.enable = true;
   };
 

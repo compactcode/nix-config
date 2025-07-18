@@ -3,7 +3,7 @@ delib.module {
   # git decorations
   name = "programs.nixvim.plugins.gitsigns";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled.programs.nixvim = {
     keymaps = [

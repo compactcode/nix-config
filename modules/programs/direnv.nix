@@ -3,7 +3,7 @@ delib.module {
   # environment loading
   name = "programs.direnv";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     programs.direnv = {

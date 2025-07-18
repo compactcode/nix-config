@@ -3,7 +3,7 @@ delib.module {
   # git permalinks
   name = "programs.nixvim.plugins.gitlinker";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled.programs.nixvim = {
     keymaps = [

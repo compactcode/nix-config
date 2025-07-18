@@ -37,7 +37,7 @@
       denix.lib.configurations {
         inherit moduleSystem homeManagerUser;
 
-        paths = [./hosts ./modules ./rices];
+        paths = [./hosts ./modules ./rices ./features];
 
         specialArgs = {
           inherit homeManagerUser inputs;

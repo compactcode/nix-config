@@ -13,6 +13,11 @@ delib.host {
 
   myconfig = {
     users.primary.sshkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAqk2PNxkCN+aDkyff2MyVp0bJ+QJo52t094WfUP9rHA";
+
+    # enable feature sets
+    features = {
+      development.enable = true;
+    };
   };
 
   darwin = {myconfig, ...}: {

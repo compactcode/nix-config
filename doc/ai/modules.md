@@ -10,10 +10,12 @@ This project uses [denix](https://github.com/yunfachi/denix) to configure module
 - `modules/programs/nixvim/*.nix`: for nixvim configuration
 - `modules/services/*.nix`: for service configuration
 - `modules/base/*.nix`: for everything else
+- `features/*.nix`: for feature sets that enable modules
 
 Modules are imported automatically by convention.
 
 ## 3. Module Structure
+
 Use this code as an example when modifying a module.
 
 ```nix
@@ -21,8 +23,8 @@ Use this code as an example when modifying a module.
 delib.module {
   name = "programs.chromium";
 
-  # simple on/off flag
-  options = delib.singleEnableOption true;
+  # modules are disabled by default
+  options = delib.singleEnableOption false;
 
   # nix-darwin only options go here, if relevant
   darwin.ifEnabled = {
@@ -51,6 +53,7 @@ delib.module {
 ```
 
 ## 4. Module Options
+
 Use this code as a guide when adding options for denix modules.
 
 ```nix
@@ -58,11 +61,10 @@ Use this code as a guide when adding options for denix modules.
 delib.module {
   name = "programs.grimblast";
 
-  options = {myconfig, ...}: {
+  options = {
     programs.grimblast = with delib; {
-      # access an option from another module.
-      enable = boolOption myconfig.programs.hyprland.enable;
-      editor = noDefault (strOption null);
+      enable = boolOption false;
+      editor = strOption "pinta";
     };
   };
 
@@ -80,8 +82,29 @@ delib.module {
 
 You can request full documentation for [denix options here](https://yunfachi.github.io/denix/options/introduction).
 
-## 5. Rules
+## 5. Features
 
+Features are high-level groupings of related modules that can be enabled together. They are defined in `features/` and allow for easy configuration of common use cases.
+
+### Example Feature Usage
+
+In host configurations, enable features like this:
+
+```nix
+myconfig = {
+  features = {
+    development.enable = true;  # Enables all development tools
+  };
+};
+```
+
+### Available Features
+
+- `features.development`: Development tools including aider, direnv, gh, nixvim plugins, and opencode
+
+## 6. Rules
+
+- Modules should be disabled by default (`delib.singleEnableOption false`).
+- Use features to enable modules.
 - Use denix options, do not use nixpkgs options (lib.mkOption etc).
-- Prefer using `programs` or `services` wrappers where possible.
 - When adding a new module, only create the module, DO NOT attempt to import anything.

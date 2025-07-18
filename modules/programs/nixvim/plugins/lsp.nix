@@ -3,7 +3,7 @@ delib.module {
   # language server protocol
   name = "programs.nixvim.plugins.lsp";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled.programs.nixvim = {
     # enable colorscheme
