@@ -10,9 +10,18 @@ delib.module {
   # options: https://searchix.ovh/?query=programs.kitty
   name = "programs.kitty";
 
-  options = delib.singleEnableOption true;
+  options = {
+    programs.kitty = with delib; {
+      enable = boolOption true;
+      listenSocket = strOption (
+        if pkgs.stdenv.isLinux
+        then "unix:@kitty"
+        else "unix:/tmp/kitty"
+      );
+    };
+  };
 
-  home.ifEnabled = {
+  home.ifEnabled = {cfg, ...}: {
     programs.kitty = {
       enable = true;
 
@@ -30,11 +39,10 @@ delib.module {
         allow_remote_control = "yes";
         # allow using the alt key
         macos_option_as_alt = "both";
-        # use socket for remote controlling from other applications
-        listen_on =
-          if pkgs.stdenv.isLinux
-          then "unix:@kitty"
-          else "unix:/tmp/kitty";
+        # close when the last shell is closed
+        macos_quit_when_last_window_closed = "yes";
+        # use socket for remote control
+        listen_on = cfg.listenSocket;
       };
     };
 
@@ -84,16 +92,16 @@ delib.module {
     # automatic styling
     stylix.targets.kitty.enable = true;
 
-    # focus or open tab by tilte
+    # focus or open tab by title
     xdg.configFile."kitty/scripts/tab-open.sh" = {
       executable = true;
       source = ./scripts/tab-open.sh;
     };
 
-    # send give filename to the aider tab
+    # send text to tab by title
     xdg.configFile."kitty/scripts/tab-send.sh" = {
       executable = true;
-      source = ./scripts/tab-aider-add.sh;
+      source = ./scripts/tab-send.sh;
     };
   };
 }

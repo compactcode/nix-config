@@ -1,5 +1,6 @@
 {
   delib,
+  homeconfig,
   inputs,
   lib,
   pkgs,
@@ -56,6 +57,14 @@ delib.module {
         {
           key = "<c-right>";
           action = "<C-w>l";
+        }
+        {
+          key = "<leader>aa";
+          action = "<cmd>! ${homeconfig.xdg.configHome}/kitty/scripts/tab-send.sh aider /add % \n<cr>";
+          options = {
+            desc = "send the current file to the aider kitty tab";
+            silent = true;
+          };
         }
         {
           key = "<leader>uc";

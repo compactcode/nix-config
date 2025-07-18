@@ -1,3 +1,7 @@
 #!/bin/bash
+set -euo pipefail
 
-kitty @ send-text --match-tab title:"$1" "$2" >/dev/null
+TAB_TITLE=$1
+shift
+
+kitty @ --to $KITTY_LISTEN_ON send-text --match-tab title:"$TAB_TITLE" "$@" >/dev/null
