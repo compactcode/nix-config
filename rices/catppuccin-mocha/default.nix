@@ -37,6 +37,10 @@ delib.rice {
     };
   };
 
+  home = {
+    programs.opencode.settings.theme = "catppuccin";
+  };
+
   nixos = {
     stylix = {
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";

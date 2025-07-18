@@ -8,9 +8,7 @@ delib.module {
   # ai assistant
   name = "programs.aider";
 
-  options.programs.aider = with delib; {
-    enable = boolOption true;
-  };
+  options = delib.singleEnableOption true;
 
   home.ifEnabled = {
     home = {
