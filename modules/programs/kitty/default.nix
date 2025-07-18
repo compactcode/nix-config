@@ -1,9 +1,13 @@
 {
   delib,
   homeconfig,
+  pkgs,
   ...
 }:
 delib.module {
+  # terminal emulator
+  # docs: https://sw.kovidgoyal.net/kitty/
+  # options: https://searchix.ovh/?query=programs.kitty
   name = "programs.kitty";
 
   options = delib.singleEnableOption true;
@@ -13,11 +17,12 @@ delib.module {
       enable = true;
 
       keybindings = {
-        "alt+e" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/focus.sh editor";
-        "alt+g" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/focus.sh git";
-        "alt+l" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/focus.sh logs";
-        "alt+p" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/focus.sh processes";
-        "alt+s" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/focus.sh shell";
+        "alt+e" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/tab-open.sh editor";
+        "alt+g" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/tab-open.sh git";
+        "alt+l" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/tab-open.sh logs";
+        "alt+p" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/tab-open.sh processes";
+        "alt+s" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/tab-open.sh shell";
+        "alt+a" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/tab-open.sh aider";
       };
 
       settings = {
@@ -25,11 +30,17 @@ delib.module {
         allow_remote_control = "yes";
         # allow using the alt key
         macos_option_as_alt = "both";
+        # use socket for remote controlling from other applications
+        listen_on =
+          if pkgs.stdenv.isLinux
+          then "unix:@kitty"
+          else "unix:/tmp/kitty";
       };
     };
 
     home.shellAliases = {
-      ko = "${homeconfig.xdg.configHome}/kitty/scripts/focus.sh";
+      ko = "${homeconfig.xdg.configHome}/kitty/scripts/tab-open.sh";
+      ks = "${homeconfig.xdg.configHome}/kitty/scripts/tab-send.sh";
     };
 
     xdg.configFile."kitty/session-basic.conf" = {
@@ -42,6 +53,9 @@ delib.module {
 
         new_tab git
         launch lazygit
+
+        new_tab aider
+        launch zsh
       '';
     };
 
@@ -61,16 +75,25 @@ delib.module {
 
         new_tab logs
         launch zsh
+
+        new_tab aider
+        launch --hold zsh -c "eval $(direnv export bash) && aider"
       '';
     };
 
     # automatic styling
     stylix.targets.kitty.enable = true;
 
-    # focus or create tab
-    xdg.configFile."kitty/scripts/focus.sh" = {
+    # focus or open tab by tilte
+    xdg.configFile."kitty/scripts/tab-open.sh" = {
       executable = true;
-      source = ./scripts/focus.sh;
+      source = ./scripts/tab-open.sh;
+    };
+
+    # send give filename to the aider tab
+    xdg.configFile."kitty/scripts/tab-send.sh" = {
+      executable = true;
+      source = ./scripts/tab-aider-add.sh;
     };
   };
 }
