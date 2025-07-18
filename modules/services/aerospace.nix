@@ -33,6 +33,7 @@ delib.module {
           alt-shift-ctrl-cmd-7 = "workspace 7";
           alt-shift-ctrl-cmd-8 = "workspace 8";
           alt-shift-ctrl-cmd-9 = "workspace 9";
+          alt-shift-ctrl-cmd-0 = "workspace 10";
 
           alt-shift-ctrl-cmd-s = "exec-and-forget open -a ~/Applications/Home\\ Manager\\ Apps/Slack.app";
           alt-shift-ctrl-cmd-t = "exec-and-forget open -a ~/Applications/Home\\ Manager\\ Apps/Kitty.app";
@@ -50,7 +51,7 @@ delib.module {
           alt-shift-ctrl-6 = "move-node-to-workspace 6";
           alt-shift-ctrl-7 = "move-node-to-workspace 7";
           alt-shift-ctrl-8 = "move-node-to-workspace 8";
-          alt-shift-ctrl-9 = "move-node-to-workspace 9";
+          alt-shift-ctrl-0 = "move-node-to-workspace 10";
 
           alt-shift-ctrl-a = "layout accordion horizontal vertical";
           alt-shift-ctrl-t = "layout tiles horizontal vertical";
@@ -59,6 +60,41 @@ delib.module {
           alt-shift-ctrl-n = "focus down";
           alt-shift-ctrl-e = "focus up";
           alt-shift-ctrl-i = "focus right";
+        };
+
+        on-window-detected = [
+          {
+            "if".app-id = "com.google.chrome";
+            run = ["move-node-to-workspace 1"];
+          }
+
+          {
+            "if".app-id = "md.obsidian";
+            run = ["move-node-to-workspace 4"];
+          }
+
+          {
+            "if".app-id = "com.apple.mail";
+            run = ["move-node-to-workspace 10"];
+          }
+
+          {
+            "if".app-id = "com.tinyspeck.slackmacgap";
+            run = ["move-node-to-workspace 10"];
+          }
+        ];
+
+        workspace-to-monitor-force-assignment = {
+          "1" = "main";
+          "2" = "main";
+          "3" = "main";
+          "4" = "main";
+          "5" = "main";
+          "6" = "main";
+          "7" = "main";
+          "8" = "main";
+          "9" = "main";
+          "10" = ["secondary" "main"];
         };
       };
     };
