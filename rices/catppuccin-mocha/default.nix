@@ -38,7 +38,8 @@ delib.rice {
   };
 
   home = {
-    programs.opencode.settings.theme = "catppuccin";
+    # TODO e=EACCES: permission denied, open '/home/shandogs/.config/opencode/config.json'
+    # programs.opencode.settings.theme = "catppuccin";
   };
 
   nixos = {
