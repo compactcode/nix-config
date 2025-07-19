@@ -33,7 +33,7 @@ delib.module {
         };
 
       packages = [
-        pkgs.aider-chat-with-playwright
+        pkgs.aider-chat
       ];
     };
   };
