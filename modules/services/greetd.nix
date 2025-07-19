@@ -8,11 +8,7 @@ delib.module {
   # login manager
   name = "services.greetd";
 
-  options = {myconfig, ...}: {
-    services.greetd = with delib; {
-      enable = boolOption myconfig.programs.hyprland.enable;
-    };
-  };
+  options = delib.singleEnableOption false;
 
   nixos.ifEnabled = {myconfig, ...}: {
     services.greetd = {

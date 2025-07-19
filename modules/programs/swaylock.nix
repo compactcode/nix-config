@@ -3,11 +3,7 @@ delib.module {
   # screen locker
   name = "programs.swaylock";
 
-  options = {myconfig, ...}: {
-    programs.swaylock = with delib; {
-      enable = boolOption myconfig.programs.hyprland.enable;
-    };
-  };
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     programs.swaylock.enable = true;

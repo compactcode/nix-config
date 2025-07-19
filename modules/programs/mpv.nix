@@ -3,11 +3,7 @@ delib.module {
   # video player
   name = "programs.mpv";
 
-  options = {myconfig, ...}: {
-    programs.mpv = with delib; {
-      enable = boolOption myconfig.programs.hyprland.enable;
-    };
-  };
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     programs.mpv.enable = true;

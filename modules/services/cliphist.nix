@@ -3,11 +3,7 @@ delib.module {
   # clipboard manager
   name = "services.cliphist";
 
-  options = {myconfig, ...}: {
-    services.cliphist = with delib; {
-      enable = boolOption myconfig.programs.hyprland.enable;
-    };
-  };
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     services.cliphist.enable = true;

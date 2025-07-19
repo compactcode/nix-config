@@ -1,6 +1,6 @@
 {delib, ...}:
 delib.module {
-  # software development tools and environments
+  # software development tools
   name = "features.development";
 
   options = delib.singleEnableOption false;

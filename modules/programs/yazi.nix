@@ -3,11 +3,7 @@ delib.module {
   # file browser
   name = "programs.yazi";
 
-  options = {myconfig, ...}: {
-    programs.yazi = with delib; {
-      enable = boolOption myconfig.programs.hyprland.enable;
-    };
-  };
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     home.shellAliases = {

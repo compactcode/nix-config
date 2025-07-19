@@ -7,11 +7,7 @@
 delib.module {
   name = "services.swayidle";
 
-  options = {myconfig, ...}: {
-    services.swayidle = with delib; {
-      enable = boolOption myconfig.programs.hyprland.enable;
-    };
-  };
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     services = {

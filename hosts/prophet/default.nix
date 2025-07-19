@@ -19,9 +19,8 @@ delib.host {
     # enable feature sets
     features = {
       development.enable = true;
+      hyprland.enable = true;
     };
-
-    programs.hyprland.enable = true;
 
     services.tlp.enable = true;
   };

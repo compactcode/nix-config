@@ -1,9 +1,11 @@
 # Modules
 
 ## 1. Overview
+
 This project uses [denix](https://github.com/yunfachi/denix) to configure modules.
 
 ## 2. Module Layout
+
 - `modules/config/*.nix`: for denix configuration
 - `modules/hardware/*.nix`: for hardware configuration
 - `modules/programs/*.nix`: for program configuration
@@ -100,7 +102,8 @@ myconfig = {
 
 ### Available Features
 
-- `features.development`: Development tools including aider, direnv, gh, nixvim plugins, and opencode
+- `features.development`: Development tools including direnv, gh, nixvim plugins etc
+- `features.hyprland`: A complete Hyprland desktop environment
 
 ## 6. Rules
 

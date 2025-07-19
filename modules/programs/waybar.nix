@@ -3,11 +3,7 @@ delib.module {
   # status bar
   name = "programs.waybar";
 
-  options = {myconfig, ...}: {
-    programs.waybar = with delib; {
-      enable = boolOption myconfig.programs.hyprland.enable;
-    };
-  };
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     programs = {

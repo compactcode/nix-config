@@ -3,11 +3,7 @@ delib.module {
   # wallpaper
   name = "services.hyprpaper";
 
-  options = {myconfig, ...}: {
-    services.hyprpaper = with delib; {
-      enable = boolOption myconfig.programs.hyprland.enable;
-    };
-  };
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     services.hyprpaper.enable = true;

@@ -7,9 +7,9 @@ delib.module {
   # screenshot taker
   name = "programs.grimblast";
 
-  options = {myconfig, ...}: {
+  options = {
     programs.grimblast = with delib; {
-      enable = boolOption myconfig.programs.hyprland.enable;
+      enable = boolOption false;
       editor = noDefault (strOption null);
     };
   };

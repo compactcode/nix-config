@@ -7,11 +7,7 @@ delib.module {
   # application launcher
   name = "programs.rofi";
 
-  options = {myconfig, ...}: {
-    programs.rofi = with delib; {
-      enable = boolOption myconfig.programs.hyprland.enable;
-    };
-  };
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     home.packages = [

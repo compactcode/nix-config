@@ -3,11 +3,7 @@ delib.module {
   # notifications
   name = "services.mako";
 
-  options = {myconfig, ...}: {
-    services.mako = with delib; {
-      enable = boolOption myconfig.programs.hyprland.enable;
-    };
-  };
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     services.mako = {
