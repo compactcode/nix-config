@@ -37,6 +37,12 @@ delib.module {
       enable = true;
       # enable telescope integration
       enableTelescope = true;
+      settings = {
+        system_clipboard = {
+          # TODO: this keeps spamming clipboard permission requests
+          sync_with_ring = false;
+        };
+      };
     };
   };
 }
