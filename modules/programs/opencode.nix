@@ -18,12 +18,13 @@ delib.module {
   home.ifEnabled = {
     programs.opencode = lib.mkIf pkgs.stdenv.isLinux {
       enable = true;
-      settings = {
-        # avoid exposing sensitive information
-        autoshare = false;
-        # disable due to being installed via nix
-        autoupdate = false;
-      };
+      # TODO e=EACCES: permission denied, open '/home/shandogs/.config/opencode/config.json'
+      # settings = {
+      #   # avoid exposing sensitive information
+      #   autoshare = false;
+      #   # disable due to being installed via nix
+      #   autoupdate = false;
+      # };
     };
   };
 }
