@@ -28,13 +28,6 @@ delib.module {
         }
       ];
 
-      colorschemes.catppuccin = {
-        enable = true;
-        settings = {
-          flavour = "mocha";
-        };
-      };
-
       globals = {
         mapleader = " ";
         maplocalleader = "\\";
