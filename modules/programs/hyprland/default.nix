@@ -17,6 +17,13 @@ delib.module {
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
+        "$mod" = "SUPER";
+
+        animation = [
+          # slide scratchpads in vertically
+          "specialWorkspace, 1, 10, default, slidevert"
+        ];
+
         input = {
           # remap capslock to control
           kb_options = "ctrl:nocaps";
