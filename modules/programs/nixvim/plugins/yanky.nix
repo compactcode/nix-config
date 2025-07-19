@@ -35,7 +35,7 @@ delib.module {
 
     plugins.yanky = {
       enable = true;
-      # enable telescope ingegration
+      # enable telescope integration
       enableTelescope = true;
     };
   };
