@@ -42,6 +42,9 @@ delib.module {
       isNormalUser = true;
       initialPassword = cfg.primary.id;
       extraGroups = ["wheel"];
+      openssh.authorizedKeys.keys = [
+        cfg.primary.sshkey
+      ];
     };
   };
 }
