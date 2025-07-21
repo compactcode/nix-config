@@ -3,7 +3,7 @@ delib.module {
   # window manager
   name = "services.aerospace";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   darwin.ifEnabled = {
     services.aerospace = {

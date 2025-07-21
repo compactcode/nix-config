@@ -3,7 +3,7 @@ delib.module {
   # launcher
   name = "programs.raycast";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   darwin.ifEnabled = {
     homebrew = {
