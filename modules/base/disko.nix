@@ -1,5 +1,6 @@
 {
   delib,
+  lib,
   inputs,
   ...
 }:
@@ -9,6 +10,7 @@ delib.module {
   options.disko = with delib; {
     enable = boolOption true;
     device = noDefault (strOption null);
+    encrypted = boolOption true;
   };
 
   nixos.always.imports = [inputs.disko.nixosModules.disko];
@@ -30,7 +32,30 @@ delib.module {
                 mountpoint = "/boot";
               };
             };
-            luks = {
+            root = lib.mkIf (!cfg.encrypted) {
+              size = "100%";
+              content = {
+                type = "btrfs";
+                subvolumes = {
+                  "/root" = {
+                    mountOptions = ["compress=zstd"];
+                    mountpoint = "/";
+                  };
+                  "/home" = {
+                    mountOptions = ["compress=zstd"];
+                    mountpoint = "/home";
+                  };
+                  "/nix" = {
+                    mountOptions = ["compress=zstd" "noatime"];
+                    mountpoint = "/nix";
+                  };
+                  "/swap" = {
+                    mountpoint = "/swap";
+                  };
+                };
+              };
+            };
+            luks = lib.mkIf (cfg.encrypted) {
               size = "100%";
               content = {
                 type = "luks";
