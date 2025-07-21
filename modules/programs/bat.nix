@@ -3,7 +3,7 @@ delib.module {
   # cat replacement
   name = "programs.bat";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     home.shellAliases = {

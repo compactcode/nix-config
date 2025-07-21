@@ -7,7 +7,7 @@
 delib.module {
   name = "programs.fzf";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     home.shellAliases = {

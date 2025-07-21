@@ -3,7 +3,7 @@ delib.module {
   # smart cd with jumping
   name = "programs.zoxide";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     programs.zoxide = {

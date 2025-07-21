@@ -19,6 +19,7 @@ delib.host {
     # enable feature sets
     features = {
       development.enable = true;
+      cli.enable = true;
       hyprland.enable = true;
     };
 

@@ -3,7 +3,7 @@ delib.module {
   # version control system
   name = "programs.git";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {myconfig, ...}: {
     programs.git = {

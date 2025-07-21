@@ -3,7 +3,7 @@ delib.module {
   # shell prompt
   name = "programs.starship";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     programs.starship = {

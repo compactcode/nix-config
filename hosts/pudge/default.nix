@@ -14,6 +14,11 @@ delib.host {
       device = "/dev/disk/by-id/ata-AirDisk_512GB_SSD_NFG246R002163S30WX";
       encrypted = false;
     };
+
+    # enable feature sets
+    features = {
+      cli.enable = true;
+    };
   };
 
   homeManagerSystem = "x86_64-linux";

@@ -7,7 +7,7 @@ delib.module {
   # nix cli helper
   name = "programs.nh";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     programs.nh = {

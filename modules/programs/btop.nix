@@ -3,7 +3,7 @@ delib.module {
   # system monitor
   name = "programs.btop";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     programs.btop = {

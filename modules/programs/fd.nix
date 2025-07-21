@@ -3,7 +3,7 @@ delib.module {
   # find replacement
   name = "programs.fd";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     programs.fd = {

@@ -3,7 +3,7 @@ delib.module {
   # git ui
   name = "programs.lazygit";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     home.shellAliases = {

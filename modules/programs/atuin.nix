@@ -3,7 +3,7 @@ delib.module {
   # shell history database
   name = "programs.atuin";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     programs.atuin = {
