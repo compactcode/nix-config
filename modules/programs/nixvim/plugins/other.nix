@@ -7,7 +7,7 @@ delib.module {
   # find related files
   name = "programs.nixvim.plugins.other";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled.programs.nixvim = {
     keymaps = [

@@ -12,6 +12,8 @@ delib.module {
       direnv.enable = true;
       gh.enable = true;
       nixvim.plugins = {
+        aerial.enable = true;
+        blink.enable = true;
         codecompanion.enable = true;
         conform.enable = true;
         gitlinker.enable = true;
@@ -19,6 +21,8 @@ delib.module {
         grug-far.enable = true;
         lsp.enable = true;
         neotest.enable = true;
+        other.enable = true;
+        snacks.enable = true;
         yanky.enable = true;
       };
       opencode.enable = true;

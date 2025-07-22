@@ -6,7 +6,7 @@
 delib.module {
   name = "programs.nixvim.plugins.blink";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     programs.nixvim = {
