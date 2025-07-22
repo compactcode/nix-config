@@ -9,6 +9,7 @@ delib.module {
     homebrew.enable = true;
     programs = {
       _1password.enable = true;
+      kitty.enable = true;
       bruno.enable = true;
       obsidian.enable = true;
       raycast.enable = true;

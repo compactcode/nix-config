@@ -12,7 +12,7 @@ delib.module {
 
   options = {
     programs.kitty = with delib; {
-      enable = boolOption true;
+      enable = boolOption false;
       listenSocket = strOption (
         if pkgs.stdenv.isLinux
         then "unix:@kitty"

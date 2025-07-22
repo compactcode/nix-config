@@ -14,6 +14,7 @@ delib.module {
       grimblast.enable = true;
       hyprland.enable = true;
       imv.enable = true;
+      kitty.enable = true;
       mpv.enable = true;
       obsidian.enable = true;
       pavucontrol.enable = true;
