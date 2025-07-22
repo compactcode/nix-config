@@ -1,8 +1,12 @@
-{delib, ...}:
+{
+  delib,
+  pkgs,
+  ...
+}:
 delib.module {
-  name = "programs.nixvim.plugins.treesitter";
+  name = "programs.nixvim.plugins.treesitter.development";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled.programs.nixvim = {
     # find calls to external classes
@@ -20,14 +24,15 @@ delib.module {
     plugins = {
       treesitter = {
         enable = true;
-        # highlight embedded lua
-        nixvimInjections = true;
-        settings = {
-          # replace default highlighting
-          highlight.enable = true;
-          # replace default indenting
-          indent.enable = true;
-        };
+        grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+          ruby
+          scss
+          slim
+          sql
+          toml
+          tsx
+          typescript
+        ];
       };
       treesitter-refactor = {
         enable = true;

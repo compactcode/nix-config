@@ -23,6 +23,7 @@ delib.module {
         neotest.enable = true;
         other.enable = true;
         snacks.enable = true;
+        treesitter.development.enable = true;
         yanky.enable = true;
       };
       opencode.enable = true;
