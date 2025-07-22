@@ -3,7 +3,7 @@ delib.module {
   # sound
   name = "services.pipewire";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   nixos.ifEnabled = {
     # enable real-time scheduling

@@ -6,9 +6,9 @@
 }:
 delib.module {
   # password manager
-  name = "programs.1password";
+  name = "programs._1password";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   darwin.ifEnabled = {
     homebrew = {

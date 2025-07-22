@@ -3,7 +3,7 @@ delib.module {
   # web browser
   name = "programs.firefox";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   nixos.ifEnabled = {
     programs = {

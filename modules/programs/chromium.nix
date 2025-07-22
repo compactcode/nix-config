@@ -1,17 +1,9 @@
-{
-  delib,
-  pkgs,
-  ...
-}:
+{delib, ...}:
 delib.module {
   # web browser
   name = "programs.chromium";
 
-  options = {
-    programs.chromium = with delib; {
-      enable = boolOption pkgs.stdenv.isLinux;
-    };
-  };
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     programs = {

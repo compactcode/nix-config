@@ -7,7 +7,7 @@ delib.module {
   # markdown viewer
   name = "programs.obsidian";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     home.packages = [pkgs.obsidian];

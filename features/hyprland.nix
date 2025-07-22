@@ -7,12 +7,20 @@ delib.module {
 
   myconfig.ifEnabled = {
     programs = {
+      _1password.enable = true;
+      bruno.enable = true;
+      chromium.enable = true;
+      firefox.enable = true;
       grimblast.enable = true;
       hyprland.enable = true;
       imv.enable = true;
       mpv.enable = true;
+      obsidian.enable = true;
       pavucontrol.enable = true;
+      pinta.enable = true;
       rofi.enable = true;
+      signal.enable = true;
+      slack.enable = true;
       swaylock.enable = true;
       waybar.enable = true;
       yazi.enable = true;
@@ -23,6 +31,7 @@ delib.module {
       greetd.enable = true;
       hyprpaper.enable = true;
       mako.enable = true;
+      pipewire.enable = true;
       polkit-gnome.enable = true;
       swayidle.enable = true;
     };

@@ -8,7 +8,7 @@ delib.module {
   # image editor
   name = "programs.pinta";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   nixos.ifEnabled = {...}: {
     myconfig.programs.grimblast.editor = "${lib.getExe pkgs.pinta}";
