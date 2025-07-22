@@ -6,6 +6,7 @@ delib.module {
   options = delib.singleEnableOption false;
 
   myconfig.ifEnabled = {
+    editorconfig.enable = true;
     programs = {
       aider.enable = true;
       direnv.enable = true;

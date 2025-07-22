@@ -6,6 +6,7 @@ delib.module {
   options = delib.singleEnableOption false;
 
   myconfig.ifEnabled = {
+    homebrew.enable = true;
     programs = {
       _1password.enable = true;
       bruno.enable = true;

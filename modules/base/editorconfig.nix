@@ -2,7 +2,7 @@
 delib.module {
   name = "editorconfig";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     editorconfig = {
