@@ -1,16 +1,8 @@
-{
-  delib,
-  pkgs,
-  ...
-}:
+{delib, ...}:
 delib.module {
   name = "gtk";
 
-  options = {
-    gtk = with delib; {
-      enable = boolOption pkgs.stdenv.isLinux;
-    };
-  };
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     gtk.enable = true;
