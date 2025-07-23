@@ -38,5 +38,6 @@ delib.module {
       swayidle.enable = true;
     };
     xdg.enable = true;
+    stylix.enable = true;
   };
 }

@@ -6,7 +6,7 @@
 delib.module {
   name = "stylix";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   darwin.always.imports = [inputs.stylix.darwinModules.stylix];
 
