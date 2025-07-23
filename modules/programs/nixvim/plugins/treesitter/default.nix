@@ -4,12 +4,12 @@
   ...
 }:
 delib.module {
+  # language parsing
   name = "programs.nixvim.plugins.treesitter";
 
   options = delib.singleEnableOption true;
 
   home.ifEnabled.programs.nixvim = {
-    # language parsing
     plugins = {
       treesitter = {
         enable = true;
@@ -23,10 +23,7 @@ delib.module {
           make
           markdown
           nix
-          python
-          query
           regex
-          ruby
           toml
           vim
           vimdoc

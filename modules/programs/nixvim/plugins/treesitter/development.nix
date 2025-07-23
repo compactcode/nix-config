@@ -4,36 +4,45 @@
   ...
 }:
 delib.module {
+  # language parsing
   name = "programs.nixvim.plugins.treesitter.development";
 
   options = delib.singleEnableOption false;
 
   home.ifEnabled.programs.nixvim = {
     # find calls to external classes
-    extraFiles."after/queries/ruby/textobjects.scm".text = ''
-      ; extends
-      (call
-        receiver: [
-           (constant) @external_call
-           (scope_resolution) @external_call
-         ]
-      )
-    '';
+    extraFiles."after/queries/ruby/textobjects.scm".text =
+      /*
+      query
+      */
+      ''
+        ; extends
+        (call
+          receiver: [
+             (constant) @external_call
+             (scope_resolution) @external_call
+           ]
+        )
+      '';
 
-    # language parsing
     plugins = {
       treesitter = {
         enable = true;
         grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+          go
+          python
+          query
           ruby
+          rust
           scss
           slim
           sql
-          toml
           tsx
           typescript
         ];
       };
+
+      # language based rename
       treesitter-refactor = {
         enable = true;
         # rename local variable
@@ -42,6 +51,7 @@ delib.module {
           keymaps.smartRename = "<leader>cr";
         };
       };
+
       # language query extensions (used by mini.ai)
       treesitter-textobjects = {
         enable = true;
