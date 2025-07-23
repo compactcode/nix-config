@@ -37,5 +37,6 @@ delib.module {
       polkit-gnome.enable = true;
       swayidle.enable = true;
     };
+    xdg.enable = true;
   };
 }
