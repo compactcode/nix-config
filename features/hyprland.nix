@@ -30,6 +30,7 @@ delib.module {
     };
     services = {
       cliphist.enable = true;
+      flatpak.enable = true;
       greetd.enable = true;
       hyprpaper.enable = true;
       mako.enable = true;
