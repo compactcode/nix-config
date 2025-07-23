@@ -12,6 +12,11 @@ delib.module {
     services = {
       pipewire = {
         enable = true;
+        # device drivers
+        alsa = {
+          enable = true;
+          support32Bit = true;
+        };
         # pulseaudio compatibility
         pulse.enable = true;
       };
