@@ -26,7 +26,8 @@ delib.module {
         treesitter.development.enable = true;
         yanky.enable = true;
       };
-      opencode.enable = true;
+      # TODO: Currently broken.
+      # opencode.enable = true;
     };
   };
 }
