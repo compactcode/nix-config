@@ -23,7 +23,11 @@ Modules are generally correspond to upstream counterparts in nixpkgs/home-manage
 ### Example Module
 
 ```nix
-{delib, ...}:
+{
+  delib,
+  pkgs, # only add if needed
+  ...
+}:
 delib.module {
   name = "programs.chromium";
 
@@ -199,6 +203,8 @@ myconfig = {
 ### Nix Code
 
 * Do not use `imports`.
+* Import packages at the top level (e.g., `{delib, pkgs, ...}:`) rather than accessing them via function parameters.
+* Avoid using `with pkgs;` - instead reference packages directly (e.g., `pkgs.nfs-utils`).
 
 ### Git Commits
 
