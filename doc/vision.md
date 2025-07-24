@@ -4,8 +4,9 @@ To craft a minimal and declarative development environment that is fast, efficie
 
 ## Guiding Principles
 
-* Minimal. Fast and simple with fewer moving parts.
-* Keyboard Focused. Utilising keyboard shortcuts to move at the speed of thought.
-* Terminal Focused. Prefering customisable terminal tools over one stop graphical applications.
-* Efficiency Focused. Any commonly repeated activities should be automated away.
+* Minimal. Stay simple with fewer moving parts.
+* Keyboard Focused. Utilise keyboard shortcuts to move at the speed of thought.
+* Terminal Focused. Prefer customisable terminal tools over one stop graphical applications.
+* Efficiency Focused. Commonly repeated activities should be automated away.
 * Declarative. Reproducable and consistent environments that safely enable experimentation.
+* Secure. Prevent and minimize damage from compromised systems.
