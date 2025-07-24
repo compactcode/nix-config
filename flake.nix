@@ -1,5 +1,5 @@
 {
-  description = "Modular configuration of NixOS, Home Manager, and Nix-Darwin with Denix";
+  description = "A minimal and declarative development environment that is fast, efficient, and keyboard-centric";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

@@ -1,4 +1,4 @@
-# Code Structure
+# Code Structure and Conventions
 
 ## Overview
 
@@ -34,7 +34,7 @@ delib.module {
   darwin.ifEnabled = {
     homebrew.casks = [
       "chromium"
-    };
+    ];
   };
 
   # nixos only options go here, if relevant
@@ -181,3 +181,18 @@ myconfig = {
   };
 };
 ```
+
+## Conventions
+
+### Formatting
+
+* Use 2 spaces for indentation (never tabs)
+
+### Testing
+
+* Use `nh os build` to test the configuration on linux systems.
+* Use `nh darwin build` to test the configuration on darwin systems.
+
+### Nix Code
+
+* Do not use `imports`.

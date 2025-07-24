@@ -2,7 +2,7 @@
 
 ## Goal
 
-In alignment with the [guiding principle](../vision.md#guiding-principles) to build a secure system, no secrets are stored on disk. This includes API keys, tokens, and even SSH keys.
+In alignment with the [guiding principle](../../readme.md#guiding-principles) to build a secure system, no secrets are stored on disk. This includes API keys, tokens, and even SSH keys.
 
 ## Requirements
 

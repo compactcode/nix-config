@@ -1,6 +1,17 @@
-# Features
+# Vision
 
-This document outlines the features that have been implemented to achieve the project's [vision](./vision.md).
+To craft a minimal and declarative development environment that is fast, efficient, and keyboard-centric. By favoring terminal-based tools and automating repetitive tasks, we enable developers to work at the speed of thought in a reproducible and consistent setting that encourages safe experimentation.
+
+## Guiding Principles
+
+* Minimal. Stay simple with fewer moving parts.
+* Keyboard Focused. Utilise keyboard shortcuts to move at the speed of thought.
+* Terminal Focused. Prefer customisable terminal tools over one stop graphical applications.
+* Efficiency Focused. Commonly repeated activities should be automated away.
+* Declarative. Reproducable and consistent environments that safely enable experimentation.
+* Secure. Prevent and minimize damage from compromised systems.
+
+# Features
 
 ## Declarative Environment
 
@@ -51,3 +62,21 @@ In line with the principle of building a secure system, several features are in 
 The selection of tools and configurations prioritizes speed, simplicity, and a low resource footprint.
 
 *   **Lightweight Components:** The stack is built on lean components like `hyprland`, `rofi`, and `kitty` instead of a full desktop environment.
+
+# Roadmap
+
+## Core Experience
+
+Our primary focus is on refining the core user experience to maximize efficiency and flow.
+
+*   **Ergonomic Keyboard System:** Design and implement a consistent, layered keyboard shortcut system built on home row modifiers.
+    *   Target both Colemak-DH and QWERTY layouts for portability.
+    *   Ensure consistency from the OS layer down through applications like Kitty and Neovim.
+    *   Develop OS-level scripts for advanced window management, such as pinning Kitty tabs to specific workspaces and switching to them directly.
+
+## System Expansion
+
+We aim to apply our declarative principles to new environments and use cases.
+
+*   **Headless Homelab Server:** Deploy a fully declarative, non-graphical homelab server.
+    *   The server will run containerized workloads, including Home Assistant and Jellyfin.
