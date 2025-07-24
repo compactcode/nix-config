@@ -1,6 +1,6 @@
 # Features
 
-This document outlines the features that have been implemented to achieve our project's [vision](./vision.md).
+This document outlines the features that have been implemented to achieve the project's [vision](./vision.md).
 
 ## Declarative Environment
 
@@ -44,7 +44,7 @@ Repetitive tasks are automated to streamline workflows and reduce cognitive load
 
 In line with the principle of building a secure system, several features are in place to prevent and minimize damage from potential compromises.
 
-*   **Secret Management:** Integration with `1Password` provides secure storage and retrieval of secrets.
+*   **[Secret Management](features/secrets.md):** 1Password is used to manage all secrets, ensuring nothing sensitive is ever stored on disk.
 
 ## Minimalism and Performance
 
