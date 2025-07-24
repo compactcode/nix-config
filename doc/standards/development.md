@@ -198,3 +198,9 @@ myconfig = {
 ### Nix Code
 
 * Do not use `imports`.
+
+### Git Commits
+
+* Use compact lowercase titles.
+* Use conventional commits with no scopes.
+  * Types: build:, chore:, ci:, docs:, style:, refactor:, perf:, test:
