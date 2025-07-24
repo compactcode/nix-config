@@ -18,11 +18,7 @@ delib.host {
     # enable feature sets
     features = {
       cli.enable = true;
-    };
-
-    services.nfs = {
-      enable = true;
-      shares = ["config" "media"];
+      homelab.enable = true;
     };
   };
 
@@ -49,7 +45,6 @@ delib.host {
       # enable virtualization
       kernelModules = ["kvm-intel"];
     };
-
 
     # enable microcode updates
     hardware.cpu.intel.updateMicrocode = true;

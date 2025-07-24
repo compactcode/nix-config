@@ -2,9 +2,12 @@
 delib.module {
   name = "locale";
 
-  options = delib.singleEnableOption true;
+  options.locale = with delib; {
+    enable = boolOption true;
+    timeZone = strOption "Australia/Melbourne";
+  };
 
-  nixos.ifEnabled = {
+  nixos.ifEnabled = {cfg, ...}: {
     i18n.defaultLocale = "en_US.UTF-8";
 
     # melbourne cbd
@@ -13,6 +16,6 @@ delib.module {
       longitude = 144.96332;
     };
 
-    time.timeZone = "Australia/Melbourne";
+    time.timeZone = cfg.timeZone;
   };
 }

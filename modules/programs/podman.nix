@@ -24,6 +24,8 @@ delib.module {
         # replace the docker command
         dockerCompat = true;
       };
+      # use for running oci-containers
+      oci-containers.backend = "podman";
     };
   };
 }
