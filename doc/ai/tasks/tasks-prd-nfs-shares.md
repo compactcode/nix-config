@@ -15,8 +15,8 @@
 ## Tasks
 
 - [ ] 1.0 Create a new NixOS module for NFS client configuration.
-  - [x] 1.1 Create the file `modules/services/nfs.nix` with the basic `delib.module` structure.
-  - [x] 1.2 Define module options to enable NFS and configure a set of shares (e.g., `services.nfs.shares`). Each share should support properties like `remotePath`, `mountPoint`, and `mountType` (`static` or `auto`).
+  - [ ] 1.1 Create the file `modules/services/nfs.nix` with the basic `delib.module` structure.
+  - [ ] 1.2 Define module options to enable NFS and configure a set of enabled share directories (e.g., `services.nfs.shares`). Each share requires only `name` and `mountType` (`static` or `auto`).
   - [ ] 1.3 Add `pkgs.nfs-utils` to `environment.systemPackages` within the module when it is enabled on NixOS.
 - [ ] 2.0 Implement static `systemd` mounts for the `pudge` host.
   - [ ] 2.1 In `nfs.nix`, add logic to generate `fileSystems` entries for shares where `mountType` is `"static"`.
