@@ -5,7 +5,13 @@
 
 ## Context
 
-In alignment with the [guiding principle](../../readme.md#guiding-principles) to build a secure system, secrets like API keys, tokens, and SSH keys must not be stored on disk. The challenge is to select a secret management tool that supports this principle across all required platforms and use cases.
+The project's [vision](../../readme.md#vision) is supported by several [guiding principles](../../readme.md#guiding-principles), including:
+
+*   **Secure:** Prevent and minimize damage from compromised systems by not storing secrets on disk.
+*   **Keyboard & Terminal Focused:** Integrate secret management directly into CLI workflows.
+*   **Efficiency Focused:** Automate access to credentials to avoid manual copy-pasting.
+
+The challenge is to select a secret management tool that upholds these principles across all required platforms (Linux, macOS, Android) and use cases (browser, CLI, SSH).
 
 The chosen solution must meet the following requirements:
 
