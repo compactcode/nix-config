@@ -23,7 +23,13 @@ delib.host {
       hyprland.enable = true;
     };
 
-    services.tlp.enable = true;
+    services = {
+      nfs = {
+        enable = true;
+        shares = ["photos" "documents"];
+      };
+      tlp.enable = true;
+    };
   };
 
   homeManagerSystem = "x86_64-linux";

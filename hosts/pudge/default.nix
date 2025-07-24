@@ -19,6 +19,11 @@ delib.host {
     features = {
       cli.enable = true;
     };
+
+    services.nfs = {
+      enable = true;
+      shares = ["config" "media"];
+    };
   };
 
   homeManagerSystem = "x86_64-linux";
@@ -45,20 +50,6 @@ delib.host {
       kernelModules = ["kvm-intel"];
     };
 
-    # TODO: Move this somewhere else.
-    fileSystems = {
-      "/mnt/nas/config" = {
-        device = "192.168.1.200:/mnt/storage/config";
-        fsType = "nfs";
-        options = ["x-systemd.automount" "noauto"];
-      };
-
-      "/mnt/nas/media" = {
-        device = "192.168.1.200:/mnt/storage/media";
-        fsType = "nfs";
-        options = ["x-systemd.automount" "noauto"];
-      };
-    };
 
     # enable microcode updates
     hardware.cpu.intel.updateMicrocode = true;
