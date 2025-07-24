@@ -78,5 +78,9 @@ Our primary focus is on refining the core user experience to maximize efficiency
 
 We aim to apply our declarative principles to new environments and use cases.
 
-*   **Headless Homelab Server:** Deploy a fully declarative, non-graphical homelab server.
-    *   The server will run containerized workloads, including Home Assistant and Jellyfin.
+*   **[Headless Homelab Server](doc/adr/homelab-containers.md):** Deploy a fully declarative, non-graphical homelab server.
+    *   The server runs containerized workloads, including Home Assistant and Emby, using NixOS's native OCI container support to ensure a fully declarative configuration.
+
+# Architectural Decision Records
+
+Architectural decisions are documented using ADRs in the `doc/adr` directory. When creating a new ADR, use the [ADR template](../adr/template.md).

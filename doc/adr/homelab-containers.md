@@ -1,4 +1,4 @@
-# 2. Homelab Service Deployment Strategy
+# 2. Homelab Service Deployment
 
 * **Status:** Accepted
 * **Date:** 2025-07-25
@@ -45,14 +45,14 @@ This approach allows for a fully declarative definition of containers directly w
 * **Cons:**
     * Configuration is NixOS-specific and not easily portable.
 
-### 2. NixOS nspawn Containers
+### 2. NixOS Service Modules
 
-* **Description:** Create systemd nspawn containers and services using their native NixOS modules (e.g., `services.home-assistant`).
+* **Description:** Create services using their native NixOS modules (e.g., `services.home-assistant`), which can deploy the service inside a `systemd-nspawn` container.
 * **Pros:**
     * Potentially the simplest approach if well-maintained modules exist.
 * **Cons:**
     * Not all desired services have official or up-to-date NixOS modules.
-    * Running specific versions is lot more hassle
+    * Running specific versions is a lot more hassle.
     * Provides less isolation and a less portable packaging format than OCI containers.
     * Service versions are tied to the `nixpkgs` channel version.
 

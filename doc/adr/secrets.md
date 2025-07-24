@@ -31,27 +31,29 @@ A key constraint is that 1Password is mandated on work devices at my current emp
 
 ## Consequences
 
-* The system will rely on 1Password for all secret management, including its CLI and SSH agent integrations.
-* This introduces a dependency on a closed-source product for a critical security component.
-* It aligns with existing workflows, reducing friction and leveraging deep familiarity with the tool.
-* Switching to a different provider in the future would require a data migration from 1Password.
+* **Pros:**
+    * It aligns with existing workflows, reducing friction and leveraging deep familiarity with the tool.
+* **Cons:**
+    * The system will rely on 1Password for all secret management, including its CLI and SSH agent integrations.
+    * This introduces a dependency on a closed-source product for a critical security component.
+    * Switching to a different provider in the future would require a data migration from 1Password.
 
 ## Options Considered
 
-### [1Password](https://1password.com)
+### [1Password](https://1password.com) (Chosen)
 
-* **Pros**
+* **Pros:**
   * Meets all requirements.
   * Provides [shell-plugins](https://developer.1password.com/docs/cli/shell-plugins/) for seamless CLI use.
   * Extensive user experience with the product over many years.
-* **Cons**
+* **Cons:**
   * Closed source.
 
 ### [Bitwarden](https://bitwarden.com)
 
-* **Pros**
+* **Pros:**
   * Meets all requirements.
   * Open-source.
-* **Cons**
+* **Cons:**
   * Would require migrating data out of 1Password.
   * Would require using multiple password managers since 1Password is mandated at work.
