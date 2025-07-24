@@ -1,24 +1,26 @@
-# Modules
+# Code Structure
 
-## 1. Overview
+## Overview
 
 This project uses [denix](https://github.com/yunfachi/denix) to configure modules.
 
-## 2. Module Layout
+## Project Layout
 
+- `docs/*.md`: for documentation
+- `features/*.nix`: for configuring related sets of modules
+- `hosts/*.nix`: for host configuration
+- `modules/base/*.nix`: for top level modules e.g. boot, xdg
 - `modules/config/*.nix`: for denix configuration
 - `modules/hardware/*.nix`: for hardware configuration
 - `modules/programs/*.nix`: for program configuration
 - `modules/programs/nixvim/*.nix`: for nixvim configuration
 - `modules/services/*.nix`: for service configuration
-- `modules/base/*.nix`: for everything else
-- `features/*.nix`: for feature sets that enable modules
 
-Modules are imported automatically by convention.
+## Module Structure
 
-## 3. Module Structure
+Modules are generally correspond to upstream counterparts in nixpkgs/home-manager.
 
-Use this code as an example when modifying a module.
+### Example Module
 
 ```nix
 {delib, ...}:
@@ -50,9 +52,10 @@ delib.module {
 }
 ```
 
-## 4. Module Options
 
-Use this code as a guide when adding options for denix modules.
+### Module Options
+
+Configuration options can be declared by a module.
 
 ```nix
 {delib, ...}:
@@ -77,7 +80,29 @@ delib.module {
 }
 ```
 
-### Example using config from another module
+You can request full documentation for [denix options here](https://yunfachi.github.io/denix/options/introduction).
+
+### Using Options
+
+Options are typically set at the host or feature level using `myconfig`.
+
+```nix
+{delib, ...}:
+delib.host {
+  name = "pheonix";
+
+  myconfig = {
+    disko = {
+      enable = true;
+      device = "/dev/disk/by-id/nvme-Samsung_SSD_970_EVO_Plus_2TB_S4J4NF0NA04068A";
+    };
+  };
+}
+```
+
+### Referencing Options
+
+Configuration can be referenced by other modules via the `myconfig` argument.
 
 ```nix
 delib.module {
@@ -108,14 +133,13 @@ delib.module {
       };
     };
   };
-};
+}
 ```
 
-You can request full documentation for [denix options here](https://yunfachi.github.io/denix/options/introduction).
 
-## 5. Features
+## Features
 
-Features are high-level groupings of related modules that can be enabled together. They are defined in `features/` and allow for easy configuration of common use cases.
+Features are high-level groupings of related modules that are enabled as a set to avoid having to duplicate them across all hosts.
 
 ### Example Feature
 
@@ -148,7 +172,7 @@ delib.module {
 
 ### Example Feature Usage
 
-In host configurations, enable features like this:
+In host configurations, features like this:
 
 ```nix
 myconfig = {
@@ -157,14 +181,3 @@ myconfig = {
   };
 };
 ```
-
-### Available Features
-
-- `features.development`: Development tools including direnv, gh, nixvim plugins etc
-- `features.hyprland`: A complete Hyprland desktop environment
-
-## 6. Rules
-
-- Disable modules by default (`delib.singleEnableOption false`).
-- DO NOT use lib.mkOption, lib.mkForce etc.
-- DO NOT use imports

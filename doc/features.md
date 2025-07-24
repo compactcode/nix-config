@@ -44,7 +44,7 @@ Repetitive tasks are automated to streamline workflows and reduce cognitive load
 
 In line with the principle of building a secure system, several features are in place to prevent and minimize damage from potential compromises.
 
-*   **[Secret Management](features/secrets.md):** 1Password is used to manage all secrets, ensuring nothing sensitive is ever stored on disk.
+*   **[Secret Management](adr/secrets.md):** 1Password is used to manage all secrets, ensuring nothing sensitive is ever stored on disk.
 
 ## Minimalism and Performance
 
