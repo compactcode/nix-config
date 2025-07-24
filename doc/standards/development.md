@@ -64,10 +64,12 @@ delib.module {
 
   options.programs.example = with delib; {
     enable = boolOption false;
-    # option with default
+    # str with default (equivalent to lib.mkOption {type = types.str; default = "default";})
     default = strOption "default";
-    # required option
+    # required str (equivalent to lib.mkOption {type = types.str;})
     required = noDefault (strOption null);
+    # list of ports (equivalent to lib.mkOption {type = types.listOf types.port; default = [];})
+    list = listOfOption port [];
   };
 
   nixos.ifEnabled = {cfg, ...}: {
@@ -75,7 +77,6 @@ delib.module {
       sessionVariables = {
         # use cfg to access internal options
         DEFAULT = cfg.default;
-        REQUIRED = cfg.required;
       };
     };
   };
