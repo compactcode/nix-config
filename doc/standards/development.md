@@ -60,21 +60,23 @@ Configuration options can be declared by a module.
 ```nix
 {delib, ...}:
 delib.module {
-  name = "programs.grimblast";
+  name = "programs.example";
 
-  options.programs.grimblast = with delib; {
-    # disabled by default
+  options.programs.example = with delib; {
     enable = boolOption false;
-    editor = strOption "pinta";
+    # option with default
+    default = strOption "default";
+    # required option
+    required = noDefault (strOption null);
   };
 
   nixos.ifEnabled = {cfg, ...}: {
     environment = {
       sessionVariables = {
         # use cfg to access internal options
-        GRIMBLAST_EDITOR = cfg.editor;
+        DEFAULT = cfg.default;
+        REQUIRED = cfg.required;
       };
-      systemPackages = [pkgs.grimblast];
     };
   };
 }
