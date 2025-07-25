@@ -10,6 +10,7 @@ delib.module {
     programs = {
       aider.enable = true;
       claude-code.enable = true;
+      devenv.enable = true;
       direnv.enable = true;
       gh.enable = true;
       nixvim.plugins = {
