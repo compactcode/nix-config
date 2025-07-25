@@ -29,6 +29,8 @@ The generated task list _must_ follow this structure:
 ```markdown
 ## Relevant Files
 
+- `doc/standards/development.md` - Development standards that must be followed.
+- `modules/programs/existing-program.nix` - Any existing modules that provide useful context
 - `modules/programs/new-program.nix` - Brief description (e.g., Module definition for the new program).
 - `features/new-feature.nix` - Brief description (e.g., Feature to enable the new program and related settings).
 - `hosts/phoenix/default.nix` - Brief description (e.g., Host configuration to enable the new feature).

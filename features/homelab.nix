@@ -8,6 +8,7 @@ delib.module {
     programs.podman.enable = true;
     services = {
       emby.enable = true;
+      gluetun.enable = true;
       homeassistant.enable = true;
       nfs = {
         enable = true;
@@ -19,4 +20,3 @@ delib.module {
     };
   };
 }
-
