@@ -15,6 +15,15 @@ delib.module {
   home.always.imports = [inputs.nixvim.homeManagerModules.nixvim];
 
   home.ifEnabled = {
+    home = {
+      sessionVariables = {
+        # nvim as the default editor
+        EDITOR = "nvim";
+        # nvim as the default editor
+        VISUAL = "nvim";
+      };
+    };
+
     programs.nixvim = {
       enable = true;
 
