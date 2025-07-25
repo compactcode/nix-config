@@ -20,6 +20,9 @@ delib.module {
           # markdown style
           code-theme = "github-dark";
 
+          # disable prompt to update git ignore
+          gitignore = false;
+
           # avoid warning when using models via github copilot
           show-model-warnings = false;
 
