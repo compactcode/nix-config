@@ -69,12 +69,12 @@ delib.module {
         enable = true;
 
         extensions = {
-          frecency = {
-            enable = true;
-          };
-          fzf-native = {
-            enable = true;
-          };
+          # recently edited files
+          frecency.enable = true;
+          # use telescope for the built in picker
+          ui-select.enable = true;
+          # performance improvement
+          fzf-native.enable = true;
         };
 
         settings = {
