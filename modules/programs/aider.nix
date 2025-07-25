@@ -20,6 +20,9 @@ delib.module {
           # markdown style
           code-theme = "github-dark";
 
+          # avoid warning when using models via github copilot
+          show-model-warnings = false;
+
           # styling with sylix
           user-input-color = base0B;
           tool-output-color = base05;
@@ -36,5 +39,12 @@ delib.module {
         pkgs.aider-chat
       ];
     };
+
+    # hide history from git
+    programs.git.ignores = [
+      ".aider.chat*"
+      ".aider.input*"
+      ".aider.tags*"
+    ];
   };
 }

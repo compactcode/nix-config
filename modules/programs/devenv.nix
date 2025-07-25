@@ -23,6 +23,11 @@ delib.module {
 
   home.ifEnabled = {
     home.packages = [pkgs.devenv];
+
+    # hide cache from git
+    programs.git.ignores = [
+      ".devenv"
+    ];
   };
 
   nixos.ifEnabled = {
