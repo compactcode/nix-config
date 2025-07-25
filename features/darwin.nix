@@ -16,6 +16,5 @@ delib.module {
       slack.enable = true;
     };
     services.aerospace.enable = true;
-    stylix.enable = true;
   };
 }

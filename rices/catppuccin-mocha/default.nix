@@ -4,6 +4,7 @@
   ...
 }:
 delib.rice {
+  # a complete theme for desktops
   name = "catppuccin-mocha";
 
   darwin = {
