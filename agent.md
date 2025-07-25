@@ -5,6 +5,12 @@
 When invoked load these files:
 
 * /add `readme.md`
-* /add `doc/ai/prd/create-prd.md`
+* /add `.agent/commands/generate-prd.md`
 
-And then prompt the user for the PRD description.
+## @generate-tasks
+
+When invoked load these files:
+
+* /add `.agent/commands/generate-prd.md`
+* /add `.agent/commands/generate-tasks.md`
+* /add `doc/standards/development.md`
