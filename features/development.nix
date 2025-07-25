@@ -12,6 +12,7 @@ delib.module {
       claude-code.enable = true;
       devenv.enable = true;
       direnv.enable = true;
+      gemini-cli.enable = true;
       gh.enable = true;
       nixvim.plugins = {
         aerial.enable = true;
