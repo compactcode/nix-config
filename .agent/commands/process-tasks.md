@@ -7,7 +7,7 @@ Guidelines for managing task lists in markdown files to track progress on comple
 - **Completion protocol:**
   1. When you finish a **sub‑task**, immediately mark it as completed by changing `[ ]` to `[x]`.
   2. If **all** subtasks underneath a parent task are now `[x]`, follow this sequence:
-    - **First**: Build the configuration for the relevant host (e.g., `nh os build` or `nh darwin build`).
+    - **First**: Build the configuration for the relevant host (e.g., `nix eval .#nixosConfigurations.<hostname>.config.system.build.toplevel`).
     - **Only if the build succeeds**: Stage changes (`git add .`)
     - **Clean up**: Remove any temporary files and temporary code before committing
     - **Commit**: Use a descriptive commit message that:

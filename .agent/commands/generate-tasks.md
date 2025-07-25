@@ -20,7 +20,7 @@ To guide an AI assistant in creating a detailed, step-by-step task list in Markd
 6.  **Phase 2: Generate Sub-Tasks:** Once the user confirms, break down each parent task into smaller, actionable sub-tasks necessary to complete the parent task. Ensure sub-tasks logically follow from the parent task, cover the implementation details implied by the PRD, and consider existing codebase patterns where relevant without being constrained by them.
 7.  **Identify Relevant Files:** Based on the tasks and PRD, identify potential files that will need to be created or modified. List these under the `Relevant Files` section, including corresponding test files if applicable.
 8.  **Generate Final Output:** Combine the parent tasks, sub-tasks, relevant files, and notes into the final Markdown structure.
-9.  **Save Task List:** Save the generated document in the `/tasks/` directory with the filename `tasks-[prd-file-name].md`, where `[prd-file-name]` matches the base name of the input PRD file (e.g., if the input was `prd-user-profile-editing.md`, the output is `tasks-prd-user-profile-editing.md`).
+9.  **Save Task List:** Save the generated document in the `.agent/prd/tasks/` directory with the filename `tasks-[prd-file-name].md`, where `[prd-file-name]` matches the base name of the input PRD file (e.g., if the input was `prd-user-profile-editing.md`, the output is `tasks-prd-user-profile-editing.md`).
 
 ## Output Format
 
@@ -29,6 +29,7 @@ The generated task list _must_ follow this structure:
 ```markdown
 ## Relevant Files
 
+- `doc/standard/development.md` - Conventions that must be followed.
 - `modules/programs/new-program.nix` - Brief description (e.g., Module definition for the new program).
 - `features/new-feature.nix` - Brief description (e.g., Feature to enable the new program and related settings).
 - `hosts/phoenix/default.nix` - Brief description (e.g., Host configuration to enable the new feature).
@@ -36,9 +37,7 @@ The generated task list _must_ follow this structure:
 ### Notes
 
 - After making changes, test the configuration by building it for a specific host.
-- Use `nh os build` to test the configuration for a Linux host.
-- Use `nh darwin build` to test for a Darwin host.
-- Refer to `doc/standards/development.md` for more details on project structure and conventions.
+- Use `nix eval .#nixosConfigurations.<hostname>.config.system.build.toplevel` - Check NixOS configuration evaluation
 
 ## Tasks
 
