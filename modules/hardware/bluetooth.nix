@@ -13,4 +13,18 @@ delib.module {
       };
     };
   };
+
+  nixos.ifDisabled = {
+    boot = {
+      # disable auto loading
+      blacklistedKernelModules = [
+        "bluetooth"
+        "btbcm"
+        "btintel"
+        "btmtk"
+        "btrtl"
+        "btusb"
+      ];
+    };
+  };
 }

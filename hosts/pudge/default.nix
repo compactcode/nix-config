@@ -27,14 +27,8 @@ delib.host {
 
   nixos = {
     boot = {
-      # disable wifi and bluetooth
+      # disable wifi
       blacklistedKernelModules = [
-        "bluetooth"
-        "btbcm"
-        "btintel"
-        "btmtk"
-        "btrtl"
-        "btusb"
         "iwlwifi"
       ];
 
