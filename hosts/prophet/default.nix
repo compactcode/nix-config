@@ -52,10 +52,18 @@ delib.host {
       inputs.nixos-hardware.nixosModules.common-gpu-nvidia-disable
     ];
 
-    # enable gpu acceleration
-    hardware.graphics = {
-      enable = true;
-      enable32Bit = true;
+    # modern scheduling for better efficiency
+    boot.kernelParams = ["i915.enable_guc=2"];
+
+    hardware = {
+      # use newer encoding/decoding driver
+      intelgpu.vaapiDriver = "intel-media-driver";
+
+      # enable gpu acceleration
+      graphics = {
+        enable = true;
+        enable32Bit = true;
+      };
     };
 
     # fingerprint scanner
