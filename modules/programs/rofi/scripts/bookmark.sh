@@ -21,7 +21,7 @@ main() {
     id=$(getId "$bookmarks" "$selected")
     hyprctl dispatch focuswindow class:firefox
     for bm in ${id}; do
-      hyprctl dispatch exec firefox "$(buku -p "$bm" -f 1 | awk '{print $2}')"
+      hyprctl dispatch exec firefox "$(buku --nostdin -p "$bm" -f 1 | awk '{print $2}')"
     done
   fi
 }
