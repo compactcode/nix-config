@@ -1,6 +1,7 @@
 {
   delib,
   lib,
+  pkgs,
   ...
 }:
 delib.module {
@@ -9,14 +10,14 @@ delib.module {
   options.services.swayidle = with delib; {
     enable = boolOption false;
     # what to do when the system needs to be locked
-    lockCommand = strOption "swaylock -f";
+    lockCommand = strOption "${lib.getExe pkgs.swaylock} -f";
     # what to do when the user is idle
     idle = {
       enable = boolOption false;
       # turn monitors off
-      startCommand = strOption "hyprctl dispatch dpms off";
+      startCommand = strOption "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch dpms off";
       # turn monitors back on
-      resumeCommand = strOption "hyprctl dispatch dpms on";
+      resumeCommand = strOption "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch dpms on";
     };
   };
 
