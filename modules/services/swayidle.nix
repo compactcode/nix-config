@@ -1,7 +1,6 @@
 {
   delib,
   lib,
-  pkgs,
   ...
 }:
 delib.module {
@@ -9,7 +8,16 @@ delib.module {
 
   options.services.swayidle = with delib; {
     enable = boolOption false;
-    lockCommand = strOption "${pkgs.swaylock}/bin/swaylock -f";
+    # what to do when the system needs to be locked
+    lockCommand = strOption "swaylock -f";
+    # what to do when the user is idle
+    idle = {
+      enable = boolOption false;
+      # turn monitors off
+      startCommand = strOption "hyprctl dispatch dpms off";
+      # turn monitors back on
+      resumeCommand = strOption "hyprctl dispatch dpms on";
+    };
   };
 
   home.ifEnabled = {cfg, ...}: {
@@ -28,20 +36,22 @@ delib.module {
             command = cfg.lockCommand;
           }
         ];
-        timeouts = [
-          {
-            # lock screen after 10 minutes
-            timeout = 60 * 10;
-            command = cfg.lockCommand;
-          }
-          # TODO: Causes issues with swaylock and screen sharing.
-          # {
-          #   # power off screen after 15 minutes
-          #   timeout = 60 * 15;
-          #   command = "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch dpms off";
-          #   resumeCommand = "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch dpms on";
-          # }
-        ];
+        timeouts =
+          [
+            {
+              # lock after 10 minutes inactivity
+              timeout = 60 * 10;
+              command = cfg.lockCommand;
+            }
+          ]
+          ++ lib.optionals cfg.idle.enable [
+            {
+              # idle after 10 minutes inactivity
+              timeout = 60 * 15;
+              command = cfg.idle.startCommand;
+              resumeCommand = cfg.idle.resumeCommand;
+            }
+          ];
       };
     };
   };

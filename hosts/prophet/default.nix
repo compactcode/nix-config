@@ -33,6 +33,8 @@ delib.host {
         shares = ["photos" "documents"];
       };
       tlp.enable = true;
+      # trial screen sleep again
+      swayidle.idle.enable = true;
     };
   };
 
