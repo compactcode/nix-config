@@ -7,9 +7,12 @@
 delib.module {
   name = "services.swayidle";
 
-  options = delib.singleEnableOption false;
+  options.services.swayidle = with delib; {
+    enable = boolOption false;
+    lockCommand = strOption "${pkgs.swaylock}/bin/swaylock -f";
+  };
 
-  home.ifEnabled = {
+  home.ifEnabled = {cfg, ...}: {
     services = {
       swayidle = {
         enable = true;
@@ -17,19 +20,19 @@ delib.module {
           {
             # hook into loginctl lock-session
             event = "lock";
-            command = "${lib.getExe pkgs.swaylock} -f";
+            command = cfg.lockCommand;
           }
           {
             # hook into systemctl suspend
             event = "before-sleep";
-            command = "${lib.getExe pkgs.swaylock} -f";
+            command = cfg.lockCommand;
           }
         ];
         timeouts = [
           {
             # lock screen after 10 minutes
             timeout = 60 * 10;
-            command = "${lib.getExe pkgs.swaylock} -f";
+            command = cfg.lockCommand;
           }
           # TODO: Causes issues with swaylock and screen sharing.
           # {
