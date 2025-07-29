@@ -1,7 +1,11 @@
 # CPU: Intel N100
 # GPU: Intel UHD Graphics
 # Motherboard: LarkBox X 2023
-{delib, ...}:
+{
+  delib,
+  inputs,
+  ...
+}:
 delib.host {
   name = "pudge";
 
@@ -26,6 +30,15 @@ delib.host {
   home.home.stateVersion = "22.11";
 
   nixos = {
+    imports = [
+      # configure intel cpu
+      inputs.nixos-hardware.nixosModules.common-cpu-intel
+      # configure intel gpu
+      inputs.nixos-hardware.nixosModules.common-gpu-intel
+      # configure ssd
+      inputs.nixos-hardware.nixosModules.common-pc-ssd
+    ];
+
     boot = {
       # disable wifi
       blacklistedKernelModules = [
@@ -39,9 +52,6 @@ delib.host {
       # enable virtualization
       kernelModules = ["kvm-intel"];
     };
-
-    # enable microcode updates
-    hardware.cpu.intel.updateMicrocode = true;
 
     nixpkgs.hostPlatform = "x86_64-linux";
 
