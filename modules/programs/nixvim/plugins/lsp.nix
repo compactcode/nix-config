@@ -6,15 +6,6 @@ delib.module {
   options = delib.singleEnableOption false;
 
   home.ifEnabled.programs.nixvim = {
-    # enable colorscheme
-    colorschemes.catppuccin = {
-      settings = {
-        integrations = {
-          fidget = true;
-        };
-      };
-    };
-
     keymaps = [
       {
         key = "<leader>ca";
@@ -39,21 +30,6 @@ delib.module {
           yaml = {
             linter = "yamllint";
           };
-        };
-      };
-
-      # lsp status notifications
-      fidget = {
-        enable = true;
-
-        # background opacity
-        settings = {
-          notification.window.winblend = 0;
-        };
-
-        # delay loading until an lsp is attached
-        lazyLoad.settings = {
-          event = ["LspAttach"];
         };
       };
 

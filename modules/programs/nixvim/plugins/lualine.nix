@@ -29,6 +29,12 @@ delib.module {
             }
           ];
           lualine_x = [
+            {
+              __unkeyed = "lsp_status";
+              ignore_lsp = {
+                __unkeyed = "efm";
+              };
+            }
             "diagnostics"
             "encoding"
             "fileformat"
