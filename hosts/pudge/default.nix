@@ -24,6 +24,8 @@ delib.host {
       cli.enable = true;
       homelab.enable = true;
     };
+
+    services.openssh.enable = true;
   };
 
   homeManagerSystem = "x86_64-linux";
