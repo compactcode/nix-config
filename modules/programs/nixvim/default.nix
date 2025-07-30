@@ -104,12 +104,6 @@ delib.module {
       opts = {
         expandtab = true; # convert tabs to spaces
         foldenable = false; # disable code folding
-        list = true; # enable listchars
-        listchars = {
-          nbsp = "+"; # display non breaking spaces
-          tab = ">~"; # display tabs
-          trail = "·"; # display any trailing spaces
-        };
         shiftwidth = 2; # use 2 spaces for tab
         softtabstop = 2; # use 2 spaces for tab
         swapfile = false; # disable file versioning

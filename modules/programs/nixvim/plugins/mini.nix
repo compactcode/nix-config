@@ -36,8 +36,8 @@ delib.module {
         align = {}; # text alignment
         # common configuration
         basics = {
-          # basic config like smart search
-          basic = true;
+          basic = true; # smart search, disable backups etc
+          extra_ui = true; # list chars, menu style etc
         };
         icons = {}; # icon provider
         indentscope = {}; # indent decorations
