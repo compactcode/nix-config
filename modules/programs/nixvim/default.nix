@@ -69,29 +69,14 @@ delib.module {
           };
         }
         {
-          key = "<leader>uc";
-          action = "<cmd>nohlsearch<cr>";
-          options = {desc = "clear search highlight";};
-        }
-        {
           key = "<leader>fc";
           action = "<cmd>let @+ = expand('%')<cr>";
           options = {desc = "copy the current path to clipboard";};
         }
         {
-          key = "<leader>w";
-          action = "<cmd>w<cr>";
-          options = {desc = "save file";};
-        }
-        {
           key = "<leader>W";
           action = "<cmd>wa<cr>";
           options = {desc = "save all files";};
-        }
-        {
-          key = "<leader>y";
-          action = "\"+y";
-          options = {desc = "copy to system clipboard";};
         }
         {
           key = "<leader>q";

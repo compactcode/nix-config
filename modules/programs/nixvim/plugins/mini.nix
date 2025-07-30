@@ -38,6 +38,12 @@ delib.module {
         basics = {
           basic = true; # smart search, disable backups etc
           extra_ui = true; # list chars, menu style etc
+          mappings = {
+            # common key bindings
+            basic = true;
+            # place toggles under the ui menu
+            option_toggle_prefix = "<leader>u";
+          };
         };
         icons = {}; # icon provider
         indentscope = {}; # indent decorations
