@@ -102,12 +102,8 @@ delib.module {
 
       # base options
       opts = {
-        expandtab = true; # convert tabs to spaces
         foldenable = false; # disable code folding
-        shiftwidth = 2; # use 2 spaces for tab
-        softtabstop = 2; # use 2 spaces for tab
         swapfile = false; # disable file versioning
-        tabstop = 2; # use 2 spaces for tab
       };
 
       plugins = {
