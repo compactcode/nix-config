@@ -9,6 +9,7 @@ delib.module {
     services = {
       emby.enable = true;
       homeassistant.enable = true;
+      media.enable = true;
       nfs = {
         enable = true;
         shares = [
@@ -19,4 +20,3 @@ delib.module {
     };
   };
 }
-
