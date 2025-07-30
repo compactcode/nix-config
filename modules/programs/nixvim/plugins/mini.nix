@@ -34,6 +34,11 @@ delib.module {
           };
         };
         align = {}; # text alignment
+        # common configuration
+        basics = {
+          # basic config like smart search
+          basic = true;
+        };
         icons = {}; # icon provider
         indentscope = {}; # indent decorations
         pairs = {}; # auto pairs

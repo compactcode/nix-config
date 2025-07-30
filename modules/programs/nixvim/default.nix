@@ -102,9 +102,7 @@ delib.module {
 
       # base options
       opts = {
-        backup = false; # disable file versioning
         expandtab = true; # convert tabs to spaces
-        ignorecase = true; # ignore case by default
         foldenable = false; # disable code folding
         list = true; # enable listchars
         listchars = {
@@ -112,13 +110,10 @@ delib.module {
           tab = ">~"; # display tabs
           trail = "·"; # display any trailing spaces
         };
-        number = true; # show line numbers
         shiftwidth = 2; # use 2 spaces for tab
-        smartcase = true; # don't ignore case if a capital is typed
         softtabstop = 2; # use 2 spaces for tab
         swapfile = false; # disable file versioning
         tabstop = 2; # use 2 spaces for tab
-        writebackup = false; # disable file versioning
       };
 
       plugins = {
