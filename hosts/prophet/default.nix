@@ -30,7 +30,10 @@ delib.host {
     services = {
       nfs = {
         enable = true;
-        shares = ["photos" "documents"];
+        shares = {
+          config.enable = true;
+          documents.enable = true;
+        };
       };
       tlp.enable = true;
       # trial screen sleep again

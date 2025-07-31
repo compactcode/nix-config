@@ -8,7 +8,32 @@ delib.module {
 
   options.services.nfs = with delib; {
     enable = boolOption false;
-    shares = listOfOption str [];
+    shares = {
+      config = {
+        enable = boolOption false;
+        mountUnit = readOnly (strOption "mnt-nfs-config.mount");
+        mountPath = readOnly (strOption "/mnt/nfs/config");
+        remotePath = readOnly (strOption "/mnt/storage/config");
+      };
+      documents = {
+        enable = boolOption false;
+        mountUnit = readOnly (strOption "mnt-nfs-documents.mount");
+        mountPath = readOnly (strOption "/mnt/nfs/documents");
+        remotePath = readOnly (strOption "/mnt/storage/documents");
+      };
+      media = {
+        enable = boolOption false;
+        mountUnit = readOnly (strOption "mnt-nfs-media.mount");
+        mountPath = readOnly (strOption "/mnt/nfs/media");
+        remotePath = readOnly (strOption "/mnt/storage/media");
+      };
+      photos = {
+        enable = boolOption false;
+        mountUnit = readOnly (strOption "mnt-nfs-photo.mount");
+        mountPath = readOnly (strOption "/mnt/nfs/photos");
+        remotePath = readOnly (strOption "/mnt/storage/photos");
+      };
+    };
     serverHost = strOption "192.168.1.200";
   };
 
@@ -17,24 +42,26 @@ delib.module {
       pkgs.nfs-utils
     ];
 
-    fileSystems = builtins.listToAttrs (
-      map (share: {
-        name = "/mnt/nfs/${share}";
-        value = {
-          device = "${cfg.serverHost}:/mnt/storage/${share}";
-          fsType = "nfs";
-          options = [
-            # connect on-demand
-            "x-systemd.automount"
-            # not at boot
-            "noauto"
-            # disconnect when no longer in use
-            "x-systemd.idle-timeout=600"
-          ];
-        };
-      })
-      cfg.shares
-    );
+    fileSystems = let
+      enabledShares = builtins.filter (s: s.enable) (builtins.attrValues cfg.shares);
+    in
+      builtins.listToAttrs (
+        map (share: {
+          name = share.mountPath;
+          value = {
+            device = "${cfg.serverHost}:${share.remotePath}";
+            fsType = "nfs";
+            options = [
+              # connect on-demand
+              "x-systemd.automount"
+              # not at boot
+              "noauto"
+              # disconnect when no longer in use
+              "x-systemd.idle-timeout=600"
+            ];
+          };
+        })
+        enabledShares
+      );
   };
 }
-

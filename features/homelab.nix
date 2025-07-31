@@ -7,15 +7,14 @@ delib.module {
   myconfig.ifEnabled = {
     programs.podman.enable = true;
     services = {
-      emby.enable = true;
       homeassistant.enable = true;
       media.enable = true;
       nfs = {
         enable = true;
-        shares = [
-          "config"
-          "media"
-        ];
+        shares = {
+          config.enable = true;
+          media.enable = true;
+        };
       };
     };
   };
