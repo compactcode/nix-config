@@ -27,6 +27,7 @@ delib.module {
     # hide cache from git
     programs.git.ignores = [
       ".devenv"
+      ".devenv.*"
     ];
   };
 
