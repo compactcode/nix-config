@@ -1,8 +1,15 @@
-{delib, ...}:
+{
+  delib,
+  lib,
+  ...
+}:
 delib.module {
   name = "services.transmission";
 
-  options = delib.singleEnableOption false;
+  options.services.transmission = with delib; {
+    enable = boolOption false;
+    serviceName = readOnly (strOption "podman-transmission.service");
+  };
 
   # dependencies
   myconfig.ifEnabled = {
@@ -22,19 +29,18 @@ delib.module {
     # start after nfs mounts are available
     systemd.services.podman-transmission = {
       after = [
+        myconfig.services.gluetun.serviceName
         myconfig.services.nfs.shares.config.mountUnit
         myconfig.services.nfs.shares.media.mountUnit
       ];
       requires = [
+        myconfig.services.gluetun.serviceName
         myconfig.services.nfs.shares.config.mountUnit
         myconfig.services.nfs.shares.media.mountUnit
       ];
     };
 
     virtualisation.oci-containers.containers.transmission = {
-      dependsOn = [
-        "gluetun"
-      ];
       environment = {
         PUID = "1000";
         PGID = "1000";

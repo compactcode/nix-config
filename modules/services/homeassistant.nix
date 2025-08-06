@@ -1,8 +1,15 @@
-{delib, ...}:
+{
+  delib,
+  lib,
+  ...
+}:
 delib.module {
   name = "services.homeassistant";
 
-  options = delib.singleEnableOption false;
+  options.services.homeassistant = with delib; {
+    enable = boolOption false;
+    serviceName = readOnly (strOption "podman-homeassistant.service");
+  };
 
   # dependencies
   myconfig.ifEnabled = {

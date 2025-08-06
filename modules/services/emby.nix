@@ -1,8 +1,15 @@
-{delib, ...}:
+{
+  delib,
+  lib,
+  ...
+}:
 delib.module {
   name = "services.emby";
 
-  options = delib.singleEnableOption false;
+  options.services.emby = with delib; {
+    enable = boolOption false;
+    serviceName = readOnly (strOption "podman-emby.service");
+  };
 
   # dependencies
   myconfig.ifEnabled = {

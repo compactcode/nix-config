@@ -9,6 +9,7 @@ delib.module {
   options.services.gluetun = with delib; {
     enable = boolOption false;
     ports = listOfOption port [];
+    serviceName = readOnly (strOption "podman-gluetun.service");
   };
 
   # dependencies

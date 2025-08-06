@@ -1,8 +1,15 @@
-{delib, ...}:
+{
+  delib,
+  lib,
+  ...
+}:
 delib.module {
   name = "services.prowlarr";
 
-  options = delib.singleEnableOption false;
+  options.services.prowlarr = with delib; {
+    enable = boolOption false;
+    serviceName = readOnly (strOption "podman-prowlarr.service");
+  };
 
   # dependencies
   myconfig.ifEnabled = {
@@ -18,14 +25,17 @@ delib.module {
   nixos.ifEnabled = {myconfig, ...}: {
     # ensure container starts after nfs mount
     systemd.services.podman-prowlarr = {
-      after = [myconfig.services.nfs.shares.config.mountUnit];
-      requires = [myconfig.services.nfs.shares.config.mountUnit];
+      after = [
+        myconfig.services.gluetun.serviceName
+        myconfig.services.nfs.shares.config.mountUnit
+      ];
+      requires = [
+        myconfig.services.gluetun.serviceName
+        myconfig.services.nfs.shares.config.mountUnit
+      ];
     };
 
     virtualisation.oci-containers.containers.prowlarr = {
-      dependsOn = [
-        "gluetun"
-      ];
       environment = {
         PUID = "1000";
         PGID = "1000";

@@ -1,8 +1,15 @@
-{delib, ...}:
+{
+  delib,
+  lib,
+  ...
+}:
 delib.module {
   name = "services.sonarr";
 
-  options = delib.singleEnableOption false;
+  options.services.sonarr = with delib; {
+    enable = boolOption false;
+    serviceName = readOnly (strOption "podman-sonarr.service");
+  };
 
   # dependencies
   myconfig.ifEnabled = {
@@ -24,21 +31,22 @@ delib.module {
     # start after nfs mounts are available
     systemd.services.podman-sonarr = {
       after = [
+        myconfig.services.gluetun.serviceName
+        myconfig.services.prowlarr.serviceName
+        myconfig.services.transmission.serviceName
         myconfig.services.nfs.shares.config.mountUnit
         myconfig.services.nfs.shares.media.mountUnit
       ];
       requires = [
+        myconfig.services.gluetun.serviceName
+        myconfig.services.prowlarr.serviceName
+        myconfig.services.transmission.serviceName
         myconfig.services.nfs.shares.config.mountUnit
         myconfig.services.nfs.shares.media.mountUnit
       ];
     };
 
     virtualisation.oci-containers.containers.sonarr = {
-      dependsOn = [
-        "gluetun"
-        "prowlarr"
-        "transmission"
-      ];
       environment = {
         TZ = myconfig.locale.timeZone;
         PUID = "1000";
