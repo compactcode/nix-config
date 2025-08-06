@@ -4,6 +4,7 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
+  # dependencies
   myconfig.ifEnabled = {
     services.nfs.shares.config.enable = true;
   };
@@ -14,8 +15,12 @@ delib.module {
 
     # ensure container starts after nfs mount
     systemd.services.podman-homeassistant = {
-      after = [myconfig.services.nfs.shares.config.mountUnit];
-      requires = [myconfig.services.nfs.shares.config.mountUnit];
+      after = [
+        myconfig.services.nfs.shares.config.mountUnit
+      ];
+      requires = [
+        myconfig.services.nfs.shares.config.mountUnit
+      ];
     };
 
     virtualisation.oci-containers.containers.homeassistant = {

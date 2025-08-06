@@ -4,23 +4,36 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
+  # dependencies
+  myconfig.ifEnabled = {
+    services.nfs.shares = {
+      config.enable = true;
+      media.enable = true;
+    };
+  };
+
   nixos.ifEnabled = {myconfig, ...}: {
     # open firewall
     networking.firewall.allowedTCPPorts = [8096];
 
     # start after nfs mounts are available
     systemd.services.podman-emby = {
-      after = ["mnt-nfs-config.mount" "mnt-nfs-media.mount"];
-      requires = ["mnt-nfs-config.mount" "mnt-nfs-media.mount"];
+      after = [
+        myconfig.services.nfs.shares.config.mountUnit
+        myconfig.services.nfs.shares.media.mountUnit
+      ];
+      requires = [
+        myconfig.services.nfs.shares.config.mountUnit
+        myconfig.services.nfs.shares.media.mountUnit
+      ];
     };
 
     virtualisation.oci-containers.containers.emby = {
       image = "lscr.io/linuxserver/emby:4.8.8.0-ls210";
       ports = ["8096:8096"];
-      # TODO: use nfs config here
       volumes = [
-        "/mnt/nfs/config/emby:/config"
-        "/mnt/nfs/media:/data"
+        "${myconfig.services.nfs.shares.config.mountPath}/emby:/config"
+        "${myconfig.services.nfs.shares.media.mountPath}:/data"
       ];
       environment = {
         PUID = "1000";
@@ -34,4 +47,3 @@ delib.module {
     };
   };
 }
-
