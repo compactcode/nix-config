@@ -15,10 +15,6 @@ delib.module {
 
     # ensure containers start after nfs mount
     systemd.services = {
-      podman-emby = {
-        after = ["mnt-nas-config.mount" "mnt-nas-media.mount"];
-        requires = ["mnt-nas-config.mount" "mnt-nas-media.mount"];
-      };
       podman-gluetun = {
         after = ["mnt-nas-config.mount"];
         requires = ["mnt-nas-config.mount"];
@@ -42,26 +38,6 @@ delib.module {
     };
 
     virtualisation.oci-containers.containers = {
-      emby = {
-        # hardware transcoding
-        devices = [
-          "/dev/dri:/dev/dri"
-        ];
-        environment = {
-          PUID = "1000";
-          PGID = "1000";
-          TZ = myconfig.locale.timeZone;
-        };
-        image = "lscr.io/linuxserver/emby:4.8.8.0-ls210";
-        ports = [
-          "8096:8096"
-        ];
-        volumes = [
-          "/mnt/nas/config/emby:/config"
-          "/mnt/nas/media:/data"
-        ];
-      };
-
       gluetun = {
         # allow network creation
         devices = [
