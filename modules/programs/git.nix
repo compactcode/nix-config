@@ -17,7 +17,6 @@ delib.module {
       # use delta for nice diff output
       delta.enable = true;
       ignores = [
-        ".devenv"
         "node_modules"
       ];
       userName = myconfig.users.primary.name;
