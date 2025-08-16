@@ -13,6 +13,12 @@ delib.module {
   };
 
   home.ifEnabled = {cfg, ...}: {
+    home = {
+      shellAliases = {
+        o = "xdg-open";
+      };
+    };
+
     xdg = {
       enable = true;
 
