@@ -6,8 +6,8 @@ delib.host {
   name = "alchemist";
 
   rice = "catppuccin-mocha";
+  system = "aarch64-darwin";
 
-  homeManagerSystem = "aarch64-darwin";
   home.home.stateVersion = "24.05";
 
   myconfig = {
@@ -22,8 +22,6 @@ delib.host {
   };
 
   darwin = {myconfig, ...}: {
-    nixpkgs.hostPlatform = "aarch64-darwin";
-
     # enable touch id for sudo
     security.pam.services.sudo_local.touchIdAuth = true;
 

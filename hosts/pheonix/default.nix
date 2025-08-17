@@ -6,6 +6,7 @@ delib.host {
   name = "pheonix";
 
   rice = "catppuccin-mocha";
+  system = "x86_64-linux";
 
   myconfig = {
     disko = {
@@ -21,7 +22,6 @@ delib.host {
     };
   };
 
-  homeManagerSystem = "x86_64-linux";
   home.home.stateVersion = "23.11";
 
   nixos = {
@@ -58,7 +58,6 @@ delib.host {
     nixpkgs = {
       # enable gpu support for applications like btop
       config.rocmSupport = true;
-      hostPlatform = "x86_64-linux";
     };
 
     services = {

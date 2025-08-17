@@ -10,6 +10,7 @@ delib.host {
   name = "pudge";
 
   rice = "tokyo-night-storm";
+  system = "x86_64-linux";
 
   myconfig = {
     disko = {
@@ -27,7 +28,6 @@ delib.host {
     services.openssh.enable = true;
   };
 
-  homeManagerSystem = "x86_64-linux";
   home.home.stateVersion = "22.11";
 
   nixos = {
@@ -53,8 +53,6 @@ delib.host {
       # enable virtualization
       kernelModules = ["kvm-intel"];
     };
-
-    nixpkgs.hostPlatform = "x86_64-linux";
 
     system.stateVersion = "23.05";
   };

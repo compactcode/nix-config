@@ -10,6 +10,7 @@ delib.host {
   name = "prophet";
 
   rice = "catppuccin-mocha";
+  system = "x86_64-linux";
 
   myconfig = {
     disko = {
@@ -39,8 +40,6 @@ delib.host {
       swayidle.idle.enable = true;
     };
   };
-
-  homeManagerSystem = "x86_64-linux";
 
   home.home.stateVersion = "24.05";
 
@@ -74,8 +73,6 @@ delib.host {
     services.fprintd.enable = true;
 
     networking.hostName = "prophet";
-
-    nixpkgs.hostPlatform = "x86_64-linux";
 
     system.stateVersion = "24.05";
   };
