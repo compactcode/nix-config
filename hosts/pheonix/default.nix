@@ -1,7 +1,11 @@
 # CPU: AMD Ryzen 5900X
 # GPU: AMD Radeon 6700XT
 # Motherboard: Gigabyte B550I AORUS PRO AX
-{delib, ...}:
+{
+  delib,
+  inputs,
+  ...
+}:
 delib.host {
   name = "pheonix";
 
@@ -25,6 +29,17 @@ delib.host {
   home.home.stateVersion = "23.11";
 
   nixos = {
+    imports = [
+      # configure amd cpu
+      inputs.nixos-hardware.nixosModules.common-cpu-amd
+      # configure amd gpu
+      inputs.nixos-hardware.nixosModules.common-gpu-amd
+      # configure ssd
+      inputs.nixos-hardware.nixosModules.common-pc-ssd
+      # configure motherboard
+      inputs.nixos-hardware.nixosModules.gigabyte-b550
+    ];
+
     boot = {
       # disable wifi
       blacklistedKernelModules = [
@@ -35,15 +50,13 @@ delib.host {
         availableKernelModules = ["ahci" "nvme" "sd_mod" "usb_storage" "usbhid" "xhci_pci"];
       };
 
-      # load the GPU early in the book process
+      # load the GPU early in the boot process
       kernelModules = ["amdgpu"];
     };
 
     hardware = {
       # enable gpu asap to improve boot resolution
       amdgpu.initrd.enable = true;
-      # enable microcode updates
-      cpu.amd.updateMicrocode = true;
       # enable firmware flashing
       keyboard.zsa.enable = true;
       # enable gpu acceleration
@@ -58,15 +71,6 @@ delib.host {
     nixpkgs = {
       # enable gpu support for applications like btop
       config.rocmSupport = true;
-    };
-
-    services = {
-      # periodic ssd maintenance
-      fstrim.enable = true;
-      # prevent pci devices (nvme) waking the system out of sleep
-      udev.extraRules = ''
-        ACTION=="add", SUBSYSTEM=="pci", DRIVER=="pcieport", ATTR{power/wakeup}="disabled"
-      '';
     };
 
     system.stateVersion = "23.11";

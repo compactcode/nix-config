@@ -61,7 +61,6 @@ delib.host {
     hardware = {
       # use newer encoding/decoding driver
       intelgpu.vaapiDriver = "intel-media-driver";
-
       # enable gpu acceleration
       graphics = {
         enable = true;
