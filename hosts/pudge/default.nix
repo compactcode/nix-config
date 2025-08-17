@@ -10,7 +10,6 @@ delib.host {
   name = "pudge";
 
   rice = "tokyo-night-storm";
-  type = "server";
 
   myconfig = {
     disko = {

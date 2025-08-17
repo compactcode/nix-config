@@ -6,7 +6,6 @@ delib.host {
   name = "alchemist";
 
   rice = "catppuccin-mocha";
-  type = "desktop";
 
   homeManagerSystem = "aarch64-darwin";
   home.home.stateVersion = "24.05";

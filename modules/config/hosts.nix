@@ -3,15 +3,8 @@ delib.module {
   name = "hosts";
 
   options = with delib; let
-    host = {config, ...}: {
-      options =
-        hostSubmoduleOptions
-        // {
-          type = noDefault (enumOption ["desktop" "server"] null);
-
-          isDesktop = boolOption (config.type == "desktop");
-          isServer = boolOption (config.type == "server");
-        };
+    host = {
+      options = hostSubmoduleOptions;
     };
   in {
     host = hostOption host;
