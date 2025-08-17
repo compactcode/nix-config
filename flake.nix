@@ -39,6 +39,19 @@
 
         paths = [./hosts ./modules ./rices ./features];
 
+        extensions = with denix.lib.extensions; [
+          # https://yunfachi.github.io/denix/extensions/all-extensions#args
+          args
+          # https://yunfachi.github.io/denix/extensions/all-extensions#base
+          (base.withConfig {
+            hosts = {
+              features.enable = false;
+              displays.enable = false;
+              type.enable = false;
+            };
+          })
+        ];
+
         specialArgs = {
           inherit homeManagerUser inputs;
         };
