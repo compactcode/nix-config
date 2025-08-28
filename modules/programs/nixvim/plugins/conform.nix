@@ -43,6 +43,7 @@ delib.module {
 
         # enabled formatters
         formatters_by_ft = {
+          js = ["biome"];
           eruby = ["htmlbeautifier"];
           html = ["prettierd"];
           json = ["jq"];
