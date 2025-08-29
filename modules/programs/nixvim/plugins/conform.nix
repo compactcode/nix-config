@@ -30,6 +30,9 @@ delib.module {
           alejandra = {
             command = "${lib.getExe pkgs.alejandra}";
           };
+          biome = {
+            command = "${lib.getExe pkgs.biome}";
+          };
           jq = {
             command = "${lib.getExe pkgs.jq}";
           };
@@ -43,9 +46,9 @@ delib.module {
 
         # enabled formatters
         formatters_by_ft = {
-          js = ["biome"];
           eruby = ["htmlbeautifier"];
           html = ["prettierd"];
+          js = ["biome"];
           json = ["jq"];
           nix = ["alejandra"];
           ruby = ["rubocop"];
