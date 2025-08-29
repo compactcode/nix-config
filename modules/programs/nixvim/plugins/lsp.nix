@@ -24,9 +24,6 @@ delib.module {
       efmls-configs = {
         enable = true;
         setup = {
-          js = {
-            linter = "biome";
-          };
           json = {
             linter = "jq";
           };
