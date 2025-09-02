@@ -6,6 +6,10 @@ delib.module {
   options = delib.singleEnableOption false;
 
   nixos.ifEnabled = {
+    # TODO: Consider somewhere to put general wayland configuration like this.
+    # Ensure electron applications use wayland.
+    environment.variables.NIXOS_OZONE_WL = "1";
+
     programs.hyprland = {
       enable = true;
       # use systemd
