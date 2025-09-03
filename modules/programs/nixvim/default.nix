@@ -12,7 +12,7 @@ delib.module {
 
   options = delib.singleEnableOption true;
 
-  home.always.imports = [inputs.nixvim.homeManagerModules.nixvim];
+  home.always.imports = [inputs.nixvim.homeModules.nixvim];
 
   home.ifEnabled = {
     home = {
