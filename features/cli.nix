@@ -19,6 +19,7 @@ delib.module {
       nh.enable = true;
       ouch.enable = true;
       ripgrep.enable = true;
+      ssh.enable = true;
       starship.enable = true;
       zoxide.enable = true;
       zsh.enable = true;
