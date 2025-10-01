@@ -31,7 +31,7 @@ delib.module {
       enable = true;
 
       settings = {
-        adapters = {
+        adapters.http = {
           gemini = {
             # use 1password to retrieve api key
             __raw = ''
