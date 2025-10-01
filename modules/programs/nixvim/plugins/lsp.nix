@@ -37,15 +37,6 @@ delib.module {
       lsp = {
         enable = true;
 
-        # configured but not installed (projects provide their own)
-        enabledServers = [
-          # ruby
-          {
-            name = "ruby_lsp";
-            extraOptions = {};
-          }
-        ];
-
         # configured and installed
         servers = {
           # bash
@@ -65,6 +56,12 @@ delib.module {
           emmet_ls.enable = true;
           # nix
           nixd.enable = true;
+          # ruby
+          ruby_lsp = {
+            enable = true;
+            # allow project specific installs
+            packageFallback = true;
+          };
           # html
           tailwindcss.enable = true;
         };
