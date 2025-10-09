@@ -63,6 +63,7 @@ delib.module {
         {
           key = "<leader>aa";
           action = "<cmd>! ${homeconfig.xdg.configHome}/kitty/scripts/tab-send.sh aider /add % \n<cr>";
+          mode = ["n"];
           options = {
             desc = "send the current file to the aider kitty tab";
             silent = true;
