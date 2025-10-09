@@ -31,23 +31,58 @@ delib.module {
       enable = true;
 
       settings = {
-        adapters.http = {
-          gemini = {
-            # use 1password to retrieve api key
-            __raw = ''
-              function()
-                return require('codecompanion.adapters').extend('gemini', {
-                  env = {
-                    api_key = "cmd:op read op://personal/google/aistudio-api-key --no-newline"
-                  },
-                })
-              end
-            '';
+        adapters = {
+          http = {
+            gemini = {
+              # use 1password to retrieve api key
+              __raw = ''
+                function()
+                  return require('codecompanion.adapters').extend('gemini', {
+                    env = {
+                      api_key = "cmd:op read op://personal/google/aistudio-api-key --no-newline"
+                    },
+                  })
+                end
+              '';
+            };
+          };
+
+          acp = {
+            claude_code = {
+              # use nix installed acp over npx
+              # see https://github.com/olimorris/codecompanion.nvim/blob/946e18627271e008635d53f96a56af459ebb40da/lua/codecompanion/adapters/acp/claude_code.lua#L19-L23
+              __raw = ''
+                function()
+                  return require("codecompanion.adapters").extend("claude_code", {
+                    commands = {
+                      default = {
+                        "claude-code-acp",
+                      },
+                    },
+                  })
+                end
+              '';
+            };
+            gemini_cli = {
+              # use 1password to retrieve api key
+              __raw = ''
+                function()
+                  return require("codecompanion.adapters").extend("gemini_cli", {
+                    defaults = {
+                      auth_method = "gemini-api-key",
+                    },
+                    env = {
+                      GEMINI_API_KEY = "cmd:op read op://personal/google/aistudio-api-key --no-newline"
+                    },
+                  })
+                end
+              '';
+            };
           };
         };
 
         strategies = {
-          agent = {
+          cmd = {
             adapter = "gemini";
           };
           chat = {
