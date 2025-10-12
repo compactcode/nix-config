@@ -6,6 +6,19 @@ delib.module {
   options = delib.singleEnableOption true;
 
   home.ifEnabled.programs.nixvim = {
+    keymaps = [
+      {
+        key = "<leader>e";
+        action = "<cmd>lua MiniFiles.open()<cr>";
+        options = {desc = "explore files";};
+      }
+      {
+        key = "<leader>E";
+        action = "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<cr>";
+        options = {desc = "explore files";};
+      }
+    ];
+
     plugins.mini = {
       enable = true;
 
@@ -44,6 +57,9 @@ delib.module {
             # place toggles under the ui menu
             option_toggle_prefix = "<leader>u";
           };
+        };
+        files = {
+          windows.preview = true;
         };
         icons = {}; # icon provider
         indentscope = {}; # indent decorations
