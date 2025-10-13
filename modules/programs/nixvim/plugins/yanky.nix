@@ -31,12 +31,15 @@ delib.module {
         mode = ["n" "x"];
         options = {desc = "paste using yanky";};
       }
+      {
+        key = "<leader>p";
+        action = "<cmd>YankyRingHistory<cr>";
+        options = {desc = "paste from history";};
+      }
     ];
 
     plugins.yanky = {
       enable = true;
-      # enable telescope integration
-      enableTelescope = true;
       settings = {
         system_clipboard = {
           # TODO: this keeps spamming clipboard permission requests
