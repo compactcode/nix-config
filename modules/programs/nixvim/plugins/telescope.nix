@@ -59,8 +59,6 @@ delib.module {
         enable = true;
 
         extensions = {
-          # use telescope for the built in picker
-          ui-select.enable = true;
           # performance improvement
           fzf-native.enable = true;
         };
