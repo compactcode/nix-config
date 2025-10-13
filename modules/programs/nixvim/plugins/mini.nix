@@ -17,6 +17,21 @@ delib.module {
         action = "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<cr>";
         options = {desc = "explore files";};
       }
+      {
+        key = "<leader>ff";
+        action = "<cmd>lua MiniExtra.pickers.visit_paths()<cr>";
+        options = {desc = "find commonly edited files";};
+      }
+      {
+        key = "<leader>fo";
+        action = "<cmd>lua MiniExtra.pickers.oldfiles()<cr>";
+        options = {desc = "find last edited files";};
+      }
+      {
+        key = "<leader>fO";
+        action = "<cmd>lua MiniExtra.pickers.oldfiles({current_dir = true})<cr>";
+        options = {desc = "find last edited files";};
+      }
     ];
 
     plugins.mini = {
@@ -58,13 +73,17 @@ delib.module {
             option_toggle_prefix = "<leader>u";
           };
         };
+        extra = {}; # extra finders etc
         files = {
+          # show preview of selected file
           windows.preview = true;
         };
         icons = {}; # icon provider
         indentscope = {}; # indent decorations
+        pick = {}; # finder
         pairs = {}; # auto pairs
         surround = {}; # surround actions
+        visits = {}; # file tracking
       };
 
       # delay loading until the ui is loaded

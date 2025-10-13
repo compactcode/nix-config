@@ -9,19 +9,9 @@ delib.module {
     programs.nixvim = {
       keymaps = [
         {
-          key = "<leader>ff";
-          action = "<cmd>Telescope frecency workspace=CWD<cr>";
-          options = {desc = "find commonly edited files";};
-        }
-        {
           key = "<leader>fm";
           action = "<cmd>Telescope marks<cr>";
           options = {desc = "find marks";};
-        }
-        {
-          key = "<leader>fo";
-          action = "<cmd>Telescope oldfiles<cr>";
-          options = {desc = "find last edited files";};
         }
         {
           key = "<leader>fr";
@@ -69,8 +59,6 @@ delib.module {
         enable = true;
 
         extensions = {
-          # recently edited files
-          frecency.enable = true;
           # use telescope for the built in picker
           ui-select.enable = true;
           # performance improvement
