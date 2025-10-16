@@ -30,6 +30,12 @@ delib.module {
           enable = true;
         };
 
+        # finder
+        picker = {
+          enable = true;
+          ui_select = false;
+        };
+
         # terminal utilities
         terminal = {
           enable = true;

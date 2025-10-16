@@ -23,7 +23,7 @@ delib.module {
         keys = [
           {
             __unkeyed-1 = "<leader>ss";
-            __unkeyed-2 = "<cmd>Telescope aerial<cr>";
+            __unkeyed-2 = "<cmd>lua require('aerial').snacks_picker()<cr>";
             desc = "code symbol search";
           }
           {
