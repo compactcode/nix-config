@@ -8,6 +8,11 @@ delib.module {
   home.ifEnabled.programs.nixvim = {
     keymaps = [
       {
+        key = "<leader>cu";
+        action = "<cmd>lua MiniExtra.pickers.lsp({scope='references'})<cr>";
+        options = {desc = "show lsp references";};
+      }
+      {
         key = "<leader>e";
         action = "<cmd>lua MiniFiles.open()<cr>";
         options = {desc = "explore files";};
@@ -23,14 +28,39 @@ delib.module {
         options = {desc = "find commonly edited files";};
       }
       {
+        key = "<leader>fr";
+        action = "<cmd>lua MiniPick.builtin.resume()<cr>";
+        options = {desc = "resume last search";};
+      }
+      {
         key = "<leader>fo";
         action = "<cmd>lua MiniExtra.pickers.oldfiles()<cr>";
         options = {desc = "find last edited files";};
       }
       {
         key = "<leader>fO";
-        action = "<cmd>lua MiniExtra.pickers.oldfiles({current_dir = true})<cr>";
+        action = "<cmd>lua MiniExtra.pickers.oldfiles({current_dir=true})<cr>";
         options = {desc = "find last edited files";};
+      }
+      {
+        key = "<leader>fs";
+        action = "<cmd>lua MiniPick.builtin.grep_live()<cr>";
+        options = {desc = "search project";};
+      }
+      {
+        key = "<leader>fw";
+        action = "<cmd>lua MiniPick.builtin.grep({pattern=vim.fn.expand('<cword>')})<cr>";
+        options = {desc = "search project for current word";};
+      }
+      {
+        key = "<leader>t";
+        action = "<cmd>lua MiniPick.builtin.files()<cr>";
+        options = {desc = "find files";};
+      }
+      {
+        key = "<leader><space>";
+        action = "<cmd>lua MiniPick.builtin.files()<cr>";
+        options = {desc = "find files";};
       }
     ];
 

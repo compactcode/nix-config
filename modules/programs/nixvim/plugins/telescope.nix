@@ -7,56 +7,8 @@ delib.module {
 
   home.ifEnabled = {
     programs.nixvim = {
-      keymaps = [
-        {
-          key = "<leader>fm";
-          action = "<cmd>Telescope marks<cr>";
-          options = {desc = "find marks";};
-        }
-        {
-          key = "<leader>fr";
-          action = "<cmd>Telescope resume<cr>";
-          options = {desc = "resume last search";};
-        }
-        {
-          key = "<leader>fs";
-          action = "<cmd>Telescope live_grep<cr>";
-          options = {desc = "search project";};
-        }
-        {
-          key = "<leader>fw";
-          action = "<cmd>Telescope grep_string<cr>";
-          options = {desc = "search project for current word";};
-        }
-        {
-          key = "<leader>cd";
-          action = "<cmd>Telescope lsp_definitions<cr>";
-          options = {desc = "goto definition";};
-        }
-        {
-          key = "<leader>cu";
-          action = "<cmd>Telescope lsp_references<cr>";
-          options = {desc = "show lsp referenecs";};
-        }
-        {
-          key = "<leader>t";
-          action = "<cmd>Telescope find_files<cr>";
-          options = {desc = "paste from history";};
-        }
-        {
-          key = "<leader><space>";
-          action = "<cmd>Telescope find_files<cr>";
-          options = {desc = "find files";};
-        }
-      ];
-
       plugins.telescope = {
         enable = true;
-
-        extensions = {
-          # performance improvement
-          fzf-native.enable = true;
-        };
 
         settings = {
           defaults = {
@@ -97,12 +49,6 @@ delib.module {
             };
           };
         };
-
-        # delay loading until requested
-        # TODO: this was causing settings to not be applied
-        # lazyLoad.settings = {
-        #   cmd = "Telescope";
-        # };
       };
     };
   };

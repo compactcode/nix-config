@@ -13,6 +13,11 @@ delib.module {
         options = {desc = "code actions";};
       }
       {
+        key = "<leader>cd";
+        action = "<cmd>lua vim.lsp.buf.definition()<cr>";
+        options = {desc = "goto definition";};
+      }
+      {
         key = "<leader>ch";
         action = "<cmd>lua vim.lsp.buf.hover()<cr>";
         options = {desc = "show info about symbol";};
