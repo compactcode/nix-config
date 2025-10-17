@@ -6,12 +6,16 @@ delib.module {
   options = delib.singleEnableOption true;
 
   home.ifEnabled.programs.nixvim = {
+    # enable colorscheme
+    colorschemes.catppuccin = {
+      settings = {
+        integrations = {
+          mini = true;
+        };
+      };
+    };
+
     keymaps = [
-      {
-        key = "<leader>cu";
-        action = "<cmd>lua MiniExtra.pickers.lsp({scope='references'})<cr>";
-        options = {desc = "show lsp references";};
-      }
       {
         key = "<leader>e";
         action = "<cmd>lua MiniFiles.open()<cr>";
@@ -21,46 +25,6 @@ delib.module {
         key = "<leader>E";
         action = "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<cr>";
         options = {desc = "explore files";};
-      }
-      {
-        key = "<leader>ff";
-        action = "<cmd>lua MiniExtra.pickers.visit_paths()<cr>";
-        options = {desc = "find commonly edited files";};
-      }
-      {
-        key = "<leader>fr";
-        action = "<cmd>lua MiniPick.builtin.resume()<cr>";
-        options = {desc = "resume last search";};
-      }
-      {
-        key = "<leader>fo";
-        action = "<cmd>lua MiniExtra.pickers.oldfiles()<cr>";
-        options = {desc = "find last edited files";};
-      }
-      {
-        key = "<leader>fO";
-        action = "<cmd>lua MiniExtra.pickers.oldfiles({current_dir=true})<cr>";
-        options = {desc = "find last edited files";};
-      }
-      {
-        key = "<leader>fs";
-        action = "<cmd>lua MiniPick.builtin.grep_live()<cr>";
-        options = {desc = "search project";};
-      }
-      {
-        key = "<leader>fw";
-        action = "<cmd>lua MiniPick.builtin.grep({pattern=vim.fn.expand('<cword>')})<cr>";
-        options = {desc = "search project for current word";};
-      }
-      {
-        key = "<leader>t";
-        action = "<cmd>lua MiniPick.builtin.files()<cr>";
-        options = {desc = "find files";};
-      }
-      {
-        key = "<leader><space>";
-        action = "<cmd>lua MiniPick.builtin.files()<cr>";
-        options = {desc = "find files";};
       }
     ];
 
@@ -103,17 +67,14 @@ delib.module {
             option_toggle_prefix = "<leader>u";
           };
         };
-        extra = {}; # extra finders etc
         files = {
           # show preview of selected file
           windows.preview = true;
         };
         icons = {}; # icon provider
         indentscope = {}; # indent decorations
-        pick = {}; # finder
         pairs = {}; # auto pairs
         surround = {}; # surround actions
-        visits = {}; # file tracking
       };
 
       # delay loading until the ui is loaded

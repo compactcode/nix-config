@@ -6,18 +6,50 @@ delib.module {
   options = delib.singleEnableOption false;
 
   home.ifEnabled.programs.nixvim = {
+    # enable colorscheme
+    colorschemes.catppuccin = {
+      settings = {
+        integrations = {
+          snacks = true;
+        };
+      };
+    };
+
     keymaps = [
-      # {
-      #   key = "<leader>t";
-      #   action = "<cmd>lua Snacks.terminal.toggle()<cr>";
-      #   mode = ["n"];
-      #   options = {desc = "open terminal";};
-      # }
       {
-        key = "<C-/>";
-        action = "<cmd>close<cr>";
-        mode = ["t"];
-        options = {desc = "hide terminal";};
+        key = "<leader>cu";
+        action = "<cmd>lua Snacks.picker.lsp_references()<cr>";
+        options = {desc = "show lsp references";};
+      }
+      {
+        key = "<leader>fo";
+        action = "<cmd>lua Snacks.picker.recent()<cr>";
+        options = {desc = "find last edited files";};
+      }
+      {
+        key = "<leader>fr";
+        action = "<cmd>lua Snacks.picker.resume()<cr>";
+        options = {desc = "resume last search";};
+      }
+      {
+        key = "<leader>fs";
+        action = "<cmd>lua Snacks.picker.grep({hidden=true})<cr>";
+        options = {desc = "search project";};
+      }
+      {
+        key = "<leader>fw";
+        action = "<cmd>lua Snacks.picker.grep_word({hidden=true})<cr>";
+        options = {desc = "search project for current word";};
+      }
+      {
+        key = "<leader>t";
+        action = "<cmd>lua Snacks.picker.files({hidden=true})<cr>";
+        options = {desc = "find files";};
+      }
+      {
+        key = "<leader><space>";
+        action = "<cmd>lua Snacks.picker.files({hidden=true})<cr>";
+        options = {desc = "find files";};
       }
     ];
 
@@ -33,12 +65,8 @@ delib.module {
         # finder
         picker = {
           enable = true;
-          ui_select = false;
-        };
-
-        # terminal utilities
-        terminal = {
-          enable = true;
+          # use for system generated selections
+          ui_select = true;
         };
       };
 
