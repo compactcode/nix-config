@@ -46,9 +46,11 @@ delib.module {
       treesitter-refactor = {
         enable = true;
         # rename local variable
-        smartRename = {
-          enable = true;
-          keymaps.smartRename = "<leader>cr";
+        settings = {
+          smart_rename = {
+            enable = true;
+            keymaps.smart_rename = "<leader>cr";
+          };
         };
       };
 
