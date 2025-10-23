@@ -10,6 +10,7 @@ delib.module {
       atuin.enable = true;
       bat.enable = true;
       btop.enable = true;
+      delta.enable = true;
       eza.enable = true;
       fd.enable = true;
       fzf.enable = true;

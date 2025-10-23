@@ -67,7 +67,7 @@ delib.module {
 
       # configure signing
       git = {
-        extraConfig = {
+        settings = {
           commit.gpgsign = true;
           gpg = {
             ssh = {

@@ -8,19 +8,19 @@ delib.module {
   home.ifEnabled = {myconfig, ...}: {
     programs.git = {
       enable = true;
-      extraConfig = {
+      ignores = [
+        "node_modules"
+      ];
+      settings = {
         push = {
           autoSetupRemote = true;
           default = "simple";
         };
+        user = {
+          email = myconfig.users.primary.email;
+          name = myconfig.users.primary.name;
+        };
       };
-      # use delta for nice diff output
-      delta.enable = true;
-      ignores = [
-        "node_modules"
-      ];
-      userName = myconfig.users.primary.name;
-      userEmail = myconfig.users.primary.email;
     };
 
     home = {
