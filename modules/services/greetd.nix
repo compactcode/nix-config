@@ -15,7 +15,7 @@ delib.module {
       enable = true;
       settings = rec {
         initial_session = {
-          command = "${lib.getExe config.programs.uwsm.package} start hyprland-uwsm.desktop";
+          command = "${lib.getExe config.programs.hyprland.package}";
           user = myconfig.users.primary.id;
         };
         # skip first login since boot requires luks password

@@ -10,11 +10,7 @@ delib.module {
     # Ensure electron applications use wayland.
     environment.variables.NIXOS_OZONE_WL = "1";
 
-    programs.hyprland = {
-      enable = true;
-      # use systemd
-      withUWSM = true;
-    };
+    programs.hyprland.enable = true;
   };
 
   home.ifEnabled = {
