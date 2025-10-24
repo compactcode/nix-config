@@ -10,7 +10,7 @@ delib.module {
       enable = true;
       settings = {
         # auto hide after 10 seconds
-        defaultTimeout = 10 * 1000;
+        default-timeout = 10 * 1000;
         # many application icons are ugly & unhelpful
         icons = false;
       };
