@@ -53,6 +53,7 @@ delib.module {
           # focused window actions
           "$mod, w, togglefloating,"
           "$mod, q, killactive,"
+          "$mod+Shift, f, fullscreen,"
 
           # open scratchpad
           "$mod, c, togglespecialworkspace, scratchpad"
