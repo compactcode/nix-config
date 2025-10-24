@@ -1,8 +1,4 @@
-{
-  delib,
-  pkgs,
-  ...
-}:
+{delib, ...}:
 delib.module {
   name = "gtk";
 
@@ -11,16 +7,12 @@ delib.module {
   home.ifEnabled = {
     gtk = {
       enable = true;
-
-      iconTheme = {
-        name = "Adwaita";
-        package = pkgs.adwaita-icon-theme;
-      };
     };
 
     stylix.targets.gtk = {
       enable = true;
-      flatpakSupport.enable = true;
+
+      # flatpakSupport.enable = true;
     };
   };
 }

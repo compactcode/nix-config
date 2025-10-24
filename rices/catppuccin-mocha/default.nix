@@ -39,6 +39,14 @@ delib.rice {
   };
 
   home = {
+    gtk = {
+      # gnome specific icons
+      iconTheme = {
+        name = "Adwaita";
+        package = pkgs.adwaita-icon-theme;
+      };
+    };
+
     programs = {
       # TODO e=EACCES: permission denied, open '/home/shandogs/.config/opencode/config.json'
       # programs.opencode.settings.theme = "catppuccin";
