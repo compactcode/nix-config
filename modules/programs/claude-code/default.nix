@@ -1,4 +1,8 @@
-{delib, ...}:
+{
+  delib,
+  pkgs,
+  ...
+}:
 delib.module {
   # ai assistant
   name = "programs.claude-code";
@@ -6,18 +10,12 @@ delib.module {
   options = delib.singleEnableOption false;
 
   home.ifEnabled = {
+    home.packages = [pkgs.playwright-test];
+
+    home.file.".claude/skills/joke/SKILL.md".source = ./skills/joke/SKILL.md;
+
     programs.claude-code = {
       enable = true;
-
-      # TODO: Pollutes the main context: https://github.com/anthropics/claude-code/issues/6915
-      # mcpServers = {
-      #   playwright = {
-      #     type = "stdio";
-      #     command = "${pkgs.playwright-mcp}/bin/mcp-server-playwright";
-      #     args = [];
-      #     env = {};
-      #   };
-      # };
 
       settings = {
         permissions = {
