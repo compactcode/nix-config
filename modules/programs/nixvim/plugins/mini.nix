@@ -73,6 +73,7 @@ delib.module {
         };
         icons = {}; # icon provider
         indentscope = {}; # indent decorations
+        operators = {}; # text operators (sort etc)
         pairs = {}; # auto pairs
         surround = {}; # surround actions
       };

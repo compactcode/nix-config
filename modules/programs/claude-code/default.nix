@@ -24,6 +24,7 @@ delib.module {
             "Bash(find:*)"
             "Bash(gh pr view:*)"
             "Bash(git diff:*)"
+            "Bash(git mv:*)"
             "Bash(git status:*)"
             "Bash(ls:*)"
             "Bash(rg:*)"
