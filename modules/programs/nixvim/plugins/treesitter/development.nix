@@ -57,25 +57,27 @@ delib.module {
       # language query extensions (used by mini.ai)
       treesitter-textobjects = {
         enable = true;
-        # jump to nodes
-        move = {
-          enable = true;
-          gotoNextEnd = {
-            "]e" = "@external_call";
+        settings = {
+          # jump to nodes
+          move = {
+            enable = true;
+            goto_next_end = {
+              "]e" = "@external_call";
+            };
+            goto_next_start = {
+              "]f" = "@function.outer";
+              "]c" = "@class.outer";
+            };
           };
-          gotoNextStart = {
-            "]f" = "@function.outer";
-            "]c" = "@class.outer";
-          };
-        };
-        # use mini.ai instead
-        select.enable = false;
-        # move nodes
-        swap = {
-          enable = true;
-          swapNext = {
-            "<leader>cea" = "@parameter.inner";
-            "<leader>cef" = "@function.outer";
+          # use mini.ai instead
+          select.enable = false;
+          # move nodes
+          swap = {
+            enable = true;
+            swap_next = {
+              "<leader>cea" = "@parameter.inner";
+              "<leader>cef" = "@function.outer";
+            };
           };
         };
       };
