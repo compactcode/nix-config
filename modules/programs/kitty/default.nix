@@ -31,7 +31,7 @@ delib.module {
         "alt+l" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/tab-open.sh logs";
         "alt+p" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/tab-open.sh processes";
         "alt+s" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/tab-open.sh shell";
-        "alt+a" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/tab-open.sh aider";
+        "alt+a" = "launch --type=overlay ${homeconfig.xdg.configHome}/kitty/scripts/tab-open.sh ai";
       };
 
       settings = {
@@ -62,7 +62,7 @@ delib.module {
         new_tab git
         launch lazygit
 
-        new_tab aider
+        new_tab ai
         launch zsh
       '';
     };
@@ -84,8 +84,8 @@ delib.module {
         new_tab logs
         launch zsh
 
-        new_tab aider
-        launch --hold zsh -c "eval $(direnv export bash) && aider"
+        new_tab ai
+        launch --hold zsh -c "eval $(direnv export bash) && ai"
       '';
     };
 

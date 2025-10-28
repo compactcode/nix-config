@@ -61,15 +61,6 @@ delib.module {
           action = "<C-w>l";
         }
         {
-          key = "<leader>aa";
-          action = "<cmd>! ${homeconfig.xdg.configHome}/kitty/scripts/tab-send.sh aider /add % \n<cr>";
-          mode = ["n"];
-          options = {
-            desc = "send the current file to the aider kitty tab";
-            silent = true;
-          };
-        }
-        {
           key = "<leader>fc";
           action = "<cmd>let @+ = expand('%')<cr>";
           options = {desc = "copy the current path to clipboard";};
