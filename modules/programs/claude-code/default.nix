@@ -21,13 +21,19 @@ delib.module {
         permissions = {
           allow = [
             "Bash(bundle exec rspec:*)"
+            "Bash(fd:*)"
             "Bash(find:*)"
             "Bash(gh pr view:*)"
             "Bash(git diff:*)"
+            "Bash(git log:*)"
             "Bash(git mv:*)"
+            "Bash(git show:*)"
             "Bash(git status:*)"
+            "Bash(grep:*)"
             "Bash(ls:*)"
+            "Bash(mkdir:*)"
             "Bash(rg:*)"
+            "Bash(test:*)"
             "Read(*)"
           ];
           ask = [
