@@ -9,6 +9,7 @@ delib.module {
     editorconfig.enable = true;
     programs = {
       aider.enable = true;
+      atlassian-cli.enable = true;
       claude-code.enable = true;
       devenv.enable = true;
       direnv.enable = true;
