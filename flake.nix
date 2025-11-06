@@ -2,10 +2,6 @@
   description = "A minimal and declarative development environment that is fast, efficient, and keyboard-centric";
 
   inputs = {
-    _1password-shell-plugins = {
-      url = "github:1Password/shell-plugins";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     disko = {
       url = "github:nix-community/disko";

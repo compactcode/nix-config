@@ -1,8 +1,4 @@
-{
-  delib,
-  pkgs,
-  ...
-}:
+{delib, ...}:
 delib.module {
   # github cli
   name = "programs.gh";
@@ -17,11 +13,6 @@ delib.module {
       ghc = "gh pr checks";
     };
 
-    programs = {
-      # use 1password for authentication
-      _1password-shell-plugins.plugins = [pkgs.gh];
-
-      gh.enable = true;
-    };
+    programs.gh.enable = true;
   };
 }

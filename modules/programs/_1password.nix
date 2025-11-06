@@ -53,18 +53,11 @@ delib.module {
     };
   };
 
-  home.always.imports = [inputs._1password-shell-plugins.hmModules.default];
-
   home.ifEnabled = {myconfig, ...}: {
     # allow signing commits with our ssh key
     home.file.".ssh/allowed_signers".text = "* ${myconfig.users.primary.sshkey}";
 
     programs = {
-      # automatic authentication for cli tools
-      _1password-shell-plugins = {
-        enable = true;
-      };
-
       # configure signing
       git = {
         settings = {
