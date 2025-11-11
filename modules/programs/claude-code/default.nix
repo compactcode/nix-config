@@ -42,6 +42,7 @@ delib.module {
             "Bash(rg:*)"
             "Bash(test:*)"
             "Read(*)"
+            "WebFetch(domain:code.claude.com)"
           ];
           ask = [
             "Bash(git push:*)"
