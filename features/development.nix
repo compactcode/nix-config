@@ -8,7 +8,6 @@ delib.module {
   myconfig.ifEnabled = {
     editorconfig.enable = true;
     programs = {
-      aider.enable = true;
       claude-code.enable = true;
       devenv.enable = true;
       direnv.enable = true;
