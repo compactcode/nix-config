@@ -29,7 +29,7 @@ delib.module {
     };
 
     virtualisation.oci-containers.containers.emby = {
-      image = "lscr.io/linuxserver/emby:4.8.8.0-ls210";
+      image = "lscr.io/linuxserver/emby:4.9.1.90-ls260";
       ports = ["8096:8096"];
       volumes = [
         "${myconfig.services.nfs.shares.config.mountPath}/emby:/config"
