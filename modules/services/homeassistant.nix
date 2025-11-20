@@ -24,7 +24,7 @@ delib.module {
     };
 
     virtualisation.oci-containers.containers.homeassistant = {
-      image = "lscr.io/linuxserver/homeassistant:2024.7.2";
+      image = "lscr.io/linuxserver/homeassistant:2025.11.2";
       ports = ["8123:8123"];
       volumes = [
         "${myconfig.services.nfs.shares.config.mountPath}/homeassistant:/config"
