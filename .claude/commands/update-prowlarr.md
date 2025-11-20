@@ -1,10 +1,10 @@
-Search for the latest linuxserver/prowlarr docker image version as of today's date, then update the image version in modules/services/media.nix to the latest version found.
+Fetch the latest linuxserver/prowlarr docker image version directly from https://github.com/linuxserver/docker-prowlarr/releases and update the image version in modules/services/media.nix to the latest stable release.
 
 After updating, provide:
 1. The version change (old → new)
-2. Link to the official Prowlarr releases page: https://github.com/Prowlarr/Prowlarr/releases
-3. Link to the LinuxServer docker-prowlarr releases: https://github.com/linuxserver/docker-prowlarr/releases
+2. Link to the LinuxServer docker-prowlarr releases: https://github.com/linuxserver/docker-prowlarr/releases
+3. Link to the official Prowlarr releases page: https://github.com/Prowlarr/Prowlarr/releases
 4. Summary of major changes and breaking changes from the changelog
 5. Any important migration notes or compatibility concerns
 
-Make sure to check both the upstream Prowlarr releases and the LinuxServer container releases for comprehensive changelog information.
+Use WebFetch to get release information directly from the LinuxServer releases page to determine the latest version tag, then check the upstream Prowlarr releases for changelog details.
