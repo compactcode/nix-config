@@ -46,6 +46,7 @@ delib.module {
             "Bash(test:*)"
             "Read(*)"
             "WebFetch(domain:code.claude.com)"
+            "WebFetch(domain:www.home-assistant.io)"
           ];
           ask = [
             "Bash(git push:*)"
