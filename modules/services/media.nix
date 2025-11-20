@@ -70,7 +70,7 @@ delib.module {
           "/dev/net/tun:/dev/net/tun"
         ];
         environmentFiles = [
-          "/mnt/nas/config/gluetun/secret.env" # not managed by nix
+          "${myconfig.services.nfs.shares.config.mountPath}/gluetun/secret.env"
         ];
         environment = {
           SERVER_COUNTRIES = "Australia";
@@ -101,7 +101,7 @@ delib.module {
         ];
         image = "lscr.io/linuxserver/prowlarr:1.20.1.4603-ls78";
         volumes = [
-          "/mnt/nas/config/prowlarr:/config"
+          "${myconfig.services.nfs.shares.config.mountPath}/prowlarr:/config"
         ];
       };
 
@@ -121,8 +121,8 @@ delib.module {
         ];
         image = "lscr.io/linuxserver/radarr:5.7.0.8882-ls229";
         volumes = [
-          "/mnt/nas/config/radarr:/config"
-          "/mnt/nas/media:/data"
+          "${myconfig.services.nfs.shares.config.mountPath}/radarr:/config"
+          "${myconfig.services.nfs.shares.media.mountPath}:/data"
         ];
       };
 
@@ -142,8 +142,8 @@ delib.module {
         ];
         image = "lscr.io/linuxserver/sonarr:4.0.8.1874-ls248";
         volumes = [
-          "/mnt/nas/config/sonarr:/config"
-          "/mnt/nas/media:/data"
+          "${myconfig.services.nfs.shares.config.mountPath}/sonarr:/config"
+          "${myconfig.services.nfs.shares.media.mountPath}:/data"
         ];
       };
 
@@ -160,8 +160,8 @@ delib.module {
         ];
         image = "lscr.io/linuxserver/transmission:4.0.6-r0-ls246";
         volumes = [
-          "/mnt/nas/config/transmission:/config"
-          "/mnt/nas/media:/data"
+          "${myconfig.services.nfs.shares.config.mountPath}/transmission:/config"
+          "${myconfig.services.nfs.shares.media.mountPath}:/data"
         ];
       };
     };
