@@ -16,24 +16,50 @@ delib.module {
     # ensure containers start after nfs mount
     systemd.services = {
       podman-gluetun = {
-        after = ["mnt-nas-config.mount"];
-        requires = ["mnt-nas-config.mount"];
+        after = [
+          myconfig.services.nfs.shares.config.mountUnit
+        ];
+        requires = [
+          myconfig.services.nfs.shares.config.mountUnit
+        ];
       };
       podman-prowlarr = {
-        after = ["mnt-nas-config.mount"];
-        requires = ["mnt-nas-config.mount"];
+        after = [
+          myconfig.services.nfs.shares.config.mountUnit
+        ];
+        requires = [
+          myconfig.services.nfs.shares.config.mountUnit
+        ];
       };
       podman-radarr = {
-        after = ["mnt-nas-config.mount" "mnt-nas-media.mount"];
-        requires = ["mnt-nas-config.mount" "mnt-nas-media.mount"];
+        after = [
+          myconfig.services.nfs.shares.config.mountUnit
+          myconfig.services.nfs.shares.media.mountUnit
+        ];
+        requires = [
+          myconfig.services.nfs.shares.config.mountUnit
+          myconfig.services.nfs.shares.media.mountUnit
+        ];
       };
       podman-sonarr = {
-        after = ["mnt-nas-config.mount" "mnt-nas-media.mount"];
-        requires = ["mnt-nas-config.mount" "mnt-nas-media.mount"];
+        after = [
+          myconfig.services.nfs.shares.config.mountUnit
+          myconfig.services.nfs.shares.media.mountUnit
+        ];
+        requires = [
+          myconfig.services.nfs.shares.config.mountUnit
+          myconfig.services.nfs.shares.media.mountUnit
+        ];
       };
       podman-transmission = {
-        after = ["mnt-nas-config.mount" "mnt-nas-media.mount"];
-        requires = ["mnt-nas-config.mount" "mnt-nas-media.mount"];
+        after = [
+          myconfig.services.nfs.shares.config.mountUnit
+          myconfig.services.nfs.shares.media.mountUnit
+        ];
+        requires = [
+          myconfig.services.nfs.shares.config.mountUnit
+          myconfig.services.nfs.shares.media.mountUnit
+        ];
       };
     };
 
