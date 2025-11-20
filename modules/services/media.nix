@@ -79,7 +79,7 @@ delib.module {
         extraOptions = [
           "--cap-add=NET_ADMIN"
         ];
-        image = "ghcr.io/qdm12/gluetun:v3.38.0";
+        image = "ghcr.io/qdm12/gluetun:v3.40.3";
         ports = [
           "7878:7878" # radarr
           "8989:8989" # sonarr
