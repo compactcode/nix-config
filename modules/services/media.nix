@@ -140,7 +140,7 @@ delib.module {
         extraOptions = [
           "--network=container:gluetun"
         ];
-        image = "lscr.io/linuxserver/sonarr:4.0.8.1874-ls248";
+        image = "lscr.io/linuxserver/sonarr:4.0.16.2944-ls297";
         volumes = [
           "${myconfig.services.nfs.shares.config.mountPath}/sonarr:/config"
           "${myconfig.services.nfs.shares.media.mountPath}:/data"
