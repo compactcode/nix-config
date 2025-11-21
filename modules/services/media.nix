@@ -93,8 +93,8 @@ delib.module {
           "gluetun"
         ];
         environment = {
-          PUID = "1000";
-          PGID = "1000";
+          PUID = myconfig.services.nfs.puid;
+          PGID = myconfig.services.nfs.pgid;
         };
         extraOptions = [
           "--network=container:gluetun"
@@ -112,8 +112,8 @@ delib.module {
           "transmission"
         ];
         environment = {
-          PUID = "1000";
-          PGID = "1000";
+          PUID = myconfig.services.nfs.puid;
+          PGID = myconfig.services.nfs.pgid;
           TZ = myconfig.locale.timeZone;
         };
         extraOptions = [
@@ -134,8 +134,8 @@ delib.module {
         ];
         environment = {
           TZ = myconfig.locale.timeZone;
-          PUID = "1000";
-          PGID = "1000";
+          PUID = myconfig.services.nfs.puid;
+          PGID = myconfig.services.nfs.pgid;
         };
         extraOptions = [
           "--network=container:gluetun"
@@ -152,8 +152,8 @@ delib.module {
           "gluetun"
         ];
         environment = {
-          PUID = "1000";
-          PGID = "1000";
+          PUID = myconfig.services.nfs.puid;
+          PGID = myconfig.services.nfs.pgid;
         };
         extraOptions = [
           "--network=container:gluetun"

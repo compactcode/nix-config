@@ -35,6 +35,8 @@ delib.module {
       };
     };
     serverHost = strOption "192.168.1.200";
+    puid = strOption "568"; # app user
+    pgid = strOption "568"; # app group
   };
 
   nixos.ifEnabled = {cfg, ...}: {

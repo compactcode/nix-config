@@ -30,8 +30,8 @@ delib.module {
         "${myconfig.services.nfs.shares.config.mountPath}/homeassistant:/config"
       ];
       environment = {
-        PUID = "1000";
-        PGID = "1000";
+        PUID = myconfig.services.nfs.puid;
+        PGID = myconfig.services.nfs.pgid;
         TZ = myconfig.locale.timeZone;
       };
       extraOptions = [
