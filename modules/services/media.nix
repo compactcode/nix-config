@@ -48,9 +48,9 @@ delib.module {
     virtualisation.oci-containers.containers = {
       gluetun = {
         autoStart = true;
-        capabilities = [
-          "NET_ADMIN" # allow network creation
-        ];
+        capabilities = {
+          NET_ADMIN = true; # allow network creation
+        };
         devices = [
           "/dev/net/tun:/dev/net/tun"
         ];
