@@ -66,7 +66,9 @@ delib.module {
     virtualisation.oci-containers.containers = {
       gluetun = {
         autoStart = true;
-        # allow network creation
+        capabilities = [
+          "NET_ADMIN" # allow network creation
+        ];
         devices = [
           "/dev/net/tun:/dev/net/tun"
         ];
@@ -79,10 +81,6 @@ delib.module {
           TZ = myconfig.locale.timeZone;
           SERVER_COUNTRIES = "Australia";
         };
-        # allow network creation
-        extraOptions = [
-          "--cap-add=NET_ADMIN"
-        ];
         image = "ghcr.io/qdm12/gluetun:v3.40.3";
         ports = [
           "7878:7878" # radarr
