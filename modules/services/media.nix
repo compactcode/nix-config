@@ -65,6 +65,7 @@ delib.module {
 
     virtualisation.oci-containers.containers = {
       gluetun = {
+        autoStart = true;
         # allow network creation
         devices = [
           "/dev/net/tun:/dev/net/tun"
@@ -89,6 +90,7 @@ delib.module {
       };
 
       prowlarr = {
+        autoStart = true;
         dependsOn = [
           "gluetun"
         ];
@@ -106,6 +108,7 @@ delib.module {
       };
 
       radarr = {
+        autoStart = true;
         dependsOn = [
           "gluetun"
           "prowlarr"
@@ -127,6 +130,7 @@ delib.module {
       };
 
       sonarr = {
+        autoStart = true;
         dependsOn = [
           "gluetun"
           "prowlarr"
@@ -148,6 +152,7 @@ delib.module {
       };
 
       transmission = {
+        autoStart = true;
         dependsOn = [
           "gluetun"
         ];
