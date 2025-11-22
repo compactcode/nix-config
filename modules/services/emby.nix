@@ -40,9 +40,8 @@ delib.module {
         PGID = myconfig.services.nfs.pgid;
         TZ = myconfig.locale.timeZone;
       };
-      extraOptions = [
-        # pass through hardware acceleration
-        "--device=/dev/dri:/dev/dri"
+      devices = [
+        "/dev/dri:/dev/dri" # pass through hardware acceleration
       ];
     };
   };
