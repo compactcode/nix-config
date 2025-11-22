@@ -74,6 +74,9 @@ delib.module {
           "${myconfig.services.nfs.shares.config.mountPath}/gluetun/secret.env"
         ];
         environment = {
+          PUID = myconfig.services.nfs.puid;
+          PGID = myconfig.services.nfs.pgid;
+          TZ = myconfig.locale.timeZone;
           SERVER_COUNTRIES = "Australia";
         };
         # allow network creation
@@ -97,6 +100,7 @@ delib.module {
         environment = {
           PUID = myconfig.services.nfs.puid;
           PGID = myconfig.services.nfs.pgid;
+          TZ = myconfig.locale.timeZone;
         };
         extraOptions = [
           "--network=container:gluetun"
@@ -159,6 +163,7 @@ delib.module {
         environment = {
           PUID = myconfig.services.nfs.puid;
           PGID = myconfig.services.nfs.pgid;
+          TZ = myconfig.locale.timeZone;
         };
         extraOptions = [
           "--network=container:gluetun"
