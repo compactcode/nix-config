@@ -79,7 +79,6 @@ delib.module {
           PUID = myconfig.services.nfs.puid;
           PGID = myconfig.services.nfs.pgid;
           TZ = myconfig.locale.timeZone;
-          SERVER_COUNTRIES = "Australia";
         };
         image = "ghcr.io/qdm12/gluetun:v3.40.3";
         ports = [
