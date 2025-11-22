@@ -7,7 +7,7 @@ delib.module {
   # container manager
   name = "programs.podman";
 
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled = {
     home.packages = with pkgs; [
@@ -19,11 +19,14 @@ delib.module {
     virtualisation = {
       podman = {
         enable = true;
+        # remove unused containers
+        autoPrune.enable = true;
         # replace the docker socket
         dockerSocket.enable = true;
         # replace the docker command
         dockerCompat = true;
       };
+
       # use for running oci-containers
       oci-containers.backend = "podman";
     };
