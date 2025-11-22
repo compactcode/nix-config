@@ -22,10 +22,6 @@ delib.module {
         myconfig.services.nfs.shares.config.mountUnit
         myconfig.services.nfs.shares.media.mountUnit
       ];
-      requires = [
-        myconfig.services.nfs.shares.config.mountUnit
-        myconfig.services.nfs.shares.media.mountUnit
-      ];
     };
 
     virtualisation.oci-containers.containers.emby = {

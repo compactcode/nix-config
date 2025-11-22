@@ -19,24 +19,14 @@ delib.module {
         after = [
           myconfig.services.nfs.shares.config.mountUnit
         ];
-        requires = [
-          myconfig.services.nfs.shares.config.mountUnit
-        ];
       };
       podman-prowlarr = {
         after = [
           myconfig.services.nfs.shares.config.mountUnit
         ];
-        requires = [
-          myconfig.services.nfs.shares.config.mountUnit
-        ];
       };
       podman-radarr = {
         after = [
-          myconfig.services.nfs.shares.config.mountUnit
-          myconfig.services.nfs.shares.media.mountUnit
-        ];
-        requires = [
           myconfig.services.nfs.shares.config.mountUnit
           myconfig.services.nfs.shares.media.mountUnit
         ];
@@ -46,17 +36,9 @@ delib.module {
           myconfig.services.nfs.shares.config.mountUnit
           myconfig.services.nfs.shares.media.mountUnit
         ];
-        requires = [
-          myconfig.services.nfs.shares.config.mountUnit
-          myconfig.services.nfs.shares.media.mountUnit
-        ];
       };
       podman-transmission = {
         after = [
-          myconfig.services.nfs.shares.config.mountUnit
-          myconfig.services.nfs.shares.media.mountUnit
-        ];
-        requires = [
           myconfig.services.nfs.shares.config.mountUnit
           myconfig.services.nfs.shares.media.mountUnit
         ];

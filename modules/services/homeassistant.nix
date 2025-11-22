@@ -18,9 +18,6 @@ delib.module {
       after = [
         myconfig.services.nfs.shares.config.mountUnit
       ];
-      requires = [
-        myconfig.services.nfs.shares.config.mountUnit
-      ];
     };
 
     virtualisation.oci-containers.containers.homeassistant = {
