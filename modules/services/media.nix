@@ -4,7 +4,7 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
-  nixos.ifEnabled = {myconfig, ...}: {
+  nixos.ifEnabled = {config, myconfig, ...}: {
     networking.firewall.allowedTCPPorts = [
       7878
       8096
@@ -15,29 +15,29 @@ delib.module {
 
     # ensure containers start after nfs mount
     systemd.services = {
-      podman-gluetun = {
+      "${config.virtualisation.oci-containers.backend}-gluetun" = {
         after = [
           myconfig.services.nfs.shares.config.mountUnit
         ];
       };
-      podman-prowlarr = {
+      "${config.virtualisation.oci-containers.backend}-prowlarr" = {
         after = [
           myconfig.services.nfs.shares.config.mountUnit
         ];
       };
-      podman-radarr = {
-        after = [
-          myconfig.services.nfs.shares.config.mountUnit
-          myconfig.services.nfs.shares.media.mountUnit
-        ];
-      };
-      podman-sonarr = {
+      "${config.virtualisation.oci-containers.backend}-radarr" = {
         after = [
           myconfig.services.nfs.shares.config.mountUnit
           myconfig.services.nfs.shares.media.mountUnit
         ];
       };
-      podman-transmission = {
+      "${config.virtualisation.oci-containers.backend}-sonarr" = {
+        after = [
+          myconfig.services.nfs.shares.config.mountUnit
+          myconfig.services.nfs.shares.media.mountUnit
+        ];
+      };
+      "${config.virtualisation.oci-containers.backend}-transmission" = {
         after = [
           myconfig.services.nfs.shares.config.mountUnit
           myconfig.services.nfs.shares.media.mountUnit

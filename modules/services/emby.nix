@@ -12,12 +12,12 @@ delib.module {
     };
   };
 
-  nixos.ifEnabled = {myconfig, ...}: {
+  nixos.ifEnabled = {config, myconfig, ...}: {
     # open firewall
     networking.firewall.allowedTCPPorts = [8096];
 
     # start after nfs mounts are available
-    systemd.services.podman-emby = {
+    systemd.services."${config.virtualisation.oci-containers.backend}-emby" = {
       after = [
         myconfig.services.nfs.shares.config.mountUnit
         myconfig.services.nfs.shares.media.mountUnit

@@ -9,12 +9,12 @@ delib.module {
     services.nfs.shares.config.enable = true;
   };
 
-  nixos.ifEnabled = {myconfig, ...}: {
+  nixos.ifEnabled = {config, myconfig, ...}: {
     # open firewall
     networking.firewall.allowedTCPPorts = [8123];
 
     # ensure container starts after nfs mount
-    systemd.services.podman-homeassistant = {
+    systemd.services."${config.virtualisation.oci-containers.backend}-homeassistant" = {
       after = [
         myconfig.services.nfs.shares.config.mountUnit
       ];

@@ -6,7 +6,7 @@ delib.module {
   options = delib.singleEnableOption false;
 
   nixos.ifEnabled = {myconfig, ...}: {
-    users.${myconfig.users.primary.id}.extraGroups = [
+    users.users.${myconfig.users.primary.id}.extraGroups = [
       "docker" # allow docker control
     ];
 
