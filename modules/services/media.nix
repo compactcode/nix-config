@@ -62,11 +62,15 @@ delib.module {
           "${myconfig.services.nfs.shares.config.mountPath}/gluetun/secret.env"
         ];
         environment = {
+          UPDATER_PERIOD = "24h"; # refresh vpn server ips
           PUID = myconfig.services.nfs.puid;
           PGID = myconfig.services.nfs.pgid;
           TZ = myconfig.locale.timeZone;
         };
         image = "ghcr.io/qdm12/gluetun:v3.40.3";
+        volumes = [
+          "${myconfig.services.nfs.shares.config.mountPath}/gluetun:/gluetun"
+        ];
         ports = [
           "7878:7878" # radarr
           "8989:8989" # sonarr
