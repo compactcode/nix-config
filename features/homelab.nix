@@ -7,6 +7,7 @@ delib.module {
   myconfig.ifEnabled = {
     programs.podman.enable = true;
     services = {
+      emby.enable = true;
       homeassistant.enable = true;
       media.enable = true;
       nfs = {
