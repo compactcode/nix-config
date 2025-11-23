@@ -1,4 +1,8 @@
-{delib, ...}:
+{
+  delib,
+  config,
+  ...
+}:
 delib.module {
   name = "services.homeassistant";
 
@@ -9,7 +13,7 @@ delib.module {
     services.nfs.shares.config.enable = true;
   };
 
-  nixos.ifEnabled = {config, myconfig, ...}: {
+  nixos.ifEnabled = {myconfig, ...}: {
     # open firewall
     networking.firewall.allowedTCPPorts = [8123];
 

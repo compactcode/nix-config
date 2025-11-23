@@ -1,4 +1,8 @@
-{delib, ...}:
+{
+  delib,
+  config,
+  ...
+}:
 delib.module {
   name = "services.emby";
 
@@ -12,7 +16,7 @@ delib.module {
     };
   };
 
-  nixos.ifEnabled = {config, myconfig, ...}: {
+  nixos.ifEnabled = {myconfig, ...}: {
     # open firewall
     networking.firewall.allowedTCPPorts = [8096];
 

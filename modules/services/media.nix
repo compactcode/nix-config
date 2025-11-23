@@ -1,10 +1,14 @@
-{delib, ...}:
+{
+  delib,
+  config,
+  ...
+}:
 delib.module {
   name = "services.media";
 
   options = delib.singleEnableOption false;
 
-  nixos.ifEnabled = {config, myconfig, ...}: {
+  nixos.ifEnabled = {myconfig, ...}: {
     networking.firewall.allowedTCPPorts = [
       7878
       8096
