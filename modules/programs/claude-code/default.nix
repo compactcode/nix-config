@@ -1,5 +1,6 @@
 {
   delib,
+  inputs,
   pkgs,
   ...
 }:
@@ -10,12 +11,12 @@ delib.module {
   options = delib.singleEnableOption false;
 
   home.ifEnabled = {
-    home.packages = [pkgs.playwright-test];
-
     home.file.".claude/skills/joke/SKILL.md".source = ./skills/joke/SKILL.md;
 
     programs.claude-code = {
       enable = true;
+
+      package = inputs.nix-ai-tools.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
 
       settings = {
         permissions = {

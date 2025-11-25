@@ -1,7 +1,6 @@
 {
   delib,
   lib,
-  inputs,
   pkgs,
   ...
 }:

@@ -2,6 +2,7 @@
   description = "A minimal and declarative development environment that is fast, efficient, and keyboard-centric";
 
   inputs = {
+    nix-ai-tools.url = "github:numtide/nix-ai-tools";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     disko = {
       url = "github:nix-community/disko";
