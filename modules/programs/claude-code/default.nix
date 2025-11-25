@@ -30,6 +30,8 @@ delib.module {
             "Bash(gh pr diff:*)"
             "Bash(gh pr list:*)"
             "Bash(gh pr view:*)"
+            "Bash(gh run list:*)"
+            "Bash(gh run view:*)"
             "Bash(git config get user.name:*)"
             "Bash(git config user.name:*)"
             "Bash(git diff:*)"
