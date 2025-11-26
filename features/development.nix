@@ -13,6 +13,7 @@ delib.module {
       direnv.enable = true;
       gemini-cli.enable = true;
       gh.enable = true;
+      jujutsu.enable = true;
       nixvim.plugins = {
         aerial.enable = true;
         blink.enable = true;
