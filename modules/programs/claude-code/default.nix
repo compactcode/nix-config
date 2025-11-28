@@ -25,6 +25,7 @@ delib.module {
             "Bash(bundle exec rubocop:*)"
             "Bash(bundle list:*)"
             "Bash(bundle show:*)"
+            "Bash(cat:*)"
             "Bash(fd:*)"
             "Bash(find:*)"
             "Bash(gh pr checks:*)"
@@ -49,7 +50,9 @@ delib.module {
             "Bash(test:*)"
             "Read(*)"
             "WebFetch(domain:code.claude.com)"
+            "WebFetch(domain:github.com)"
             "WebFetch(domain:www.home-assistant.io)"
+            "WebSearch(*)"
           ];
           ask = [
             "Bash(git push:*)"
