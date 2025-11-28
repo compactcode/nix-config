@@ -13,6 +13,8 @@ delib.module {
           email = myconfig.users.primary.email;
           name = myconfig.users.primary.name;
         };
+        # defalt command when using jj
+        ui.default-command = "log";
       };
     };
   };
