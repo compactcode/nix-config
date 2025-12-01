@@ -50,12 +50,10 @@ delib.rice {
     programs = {
       # TODO e=EACCES: permission denied, open '/home/shandogs/.config/opencode/config.json'
       # programs.opencode.settings.theme = "catppuccin";
-      nixvim = {
-        colorschemes.catppuccin = {
-          enable = true;
-          settings = {
-            flavour = "mocha";
-          };
+      nixvim.colorschemes.catppuccin = {
+        enable = true;
+        settings = {
+          flavour = "mocha";
         };
       };
     };
