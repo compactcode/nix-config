@@ -51,6 +51,7 @@ delib.module {
             "Read(*)"
             "WebFetch(domain:code.claude.com)"
             "WebFetch(domain:github.com)"
+            "WebFetch(domain:www.anthropic.com)"
             "WebFetch(domain:www.home-assistant.io)"
             "WebSearch(*)"
           ];
@@ -58,6 +59,13 @@ delib.module {
             "Bash(git push:*)"
           ];
           defaultMode = "plan";
+        };
+
+        mcpServers = {
+          playwright = {
+            command = "${pkgs.playwright-mcp}/bin/mcp-server-playwright";
+            type = "stdio";
+          };
         };
       };
     };
