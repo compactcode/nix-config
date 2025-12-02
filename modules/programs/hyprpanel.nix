@@ -5,6 +5,11 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
+  myconfig.ifEnabled = {
+    # needed for battery status
+    services.upower.enable = true;
+  };
+
   home.ifEnabled = {
     programs.hyprpanel = {
       enable = true;
