@@ -18,6 +18,20 @@ delib.module {
 
       package = inputs.nix-ai-tools.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
 
+      mcpServers = {
+        playwright = {
+          command = "${pkgs.playwright-mcp}/bin/mcp-server-playwright";
+          type = "stdio";
+          args = [
+            "--isolated" # run in memory to avoid nix store permission errors
+            "--browser"
+            "chrome"
+            "--executable-path"
+            "${pkgs.chromium}/bin/chromium"
+          ];
+        };
+      };
+
       settings = {
         permissions = {
           allow = [
@@ -26,8 +40,6 @@ delib.module {
             "Bash(bundle list:*)"
             "Bash(bundle show:*)"
             "Bash(cat:*)"
-            "Bash(jq:*)"
-            "Bash(stat:*)"
             "Bash(fd:*)"
             "Bash(find:*)"
             "Bash(gh pr checks:*)"
@@ -46,11 +58,14 @@ delib.module {
             "Bash(git status:*)"
             "Bash(grep:*)"
             "Bash(head:*)"
+            "Bash(jq:*)"
             "Bash(ls:*)"
             "Bash(mkdir:*)"
+            "Bash(readlink:*)"
             "Bash(rg:*)"
             "Bash(rspec:*)"
             "Bash(sort:*)"
+            "Bash(stat:*)"
             "Bash(tail:*)"
             "Bash(test:*)"
             "Read(*)"
@@ -64,13 +79,6 @@ delib.module {
             "Bash(git push:*)"
           ];
           defaultMode = "plan";
-        };
-
-        mcpServers = {
-          playwright = {
-            command = "${pkgs.playwright-mcp}/bin/mcp-server-playwright";
-            type = "stdio";
-          };
         };
       };
     };
