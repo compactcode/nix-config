@@ -10,7 +10,7 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
-  home.ifEnabled = {
+  home.ifEnabled = {myconfig, ...}: {
     home.file.".claude/skills/joke/SKILL.md".source = ./skills/joke/SKILL.md;
 
     programs.claude-code = {
@@ -22,13 +22,18 @@ delib.module {
         playwright = {
           command = "${pkgs.playwright-mcp}/bin/mcp-server-playwright";
           type = "stdio";
-          args = [
-            "--isolated" # run in memory to avoid nix store permission errors
-            "--browser"
-            "chrome"
-            "--executable-path"
-            "${pkgs.chromium}/bin/chromium"
-          ];
+          args =
+            [
+              "--isolated" # avoid nix store permission errors
+            ]
+            ++ (
+              if myconfig.programs.chromium.enable # pkgs.chromium not available on darwin
+              then [
+                "--executable-path"
+                "${pkgs.chromium}/bin/chromium"
+              ]
+              else []
+            );
         };
       };
 

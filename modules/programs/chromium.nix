@@ -5,7 +5,15 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
-  home.ifEnabled = {
+  darwin.ifEnabled = {
+    homebrew = {
+      casks = [
+        "chromium"
+      ];
+    };
+  };
+
+  nixos.ifEnabled = {
     programs = {
       chromium = {
         enable = true;
@@ -15,9 +23,7 @@ delib.module {
         ];
       };
     };
-  };
 
-  nixos.ifEnabled = {
     stylix.targets.chromium.enable = true;
   };
 }

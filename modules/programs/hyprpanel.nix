@@ -5,6 +5,7 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
+  # dependencies
   myconfig.ifEnabled = {
     # needed for battery status
     services.upower.enable = true;
