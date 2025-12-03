@@ -18,8 +18,13 @@ delib.module {
       settings = {
         bar.layouts = {
           "*" = {
-            left = ["dashboard" "workspaces" "windowtitle"];
-            middle = ["clock"];
+            left = [
+              "dashboard"
+              "workspaces"
+            ];
+            middle = [
+              "clock"
+            ];
             right = [
               "cputemp"
               "network"
@@ -32,13 +37,28 @@ delib.module {
           };
         };
 
-        menus.clock = {
-          time = {
-            hideSeconds = true;
+        menus = {
+          clock = {
+            time = {
+              hideSeconds = true;
+            };
+
+            # not used
+            weather.enabled = false;
           };
-          weather.enabled = false;
+
+          dashboard = {
+            # not used
+            directories.enabled = false;
+            # not used
+            shortcuts.enabled = false;
+          };
         };
 
+        # not used
+        wallpaper.enable = false;
+
+        # the default was too large (on 1080p at least)
         theme.font.size = "1.0rem";
       };
     };
