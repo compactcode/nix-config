@@ -16,24 +16,28 @@ delib.module {
       enable = true;
 
       settings = {
-        bar.layouts = {
-          "*" = {
-            left = [
-              "dashboard"
-              "workspaces"
-            ];
-            middle = [
-              "clock"
-            ];
-            right = [
-              "cputemp"
-              "network"
-              "volume"
-              "battery"
-              "bluetooth"
-              "notifications"
-              "systray"
-            ];
+        bar = {
+          clock.format = "%a %b %d  %I:%M %p";
+
+          layouts = {
+            "*" = {
+              left = [
+                "dashboard"
+                "workspaces"
+              ];
+              middle = [
+                "clock"
+              ];
+              right = [
+                "cputemp"
+                "network"
+                "volume"
+                "battery"
+                "bluetooth"
+                "notifications"
+                "systray"
+              ];
+            };
           };
         };
 
