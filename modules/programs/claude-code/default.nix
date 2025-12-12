@@ -20,20 +20,12 @@ delib.module {
 
       mcpServers = {
         playwright = {
-          command = "${pkgs.playwright-mcp}/bin/mcp-server-playwright";
+          command = "npx";
           type = "stdio";
-          args =
-            [
-              "--isolated" # avoid nix store permission errors
-            ]
-            ++ (
-              if myconfig.programs.chromium.enable # pkgs.chromium not available on darwin
-              then [
-                "--executable-path"
-                "${pkgs.chromium}/bin/chromium"
-              ]
-              else []
-            );
+          args = [
+            "-y"
+            "@playwright/mcp@0.0.51"
+          ];
         };
       };
 
