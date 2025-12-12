@@ -10,7 +10,7 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
-  home.ifEnabled = {myconfig, ...}: {
+  home.ifEnabled = {
     home.file.".claude/skills/joke/SKILL.md".source = ./skills/joke/SKILL.md;
 
     programs.claude-code = {
@@ -45,6 +45,7 @@ delib.module {
             "Bash(gh pr view:*)"
             "Bash(gh run list:*)"
             "Bash(gh run view:*)"
+            "Bash(git checkout:*)"
             "Bash(git config get user.name:*)"
             "Bash(git config user.name:*)"
             "Bash(git diff:*)"
