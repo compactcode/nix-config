@@ -28,7 +28,7 @@ delib.module {
       # general purpose linting
       efmls-configs = {
         enable = true;
-        setup = {
+        languages = {
           json = {
             linter = "jq";
           };
