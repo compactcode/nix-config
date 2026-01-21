@@ -3,7 +3,7 @@
 # Motherboard: Apple Macbook Pro 14" 2024
 {delib, ...}:
 delib.host {
-  name = "alchemist";
+  name = "shanon-Mac";
 
   rice = "catppuccin-mocha";
   system = "aarch64-darwin";
