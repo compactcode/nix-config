@@ -42,18 +42,6 @@ delib.module {
         ];
       };
 
-      # language based rename
-      treesitter-refactor = {
-        enable = true;
-        # rename local variable
-        settings = {
-          smart_rename = {
-            enable = true;
-            keymaps.smart_rename = "<leader>cr";
-          };
-        };
-      };
-
       # language query extensions (used by mini.ai)
       treesitter-textobjects = {
         enable = true;

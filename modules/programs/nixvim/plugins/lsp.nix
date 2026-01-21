@@ -22,6 +22,11 @@ delib.module {
         action = "<cmd>lua vim.lsp.buf.hover()<cr>";
         options = {desc = "show info about symbol";};
       }
+      {
+        key = "<leader>cr";
+        action = "<cmd>lua vim.lsp.buf.rename()<cr>";
+        options = {desc = "rename symbol";};
+      }
     ];
 
     plugins = {
