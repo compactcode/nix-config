@@ -16,7 +16,7 @@ delib.module {
     programs.claude-code = {
       enable = true;
 
-      package = inputs.nix-ai-tools.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
+      package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
 
       mcpServers = {
         playwright = {
