@@ -21,17 +21,6 @@ delib.module {
 
       package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
 
-      mcpServers = {
-        playwright = {
-          command = "npx";
-          type = "stdio";
-          args = [
-            "-y"
-            "@playwright/mcp@0.0.51"
-          ];
-        };
-      };
-
       settings = {
         permissions = {
           allow = [
