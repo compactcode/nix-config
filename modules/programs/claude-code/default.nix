@@ -10,8 +10,11 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
-  home.ifEnabled = {
+  home.ifEnabled = let
+    agent-browser = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.agent-browser;
+  in {
     home.file.".claude/skills/joke/SKILL.md".source = ./skills/joke/SKILL.md;
+    home.file.".claude/skills/agent-browser".source = "${agent-browser}/etc/agent-browser/skills/agent-browser";
 
     programs.claude-code = {
       enable = true;
