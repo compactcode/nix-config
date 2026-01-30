@@ -13,13 +13,19 @@ delib.module {
   home.ifEnabled = let
     agent-browser = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.agent-browser;
   in {
-    home.file.".claude/skills/joke/SKILL.md".source = ./skills/joke/SKILL.md;
     home.file.".claude/skills/agent-browser".source = "${agent-browser}/etc/agent-browser/skills/agent-browser";
 
     programs.claude-code = {
       enable = true;
 
       package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
+
+      mcpServers = {
+        atlassian = {
+          type = "sse";
+          url = "https://mcp.atlassian.com/v1/sse";
+        };
+      };
 
       settings = {
         permissions = {
