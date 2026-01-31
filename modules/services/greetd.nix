@@ -15,7 +15,7 @@ delib.module {
       enable = true;
       settings = rec {
         initial_session = {
-          command = "${lib.getExe config.programs.hyprland.package}";
+          command = "${lib.getExe' config.programs.hyprland.package "start-hyprland"}";
           user = myconfig.users.primary.id;
         };
         # skip first login since boot requires luks password

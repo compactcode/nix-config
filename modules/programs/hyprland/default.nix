@@ -96,10 +96,10 @@ delib.module {
           disable_splash_rendering = true;
         };
 
-        windowrulev2 = [
+        windowrule = [
           # auto assign apps to workspaces
-          "workspace 5, class:^(Slack)$"
-          "workspace 9, class:^(steam)$"
+          "match:class ^(Slack)$, workspace 5"
+          "match:class ^(steam)$, workspace 9"
         ];
 
         workspace = [
