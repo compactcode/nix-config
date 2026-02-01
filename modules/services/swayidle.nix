@@ -25,18 +25,12 @@ delib.module {
     services = {
       swayidle = {
         enable = true;
-        events = [
-          {
-            # hook into loginctl lock-session
-            event = "lock";
-            command = cfg.lockCommand;
-          }
-          {
-            # hook into systemctl suspend
-            event = "before-sleep";
-            command = cfg.lockCommand;
-          }
-        ];
+        events = {
+          # hook into loginctl lock-session
+          lock = cfg.lockCommand;
+          # hook into systemctl suspend
+          before-sleep = cfg.lockCommand;
+        };
         timeouts =
           [
             {

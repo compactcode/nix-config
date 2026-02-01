@@ -1,5 +1,6 @@
 {
   delib,
+  homeconfig,
   pkgs,
   ...
 }:
@@ -13,6 +14,8 @@ delib.module {
     programs = {
       zsh = {
         enable = true;
+        # move config files from home to the standard config location
+        dotDir = "${homeconfig.xdg.configHome}/zsh";
         # auto complete ghost text
         autosuggestion.enable = true;
         prezto = {
