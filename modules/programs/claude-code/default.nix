@@ -13,7 +13,10 @@ delib.module {
   home.ifEnabled = let
     agent-browser = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.agent-browser;
   in {
-    home.file.".claude/skills/agent-browser".source = "${agent-browser}/etc/agent-browser/skills/agent-browser";
+    home = {
+      file.".claude/skills/agent-browser".source = "${agent-browser}/etc/agent-browser/skills/agent-browser";
+      shellAliases.cl = "claude";
+    };
 
     programs.claude-code = {
       enable = true;
