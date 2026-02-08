@@ -51,7 +51,7 @@ delib.module {
         enable = true;
         createDirectories = true;
         extraConfig = {
-          XDG_PROJECTS_DIR = cfg.projectHome;
+          PROJECTS = cfg.projectHome;
         };
       };
     };
