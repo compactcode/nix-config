@@ -15,6 +15,9 @@ delib.module {
   in {
     home = {
       file.".claude/skills/agent-browser".source = "${agent-browser}/etc/agent-browser/skills/agent-browser";
+      packages = [
+        pkgs.claude-code-acp # remote control
+      ];
       shellAliases.cl = "claude";
     };
 
