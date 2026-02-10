@@ -8,6 +8,7 @@ delib.module {
   home.ifEnabled = {
     programs.opencode = {
       enable = true;
+      enableMcpIntegration = true;
       settings = {
         # prevent data leaks
         share = "disabled";

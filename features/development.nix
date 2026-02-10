@@ -10,6 +10,7 @@ delib.module {
     programs = {
       agent-browser.enable = true;
       claude-code.enable = true;
+      mcp.enable = true;
       devenv.enable = true;
       direnv.enable = true;
       gemini-cli.enable = true;

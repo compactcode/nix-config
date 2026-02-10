@@ -23,15 +23,9 @@ delib.module {
 
     programs.claude-code = {
       enable = true;
+      enableMcpIntegration = true;
 
       package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
-
-      mcpServers = {
-        atlassian = {
-          type = "sse";
-          url = "https://mcp.atlassian.com/v1/sse";
-        };
-      };
 
       settings = {
         permissions = {
