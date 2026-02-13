@@ -9,6 +9,7 @@ delib.module {
     editorconfig.enable = true;
     programs = {
       agent-browser.enable = true;
+      agent-skills.enable = true;
       claude-code.enable = true;
       mcp.enable = true;
       devenv.enable = true;

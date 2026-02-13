@@ -10,11 +10,8 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
-  home.ifEnabled = let
-    agent-browser = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.agent-browser;
-  in {
+  home.ifEnabled = {
     home = {
-      file.".claude/skills/agent-browser".source = "${agent-browser}/etc/agent-browser/skills/agent-browser";
       packages = [
         pkgs.claude-code-acp # remote control
       ];

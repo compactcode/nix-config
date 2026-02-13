@@ -2,6 +2,14 @@
   description = "A minimal and declarative development environment that is fast, efficient, and keyboard-centric";
 
   inputs = {
+    agent-skills-nix = {
+      url = "github:Kyure-A/agent-skills-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    agent-superpowers = {
+      url = "github:obra/superpowers";
+      flake = false;
+    };
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";

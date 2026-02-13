@@ -1,5 +1,42 @@
 {
   "nodes": {
+    "agent-skills-nix": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770613914,
+        "narHash": "sha256-feEsZJRmP/HtAJHN4ZdLadaFED2sSYZQixeGAZg4m/Q=",
+        "owner": "Kyure-A",
+        "repo": "agent-skills-nix",
+        "rev": "4c0948b6e621f4c9537182051e16d3f9de9503de",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kyure-A",
+        "repo": "agent-skills-nix",
+        "type": "github"
+      }
+    },
+    "agent-superpowers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1770923012,
+        "narHash": "sha256-goH0RelqZV+rMv4z3Mmx9veSVlXbbyeflR19dMZiKX4=",
+        "owner": "obra",
+        "repo": "superpowers",
+        "rev": "e16d611eee14ac4c3253b4bf4c55a98d905c2e64",
+        "type": "github"
+      },
+      "original": {
+        "owner": "obra",
+        "repo": "superpowers",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -272,6 +309,27 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
+          "agent-skills-nix",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770586272,
+        "narHash": "sha256-Ucci8mu8QfxwzyfER2DQDbvW9t1BnTUJhBmY7ybralo=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "b1f916ba052341edc1f80d4b2399f1092a4873ca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
           "nixpkgs"
         ]
       },
@@ -465,9 +523,11 @@
     },
     "root": {
       "inputs": {
+        "agent-skills-nix": "agent-skills-nix",
+        "agent-superpowers": "agent-superpowers",
         "denix": "denix",
         "disko": "disko",
-        "home-manager": "home-manager",
+        "home-manager": "home-manager_2",
         "llm-agents": "llm-agents",
         "nix-darwin": "nix-darwin",
         "nixos-hardware": "nixos-hardware",
