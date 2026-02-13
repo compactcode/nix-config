@@ -30,7 +30,10 @@ delib.module {
       };
 
       skills.enable = [
+        # agent-browser
         "agent-browser"
+        # obra/superpowers
+        "systematic-debugging"
         "test-driven-development"
       ];
 
