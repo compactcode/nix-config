@@ -12,6 +12,7 @@ delib.module {
         "node_modules"
       ];
       settings = {
+        init.defaultBranch = "main";
         push = {
           autoSetupRemote = true;
           default = "simple";
