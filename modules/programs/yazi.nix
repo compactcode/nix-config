@@ -58,6 +58,8 @@ delib.module {
           ];
         };
       };
+
+      shellWrapperName = "yy";
     };
 
     # automatic styling
