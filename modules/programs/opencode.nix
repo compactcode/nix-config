@@ -1,4 +1,9 @@
-{delib, ...}:
+{
+  delib,
+  inputs,
+  pkgs,
+  ...
+}:
 delib.module {
   # ai assistant
   name = "programs.opencode";
@@ -9,6 +14,7 @@ delib.module {
     programs.opencode = {
       enable = true;
       enableMcpIntegration = true;
+      package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode;
       settings = {
         # prevent data leaks
         share = "disabled";
