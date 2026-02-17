@@ -11,7 +11,6 @@ delib.module {
       agent-browser.enable = true;
       agent-skills.enable = true;
       claude-code.enable = true;
-      mcp.enable = true;
       devenv.enable = true;
       direnv.enable = true;
       gemini-cli.enable = true;
