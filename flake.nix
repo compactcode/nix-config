@@ -10,6 +10,10 @@
       url = "github:obra/superpowers";
       flake = false;
     };
+    anthropic-skills = {
+      url = "github:anthropics/skills";
+      flake = false;
+    };
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
