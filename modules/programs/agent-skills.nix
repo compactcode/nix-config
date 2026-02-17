@@ -16,11 +16,8 @@ delib.module {
     agent-browser = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.agent-browser;
 
     poppler = pkgs."poppler-utils";
-    pdfPythonEnv = pkgs.python3.withPackages (ps: with ps; [
-      pypdf pdfplumber reportlab pytesseract pdf2image
-    ]);
-    pdfPython = pkgs.writeShellScriptBin "python3" ''
-      exec ${pdfPythonEnv}/bin/python3 "$@"
+    mkPythonWrapper = env: pkgs.writeShellScriptBin "python3" ''
+      exec ${env}/bin/python3 "$@"
     '';
   in {
     programs.agent-skills = {
@@ -51,12 +48,24 @@ delib.module {
         pdf = {
           from = "anthropic-skills";
           path = "pdf";
-          packages = [poppler pkgs.qpdf pdfPython];
+          packages = [
+            poppler
+            pkgs.qpdf
+            (mkPythonWrapper (pkgs.python3.withPackages (ps: with ps; [
+              pypdf pdfplumber reportlab pytesseract pdf2image
+            ])))
+          ];
         };
         docx = {
           from = "anthropic-skills";
           path = "docx";
-          packages = [poppler pkgs.pandoc pdfPython];
+          packages = [
+            poppler
+            pkgs.pandoc
+            (mkPythonWrapper (pkgs.python3.withPackages (ps: with ps; [
+              defusedxml
+            ])))
+          ];
         };
       };
 
