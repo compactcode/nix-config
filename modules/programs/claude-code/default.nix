@@ -31,6 +31,7 @@ delib.module {
       };
 
       settings = {
+        includeCoAuthoredBy = false;
         permissions = {
           allow = [
             "Bash(bundle exec rspec:*)"
