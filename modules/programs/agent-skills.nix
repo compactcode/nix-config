@@ -36,10 +36,14 @@ delib.module {
           path = inputs.agent-superpowers;
           subdir = "skills";
         };
+        local = {
+          path = ../programs/claude-code/skills;
+        };
       };
 
       skills.enable = [
         "agent-browser"
+        "pr-feedback"
         "systematic-debugging"
         "test-driven-development"
       ];
