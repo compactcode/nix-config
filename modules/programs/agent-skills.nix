@@ -44,6 +44,7 @@ delib.module {
       skills.enable = [
         "agent-browser"
         "pr-feedback"
+        "pr-rebase"
         "systematic-debugging"
         "test-driven-development"
       ];

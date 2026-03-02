@@ -45,13 +45,18 @@ delib.module {
             "Bash(gh pr diff:*)"
             "Bash(gh pr list:*)"
             "Bash(gh pr view:*)"
+            "Bash(gh repo view:*)"
             "Bash(gh run list:*)"
             "Bash(gh run view:*)"
+            "Bash(git branch:*)"
+            "Bash(git cat-file:*)"
             "Bash(git checkout:*)"
             "Bash(git config get user.name:*)"
             "Bash(git config user.name:*)"
             "Bash(git diff:*)"
+            "Bash(git fetch:*)"
             "Bash(git log:*)"
+            "Bash(git merge-base:*)"
             "Bash(git mv:*)"
             "Bash(git rev-parse:*)"
             "Bash(git show:*)"
@@ -78,7 +83,9 @@ delib.module {
             "WebSearch"
           ];
           ask = [
+            "Bash(gh pr edit:*)"
             "Bash(git push:*)"
+            "Bash(git rebase:*)"
           ];
           defaultMode = "plan";
         };
