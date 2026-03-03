@@ -32,6 +32,7 @@ delib.module {
         yanky.enable = true;
       };
       opencode.enable = true;
+      presenterm.enable = true;
     };
   };
 }
