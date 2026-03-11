@@ -13,7 +13,7 @@ delib.module {
       claude-code.enable = true;
       devenv.enable = true;
       direnv.enable = true;
-      gemini-cli.enable = true;
+      # gemini-cli.enable = true;
       gh.enable = true;
       jujutsu.enable = true;
       nixvim.plugins = {
@@ -23,7 +23,7 @@ delib.module {
         conform.enable = true;
         gitlinker.enable = true;
         gitsigns.enable = true;
-        grug-far.enable = true;
+        # grug-far.enable = true; # temporarily disabled - ast-grep build failure
         lsp.enable = true;
         neotest.enable = true;
         other.enable = true;
