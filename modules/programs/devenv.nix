@@ -1,5 +1,6 @@
 {
   delib,
+  inputs,
   pkgs,
   ...
 }:
@@ -22,7 +23,8 @@ delib.module {
   };
 
   home.ifEnabled = {
-    home.packages = [pkgs.devenv];
+    # pinned for devenv 1.11.2 until 2.x is fixed on macOS (cachix/devenv#2576)
+    home.packages = [inputs.nixpkgs-devenv.legacyPackages.${pkgs.system}.devenv];
 
     # hide cache from git
     programs.git.ignores = [
