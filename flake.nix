@@ -6,6 +6,10 @@
       url = "github:Kyure-A/agent-skills-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agent-browser-src = {
+      url = "github:vercel-labs/agent-browser";
+      flake = false;
+    };
     agent-superpowers = {
       url = "github:obra/superpowers";
       flake = false;
@@ -19,8 +23,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # pinned for devenv 1.11.2 until 2.x is fixed on macOS (cachix/devenv#2576)
-    nixpkgs-devenv.url = "github:nixos/nixpkgs/80bdc1e5ce51f56b19791b52b2901187931f5353";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";

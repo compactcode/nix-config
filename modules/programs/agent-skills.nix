@@ -13,8 +13,6 @@ delib.module {
   home.always.imports = [inputs.agent-skills-nix.homeManagerModules.default];
 
   home.ifEnabled = let
-    agent-browser = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.agent-browser;
-
     poppler = pkgs."poppler-utils";
     mkPythonWrapper = env: pkgs.writeShellScriptBin "python3" ''
       exec ${env}/bin/python3 "$@"
@@ -25,7 +23,8 @@ delib.module {
 
       sources = {
         agent-browser = {
-          path = "${agent-browser}/etc/agent-browser/skills";
+          path = inputs.agent-browser-src;
+          subdir = "skills";
           filter.nameRegex = "^agent-browser$";
         };
         anthropic-skills = {
