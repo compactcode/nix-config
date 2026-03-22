@@ -31,7 +31,7 @@ delib.module {
         treesitter.development.enable = true;
         yanky.enable = true;
       };
-      opencode.enable = true;
+      # opencode.enable = true;
       presenterm.enable = true;
     };
   };
