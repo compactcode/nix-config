@@ -13,7 +13,7 @@ delib.module {
   home.ifEnabled = {
     home = {
       packages = [
-        pkgs.claude-code-acp # remote control
+        inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code-acp # remote control
       ];
       shellAliases.cl = "claude";
     };
