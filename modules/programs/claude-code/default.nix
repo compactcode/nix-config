@@ -23,13 +23,6 @@ delib.module {
 
       package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
 
-      mcpServers = {
-        atlassian = {
-          type = "sse";
-          url = "https://mcp.atlassian.com/v1/sse";
-        };
-      };
-
       settings = {
         includeCoAuthoredBy = false;
         permissions = {
