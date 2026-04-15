@@ -59,6 +59,8 @@ delib.module {
     programs = {
       # configure signing
       git = {
+        # sign commits using an ssh key
+        signing.format = "ssh";
         settings = {
           commit.gpgsign = true;
           gpg = {

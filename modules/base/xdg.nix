@@ -50,6 +50,8 @@ delib.module {
       userDirs = {
         enable = true;
         createDirectories = true;
+        # inject XDG_*_DIR paths as session environment variables
+        setSessionVariables = true;
         extraConfig = {
           PROJECTS = cfg.projectHome;
         };
