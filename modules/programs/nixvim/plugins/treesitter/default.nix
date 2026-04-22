@@ -1,6 +1,6 @@
 {
   delib,
-  pkgs,
+  homeconfig,
   ...
 }:
 delib.module {
@@ -13,7 +13,7 @@ delib.module {
     plugins = {
       treesitter = {
         enable = true;
-        grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+        grammarPackages = with homeconfig.programs.nixvim.plugins.treesitter.package.builtGrammars; [
           bash
           css
           dockerfile
