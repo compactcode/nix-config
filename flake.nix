@@ -10,12 +10,12 @@
       url = "github:vercel-labs/agent-browser";
       flake = false;
     };
-    agent-superpowers = {
-      url = "github:obra/superpowers";
-      flake = false;
-    };
     anthropic-skills = {
       url = "github:anthropics/skills";
+      flake = false;
+    };
+    superpowers-marketplace = {
+      url = "github:obra/superpowers-marketplace";
       flake = false;
     };
     llm-agents = {

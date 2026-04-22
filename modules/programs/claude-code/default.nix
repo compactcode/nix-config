@@ -23,8 +23,15 @@ delib.module {
 
       package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
 
+      marketplaces = {
+        superpowers-marketplace = inputs.superpowers-marketplace;
+      };
+
       settings = {
         includeCoAuthoredBy = false;
+        enabledPlugins = {
+          "superpowers@superpowers-marketplace" = true;
+        };
         permissions = {
           allow = [
             "Bash(agent-browser click:*)"

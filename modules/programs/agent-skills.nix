@@ -31,10 +31,6 @@ delib.module {
           path = inputs.anthropic-skills;
           subdir = "skills";
         };
-        superpowers = {
-          path = inputs.agent-superpowers;
-          subdir = "skills";
-        };
         local = {
           path = ../programs/claude-code/skills;
         };
@@ -44,8 +40,6 @@ delib.module {
         "agent-browser"
         "pr-feedback"
         "pr-rebase"
-        "systematic-debugging"
-        "test-driven-development"
       ];
 
       skills.explicit = {
