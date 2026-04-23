@@ -50,6 +50,7 @@ delib.module {
             "Bash(bundle exec rspec:*)"
             "Bash(bundle exec rubocop:*)"
             "Bash(bundle exec standardrb:*)"
+            "Bash(bundle info:*)"
             "Bash(bundle install:*)"
             "Bash(bundle list:*)"
             "Bash(bundle show:*)"
