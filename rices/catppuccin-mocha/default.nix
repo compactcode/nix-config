@@ -42,8 +42,12 @@ delib.rice {
     gtk = {
       # gnome specific icons
       iconTheme = {
-        name = "Adwaita";
-        package = pkgs.adwaita-icon-theme;
+        name = "Papirus-Dark";
+        package = pkgs.catppuccin-papirus-folders.override {
+          flavor = "mocha";
+          accent = "mauve";
+          papirus-icon-theme = pkgs.papirus-icon-theme;
+        };
       };
     };
 
