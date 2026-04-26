@@ -37,7 +37,7 @@ delib.host {
       };
       tlp.enable = true;
       # trial screen sleep again
-      swayidle.idle.enable = true;
+      hypridle.idle.enable = true;
     };
   };
 

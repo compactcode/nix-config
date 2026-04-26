@@ -36,7 +36,7 @@ delib.module {
       mako.enable = true;
       pipewire.enable = true;
       polkit-gnome.enable = true;
-      swayidle.enable = true;
+      hypridle.enable = true;
     };
     xdg.enable = true;
   };
