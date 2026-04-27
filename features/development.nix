@@ -20,7 +20,6 @@ delib.module {
       nixvim.plugins = {
         aerial.enable = true;
         blink.enable = true;
-        codecompanion.enable = true;
         conform.enable = true;
         gitlinker.enable = true;
         gitsigns.enable = true;
