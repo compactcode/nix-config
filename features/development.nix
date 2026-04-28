@@ -33,6 +33,7 @@ delib.module {
       };
       # opencode.enable = true;
       presenterm.enable = true;
+      temporal.enable = true;
     };
   };
 }
