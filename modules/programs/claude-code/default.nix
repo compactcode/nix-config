@@ -20,15 +20,22 @@ delib.module {
 
       package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
 
-      marketplaces = {
-        superpowers-marketplace = inputs.superpowers-marketplace;
-      };
+      plugins = [inputs.superpowers];
 
       settings = {
         includeCoAuthoredBy = false;
-        enabledPlugins = {
-          "superpowers@superpowers-marketplace" = true;
-        };
+        hooks.SessionStart = [
+          {
+            matcher = "startup|clear|compact";
+            hooks = [
+              {
+                type = "command";
+                command = ''"${inputs.superpowers}/hooks/run-hook.cmd" session-start'';
+                async = false;
+              }
+            ];
+          }
+        ];
         permissions = {
           allow = [
             "Bash(agent-browser click:*)"

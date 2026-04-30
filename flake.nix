@@ -18,8 +18,8 @@
       url = "github:mattpocock/skills";
       flake = false;
     };
-    superpowers-marketplace = {
-      url = "github:obra/superpowers-marketplace";
+    superpowers = {
+      url = "github:obra/superpowers";
       flake = false;
     };
     llm-agents = {
