@@ -36,8 +36,8 @@ delib.module {
         };
         mattpocock-skills = {
           path = inputs.mattpocock-skills;
-          subdir = "skills";
-          filter.nameRegex = "engineering/(grill-with-docs|improve-codebase-architecture)";
+          subdir = "skills/engineering";
+          filter.nameRegex = "grill-with-docs|improve-codebase-architecture";
         };
       };
 
@@ -50,8 +50,8 @@ delib.module {
         "pr-rebase"
 
         # mattpocock-skills
-        "engineering/grill-with-docs"
-        "engineering/improve-codebase-architecture"
+        "grill-with-docs"
+        "improve-codebase-architecture"
       ];
 
       skills.explicit = {
