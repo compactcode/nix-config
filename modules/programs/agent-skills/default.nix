@@ -34,12 +34,24 @@ delib.module {
         local = {
           path = ./skills;
         };
+        mattpocock-skills = {
+          path = inputs.mattpocock-skills;
+          subdir = "skills";
+          filter.nameRegex = "engineering/(grill-with-docs|improve-codebase-architecture)";
+        };
       };
 
       skills.enable = [
+        # agent-browser
         "agent-browser"
+
+        # local
         "pr-feedback"
         "pr-rebase"
+
+        # mattpocock-skills
+        "engineering/grill-with-docs"
+        "engineering/improve-codebase-architecture"
       ];
 
       skills.explicit = {

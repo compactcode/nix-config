@@ -14,6 +14,10 @@
       url = "github:anthropics/skills";
       flake = false;
     };
+    mattpocock-skills = {
+      url = "github:mattpocock/skills";
+      flake = false;
+    };
     superpowers-marketplace = {
       url = "github:obra/superpowers-marketplace";
       flake = false;
