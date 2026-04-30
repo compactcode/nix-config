@@ -32,7 +32,7 @@ delib.module {
           subdir = "skills";
         };
         local = {
-          path = ../programs/claude-code/skills;
+          path = ./skills;
         };
       };
 
