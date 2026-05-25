@@ -9,7 +9,7 @@ delib.module {
     programs.ssh = {
       enable = true;
       enableDefaultConfig = false;
-      matchBlocks."*" = {
+      settings."*" = {
         userKnownHostsFile = "~/.ssh/known_hosts";
       };
     };
