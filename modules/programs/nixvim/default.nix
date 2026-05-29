@@ -27,8 +27,6 @@ delib.module {
     programs.nixvim = {
       enable = true;
 
-      nixpkgs.source = inputs.nixpkgs;
-
       # recognise slim-rails files
       # https://github.com/slim-template/slim-rails/blob/a6ae6b27d625b3703d9447cb5737b7007ce7874e/lib/slim-rails/register_engine.rb#L34
       autoCmd = [
@@ -79,6 +77,9 @@ delib.module {
         }
       ];
 
+      # use the root flake's nixpkgs instead of nixvim's pinned one
+      nixpkgs.source = inputs.nixpkgs;
+
       # base options
       opts = {
         foldenable = false; # disable code folding
@@ -93,6 +94,9 @@ delib.module {
       withNodeJs = false;
       withPerl = false;
       withRuby = false;
+
+      # nixos-unstable vs nixvim main drift around branch-off; silence the warning
+      version.enableNixpkgsReleaseCheck = false;
     };
 
     home = {
