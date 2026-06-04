@@ -23,7 +23,9 @@
       flake = false;
     };
     llm-agents = {
-      url = "github:numtide/llm-agents.nix";
+      # Pinned to 0.27.0; 0.27.1's agent-browser-dashboard-pnpm-deps OOM-kills
+      # (exit 137) during pnpm install on aarch64-darwin. Unpin once upstream fixes.
+      url = "github:numtide/llm-agents.nix/1f1ede7969673edd1d35764f5c930ecf96487156";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
