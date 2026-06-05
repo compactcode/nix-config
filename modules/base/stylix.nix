@@ -14,6 +14,9 @@ delib.module {
     stylix = {
       enable = true;
       autoEnable = false;
+
+      # stylix/nix-darwin release markers drift (26.11 vs 26.05); same nixpkgs
+      enableReleaseChecks = false;
     };
   };
 
@@ -30,6 +33,9 @@ delib.module {
     stylix = {
       enable = true;
       autoEnable = false;
+
+      # stylix/nixos release markers drift; same nixpkgs
+      enableReleaseChecks = false;
     };
   };
 }
