@@ -16,6 +16,7 @@ delib.module {
       # gemini-cli.enable = true;
       gh.enable = true;
       handy.enable = true;
+      herdr.enable = true;
       jujutsu.enable = true;
       nixvim.plugins = {
         aerial.enable = true;

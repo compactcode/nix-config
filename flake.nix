@@ -22,6 +22,10 @@
       url = "github:obra/superpowers";
       flake = false;
     };
+    herdr = {
+      url = "github:ogulcancelik/herdr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     llm-agents = {
       # Pinned to 0.27.0; 0.27.1's agent-browser-dashboard-pnpm-deps OOM-kills
       # (exit 137) during pnpm install on aarch64-darwin. Unpin once upstream fixes.

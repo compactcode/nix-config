@@ -378,6 +378,26 @@
         "type": "github"
       }
     },
+    "herdr": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780784202,
+        "narHash": "sha256-0RnijY5wvi7fSqLpOrAt7R7w5ro0t1+ZSCjBJydV+Mo=",
+        "owner": "ogulcancelik",
+        "repo": "herdr",
+        "rev": "5d7e56737ef30d9de5802b0684a9428c40131dda",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ogulcancelik",
+        "repo": "herdr",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -636,6 +656,7 @@
         "anthropic-skills": "anthropic-skills",
         "denix": "denix",
         "disko": "disko",
+        "herdr": "herdr",
         "home-manager": "home-manager_2",
         "llm-agents": "llm-agents",
         "mattpocock-skills": "mattpocock-skills",
