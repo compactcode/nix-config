@@ -1,6 +1,5 @@
 {
   delib,
-  inputs,
   pkgs,
   ...
 }:
@@ -12,7 +11,7 @@ delib.module {
 
   home.ifEnabled = {
     home.packages = [
-      inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.agent-browser
+      pkgs.agent-browser
     ];
   };
 }
