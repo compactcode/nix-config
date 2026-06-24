@@ -12,6 +12,7 @@ delib.module {
       atlassian-cli.enable = true;
       bruno.enable = true;
       claude-desktop.enable = true;
+      colima.enable = true;
       jira-cli.enable = true;
       kitty.enable = true;
       obsidian.enable = true;
