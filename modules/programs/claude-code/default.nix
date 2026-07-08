@@ -24,6 +24,7 @@ delib.module {
 
       settings = {
         includeCoAuthoredBy = false;
+        tui = "fullscreen";
         hooks.SessionStart = [
           {
             matcher = "startup|clear|compact";
