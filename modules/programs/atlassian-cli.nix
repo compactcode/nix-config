@@ -1,18 +1,15 @@
-{delib, ...}:
+{
+  delib,
+  pkgs,
+  ...
+}:
 delib.module {
-  # cli access to atlassian products
+  # atlassian's official cli (jira, bitbucket, rovo) — unfree
   name = "programs.atlassian-cli";
 
   options = delib.singleEnableOption false;
 
-  darwin.ifEnabled = {
-    homebrew = {
-      brews = [
-        "acli"
-      ];
-      taps = [
-        "atlassian/homebrew-acli"
-      ];
-    };
+  home.ifEnabled = {
+    home.packages = [pkgs.acli];
   };
 }
