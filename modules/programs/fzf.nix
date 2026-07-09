@@ -18,6 +18,8 @@ delib.module {
       fzf = {
         enable = true;
         enableZshIntegration = true;
+        # cede Ctrl-R to atuin, which owns shell history search
+        historyWidget.zsh.command = "";
         # use fd for listing files
         defaultCommand = "${lib.getExe pkgs.fd} --type f";
         defaultOptions = [
