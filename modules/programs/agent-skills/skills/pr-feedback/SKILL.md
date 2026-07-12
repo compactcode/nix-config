@@ -34,13 +34,23 @@ Split `nameWithOwner` into `{owner}` and `{repo}`.
 
 ### Step 3: Fetch all feedback
 
-Fetch all three comment types in parallel:
+Fetch the three comment types plus the resolved-thread state in parallel:
 
 **Inline review comments** (comments on specific code lines):
 ```bash
-gh api repos/{owner}/{repo}/pulls/{number}/comments --paginate
+gh api repos/{owner}/{repo}/pulls/{number}/comments --paginate \
+  --jq '.[] | {id, in_reply_to_id, path, line, original_line, body, login: .user.login, type: .user.type}'
 ```
-Relevant fields: `id`, `path`, `line` (or `original_line`), `body`, `user.login`, `in_reply_to_id`
+Relevant fields: `id`, `in_reply_to_id`, `path`, `line` (or `original_line`), `body`, `login`, `type` (`"Bot"` for app accounts)
+
+**Resolved-thread state** (which inline threads are already resolved) — REST does not expose this, so query GraphQL:
+```bash
+gh api graphql -f query='
+{ repository(owner:"{owner}",name:"{repo}"){ pullRequest(number:{number}){
+    reviewThreads(first:100){ nodes{ isResolved isOutdated
+      comments(first:1){ nodes{ databaseId } } } } } } }'
+```
+Each thread's `comments.nodes[0].databaseId` is its **root** comment `id` — use it to map root comment `id` → `isResolved`.
 
 **Top-level conversation comments** (general PR discussion):
 ```bash
@@ -55,8 +65,9 @@ gh pr view {number} --json reviews --jq '.reviews[] | {author: .author.login, st
 ### Step 4: Filter and group
 
 - **Exclude** comments from the current user (own comments)
-- **Exclude** comments from bot accounts (login ending in `[bot]` or `app/` prefix)
-- **Group** inline review comment threads using `in_reply_to_id` — show only the latest unaddressed message per thread
+- **Exclude** comments from bot accounts — match on `type == "Bot"` (also treat a login ending in `[bot]` as a bot)
+- **Group** inline review comment threads using `in_reply_to_id` (the root comment has none) — show only the latest message per thread
+- **Exclude** resolved threads — using the root comment `id` → `isResolved` map from the GraphQL query in Step 3, drop any thread whose root is resolved (or mark it Informational in Step 5)
 - **Exclude** review summaries with empty bodies (approvals with no text)
 
 ### Step 5: Categorise feedback
@@ -129,6 +140,15 @@ After all changes are made:
 
 For each addressed item, post a reply referencing the commit SHA.
 
+**Reply tone** — neutral and factual. No praise, affirmations, or acknowledgements ("Great call", "Good point", "You're right"). Do not restate or summarise the reviewer's comment back to them — they wrote it.
+
+- **Default reply:** just the commit reference, e.g. `Addressed in {sha}`. This is the entire reply.
+- **Add one sentence only if** one of these is true, and say only that:
+  - You did something different from what was requested — explain what and why.
+  - There's a caveat or follow-up the reviewer can't infer from their own comment.
+  - You need a decision or answer from them.
+- One sentence, not a paragraph. If none of the above apply, the SHA reference stands alone.
+
 **Inline review comments** — reply in the existing thread:
 ```bash
 gh api repos/{owner}/{repo}/pulls/{number}/comments/{comment_id}/replies -f body="Addressed in {sha}"
@@ -136,7 +156,7 @@ gh api repos/{owner}/{repo}/pulls/{number}/comments/{comment_id}/replies -f body
 
 **Top-level conversation comments** — post a new issue comment:
 ```bash
-gh api repos/{owner}/{repo}/issues/{number}/comments -f body="@{author} Addressed in {sha} — {brief description}"
+gh api repos/{owner}/{repo}/issues/{number}/comments -f body="@{author} Addressed in {sha}"
 ```
 
 **Review summaries** — post a new issue comment:
@@ -145,6 +165,8 @@ gh api repos/{owner}/{repo}/issues/{number}/comments -f body="@{author} Addresse
 ```
 
 If a reply fails, log the failure but continue with remaining replies.
+
+**Avoid duplicate replies** — inline threads each get their own in-thread reply, but do not also post a separate top-level "Addressed…" comment for the same item. When a single reviewer's addressed items span a top-level comment and/or a review summary, consolidate them into **one** issue comment for that reviewer rather than one per item.
 
 ### Step 10: Final report
 
