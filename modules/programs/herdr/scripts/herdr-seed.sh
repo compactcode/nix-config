@@ -1,17 +1,10 @@
 #!/usr/bin/env bash
-# herdr-seed.sh — seed a herdr workspace for a project.
-#
-# Detects a devenv project (devenv.nix/devenv.yaml, a devenv .envrc, or a
-# flake.nix referencing cachix/devenv) and seeds the devenv session; otherwise
-# seeds the basic session — mirroring the kitty session-basic/devenv split.
-#
+# herdr-seed.sh — seed a herdr workspace for a project, mirroring the kitty
+# session-basic/devenv split:
 #   basic:  editor(nvim) · shell · git(lazygit) · ai(claude)
 #   devenv: editor · shell · processes(devenv up) · git · logs · ai
-#           (devenv tabs run inside the direnv environment)
 #
-# Usage: herdr-seed.sh [project-dir]   (defaults to $PWD)
-#
-# Requires a running herdr server (just run `herdr` first) and jq.
+# Usage: herdr-seed.sh [project-dir] (default $PWD). Needs a running herdr and jq.
 set -euo pipefail
 
 PROJECT_DIR=$(cd "${1:-$PWD}" && pwd)
@@ -23,8 +16,7 @@ if ! herdr workspace list >/dev/null 2>&1; then
   exit 1
 fi
 
-# Tab sets as "label|command" (empty command = plain shell). devenv tabs load
-# the direnv environment first, matching kitty's session-devenv.conf.
+# tab sets as "label|command" (empty = plain shell); devenv tabs load direnv
 de() { echo "eval \"\$(direnv export zsh)\" && $1"; }
 basic_tabs=(
   "editor|nvim"
@@ -41,9 +33,7 @@ devenv_tabs=(
   "ai|$(de claude)"
 )
 
-# Detect the session for this project. devenv projects commonly use
-# devenv.nix/devenv.yaml with a `use devenv` .envrc and no flake.nix, so match
-# any of those as well as a flake.nix that pulls in cachix/devenv.
+# devenv projects often have no flake.nix, so also match devenv.nix/yaml/.envrc
 is_devenv() {
   local d=$1
   if [ -f "$d/devenv.nix" ] || [ -f "$d/devenv.yaml" ]; then return 0; fi
@@ -59,19 +49,17 @@ else
   tabs=("${basic_tabs[@]}")
 fi
 
-# First id of a given field, wherever it sits in the response JSON. Robust to
-# whether the CLI wraps results in an envelope or returns them flat.
+# first value for a field anywhere in the response JSON (envelope-agnostic)
 hid() { jq -r --arg k "$1" '[.. | objects | .[$k]? // empty] | first // empty'; }
 
-# Create the workspace (this also gives us its first tab + root pane).
+# create the workspace (also yields its first tab + root pane)
 ws=$(herdr workspace create --cwd "$PROJECT_DIR" --label "$LABEL" --focus)
 WS_ID=$(printf '%s' "$ws" | hid workspace_id)
 TAB1=$(printf '%s' "$ws" | hid tab_id)
 PANE1=$(printf '%s' "$ws" | hid pane_id)
 [ -n "$WS_ID" ] || { echo "herdr-seed: workspace create returned no id: $ws" >&2; exit 1; }
 
-# Seed each tab: reuse the workspace's initial tab for the first spec, create the
-# rest, and run each tab's command (if any) in its pane.
+# reuse the workspace's initial tab for the first spec, create the rest
 first=1
 for spec in "${tabs[@]}"; do
   label=${spec%%|*}
