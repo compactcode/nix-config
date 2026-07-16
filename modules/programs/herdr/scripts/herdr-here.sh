@@ -2,7 +2,7 @@
 # herdr-here.sh — attach to herdr, focused on this directory's workspace.
 #
 # Ensures a persistent server is running, focuses the workspace whose label is
-# this dir's basename (seeding it from herdr-basic.sh if it doesn't exist yet),
+# this dir's basename (seeding it from herdr-seed.sh if it doesn't exist yet),
 # then attaches. Safe to re-run: it re-focuses rather than duplicating.
 #
 # Usage: herdr-here.sh [project-dir]   (defaults to $PWD)
@@ -32,7 +32,7 @@ WS_ID=$(herdr workspace list \
 if [ -n "$WS_ID" ]; then
   herdr workspace focus "$WS_ID" >/dev/null
 else
-  "$SCRIPTS/herdr-basic.sh" "$DIR" >/dev/null
+  "$SCRIPTS/herdr-seed.sh" "$DIR" >/dev/null
 fi
 
 # 3. attach

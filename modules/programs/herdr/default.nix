@@ -42,8 +42,8 @@ delib.module {
     home.shellAliases = {
       # attach to herdr focused on this dir's workspace (seeding it if new)
       h = "${homeconfig.xdg.configHome}/herdr/scripts/herdr-here.sh";
-      # seed a fresh workspace mirroring the kitty basic session
-      hb = "${homeconfig.xdg.configHome}/herdr/scripts/herdr-basic.sh";
+      # seed a fresh workspace (basic or devenv, auto-detected)
+      hb = "${homeconfig.xdg.configHome}/herdr/scripts/herdr-seed.sh";
     };
 
     # attach, focused on this dir's workspace (focus-or-create + seed)
@@ -52,10 +52,10 @@ delib.module {
       source = ./scripts/herdr-here.sh;
     };
 
-    # seed a workspace mirroring the kitty basic session
-    xdg.configFile."herdr/scripts/herdr-basic.sh" = {
+    # seed a workspace, mirroring the kitty basic/devenv sessions
+    xdg.configFile."herdr/scripts/herdr-seed.sh" = {
       executable = true;
-      source = ./scripts/herdr-basic.sh;
+      source = ./scripts/herdr-seed.sh;
     };
 
     # focus or create a tab by title
