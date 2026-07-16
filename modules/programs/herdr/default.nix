@@ -28,6 +28,8 @@ delib.module {
       package = inputs.herdr.packages.${pkgs.stdenv.hostPlatform.system}.default;
       settings = {
         onboarding = false;
+        # direct chord for the workspace picker, matching the ctrl+alt tab keys
+        keys.workspace_picker = "ctrl+alt+w";
         keys.command = [
           (tabKey "ctrl+alt+e" "editor")
           (tabKey "ctrl+alt+g" "git")
