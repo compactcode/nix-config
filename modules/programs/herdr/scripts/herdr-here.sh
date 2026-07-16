@@ -9,10 +9,7 @@
 set -euo pipefail
 
 DIR=$(cd "${1:-$PWD}" && pwd)
-LABEL=$(basename "$DIR")
 SCRIPTS=$(cd "$(dirname "$0")" && pwd)
-
-command -v jq >/dev/null || { echo "herdr-here: jq is required" >&2; exit 1; }
 
 # 1. ensure a persistent server so socket calls work before we attach
 if ! herdr workspace list >/dev/null 2>&1; then
@@ -26,14 +23,8 @@ if ! herdr workspace list >/dev/null 2>&1; then
     || { echo "herdr-here: server did not come up" >&2; exit 1; }
 fi
 
-# 2. focus-or-create the workspace for this dir (only WorkspaceInfo has tab_count)
-WS_ID=$(herdr workspace list \
-  | jq -r --arg l "$LABEL" '[.. | objects | select(.label==$l and has("tab_count")) | .workspace_id] | first // empty')
-if [ -n "$WS_ID" ]; then
-  herdr workspace focus "$WS_ID" >/dev/null
-else
-  "$SCRIPTS/herdr-seed.sh" "$DIR" >/dev/null
-fi
+# 2. focus-or-create the workspace for this dir
+"$SCRIPTS/herdr-open.sh" "$DIR"
 
 # 3. attach
 exec herdr

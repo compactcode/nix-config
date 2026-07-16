@@ -35,6 +35,12 @@ delib.module {
           (tabKey "ctrl+alt+p" "processes" "")
           (tabKey "ctrl+alt+s" "shell" "")
           (tabKey "ctrl+alt+a" "ai" "claude")
+          # zoxide/fzf project picker → focus-or-create its workspace
+          {
+            key = "ctrl+alt+n";
+            type = "pane";
+            command = "${homeconfig.xdg.configHome}/herdr/scripts/herdr-pick.sh";
+          }
         ];
       };
     };
@@ -50,6 +56,18 @@ delib.module {
     xdg.configFile."herdr/scripts/herdr-here.sh" = {
       executable = true;
       source = ./scripts/herdr-here.sh;
+    };
+
+    # focus-or-create the workspace for a dir (shared by herdr-here/herdr-pick)
+    xdg.configFile."herdr/scripts/herdr-open.sh" = {
+      executable = true;
+      source = ./scripts/herdr-open.sh;
+    };
+
+    # zoxide/fzf project picker → focus-or-create its workspace
+    xdg.configFile."herdr/scripts/herdr-pick.sh" = {
+      executable = true;
+      source = ./scripts/herdr-pick.sh;
     };
 
     # seed a workspace, mirroring the kitty basic/devenv sessions
