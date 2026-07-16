@@ -39,7 +39,18 @@ delib.module {
       };
     };
 
-    home.shellAliases.hb = "${homeconfig.xdg.configHome}/herdr/scripts/herdr-basic.sh";
+    home.shellAliases = {
+      # attach to herdr focused on this dir's workspace (seeding it if new)
+      h = "${homeconfig.xdg.configHome}/herdr/scripts/herdr-here.sh";
+      # seed a fresh workspace mirroring the kitty basic session
+      hb = "${homeconfig.xdg.configHome}/herdr/scripts/herdr-basic.sh";
+    };
+
+    # attach, focused on this dir's workspace (focus-or-create + seed)
+    xdg.configFile."herdr/scripts/herdr-here.sh" = {
+      executable = true;
+      source = ./scripts/herdr-here.sh;
+    };
 
     # seed a workspace mirroring the kitty basic session
     xdg.configFile."herdr/scripts/herdr-basic.sh" = {
