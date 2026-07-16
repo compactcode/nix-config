@@ -1,8 +1,6 @@
 {
   delib,
   homeconfig,
-  inputs,
-  pkgs,
   ...
 }:
 delib.module {
@@ -22,10 +20,9 @@ delib.module {
       command = "${to} ${label}";
     };
   in {
-    # package from the flake input; nixpkgs may not carry herdr
+    # package defaults to pkgs.herdr from nixpkgs
     programs.herdr = {
       enable = true;
-      package = inputs.herdr.packages.${pkgs.stdenv.hostPlatform.system}.default;
       settings = {
         onboarding = false;
         # direct chord for the workspace picker, matching the ctrl+alt tab keys
