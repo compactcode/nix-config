@@ -52,6 +52,16 @@ fi
 # first value for a field anywhere in the response JSON (envelope-agnostic)
 hid() { jq -r --arg k "$1" '[.. | objects | .[$k]? // empty] | first // empty'; }
 
+# wait until a new pane's shell has painted its prompt; pane run keystrokes sent
+# before the shell is ready are silently dropped
+wait_pane() {
+  local p=$1 _
+  for _ in $(seq 1 50); do
+    [ -n "$(herdr pane read "$p" --source visible --lines 3 2>/dev/null)" ] && return 0
+    sleep 0.1
+  done
+}
+
 # create the workspace (also yields its first tab + root pane)
 ws=$(herdr workspace create --cwd "$PROJECT_DIR" --label "$LABEL" --focus)
 WS_ID=$(printf '%s' "$ws" | hid workspace_id)
@@ -72,7 +82,10 @@ for spec in "${tabs[@]}"; do
     created=$(herdr tab create --workspace "$WS_ID" --cwd "$PROJECT_DIR" --label "$label" --focus)
     pane=$(printf '%s' "$created" | hid pane_id)
   fi
-  [ -n "$cmd" ] && [ -n "$pane" ] && herdr pane run "$pane" "$cmd"
+  if [ -n "$cmd" ] && [ -n "$pane" ]; then
+    wait_pane "$pane"
+    herdr pane run "$pane" "$cmd"
+  fi
 done
 
 herdr tab focus "$TAB1" >/dev/null 2>&1 || true  # land back on the first tab
