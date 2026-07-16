@@ -13,11 +13,12 @@ delib.module {
   home.ifEnabled = let
     to = "${homeconfig.xdg.configHome}/herdr/scripts/herdr-tab-open.sh";
     # focus-or-create a tab by title (kitty's alt+e/g/l/p/s/a). ctrl+alt avoids
-    # herdr's built-in prefix+e/s/p/g bindings.
-    tabKey = key: label: {
+    # herdr's built-in prefix+e/s/p/g bindings. A non-empty cmd is run when the
+    # tab is created (e.g. the ai tab starts claude).
+    tabKey = key: label: cmd: {
       inherit key;
       type = "shell";
-      command = "${to} ${label}";
+      command = "${to} ${label}" + (if cmd == "" then "" else " ${cmd}");
     };
   in {
     # package defaults to pkgs.herdr from nixpkgs
@@ -28,12 +29,12 @@ delib.module {
         # direct chord for the workspace picker, matching the ctrl+alt tab keys
         keys.workspace_picker = "ctrl+alt+w";
         keys.command = [
-          (tabKey "ctrl+alt+e" "editor")
-          (tabKey "ctrl+alt+g" "git")
-          (tabKey "ctrl+alt+l" "logs")
-          (tabKey "ctrl+alt+p" "processes")
-          (tabKey "ctrl+alt+s" "shell")
-          (tabKey "ctrl+alt+a" "ai")
+          (tabKey "ctrl+alt+e" "editor" "")
+          (tabKey "ctrl+alt+g" "git" "")
+          (tabKey "ctrl+alt+l" "logs" "")
+          (tabKey "ctrl+alt+p" "processes" "")
+          (tabKey "ctrl+alt+s" "shell" "")
+          (tabKey "ctrl+alt+a" "ai" "claude")
         ];
       };
     };
