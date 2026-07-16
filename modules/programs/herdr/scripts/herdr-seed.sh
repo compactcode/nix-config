@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # herdr-seed.sh — seed a herdr workspace for a project.
 #
-# Detects a devenv project (flake.nix referencing cachix/devenv) and seeds the
-# devenv session; otherwise seeds the basic session — mirroring the kitty
-# session-basic.conf / session-devenv.conf split.
+# Detects a devenv project (devenv.nix/devenv.yaml, a devenv .envrc, or a
+# flake.nix referencing cachix/devenv) and seeds the devenv session; otherwise
+# seeds the basic session — mirroring the kitty session-basic/devenv split.
 #
 #   basic:  editor(nvim) · shell · git(lazygit) · ai(claude)
 #   devenv: editor · shell · processes(devenv up) · git · logs · ai
@@ -41,8 +41,17 @@ devenv_tabs=(
   "ai|$(de claude)"
 )
 
-# Detect the session for this project.
-if [ -f "$PROJECT_DIR/flake.nix" ] && grep -q 'cachix/devenv' "$PROJECT_DIR/flake.nix"; then
+# Detect the session for this project. devenv projects commonly use
+# devenv.nix/devenv.yaml with a `use devenv` .envrc and no flake.nix, so match
+# any of those as well as a flake.nix that pulls in cachix/devenv.
+is_devenv() {
+  local d=$1
+  if [ -f "$d/devenv.nix" ] || [ -f "$d/devenv.yaml" ]; then return 0; fi
+  if [ -f "$d/.envrc" ] && grep -q devenv "$d/.envrc"; then return 0; fi
+  if [ -f "$d/flake.nix" ] && grep -q 'cachix/devenv' "$d/flake.nix"; then return 0; fi
+  return 1
+}
+if is_devenv "$PROJECT_DIR"; then
   session=devenv
   tabs=("${devenv_tabs[@]}")
 else
