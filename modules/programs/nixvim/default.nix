@@ -62,8 +62,8 @@ delib.module {
         }
         {
           key = "<leader>fc";
-          action = "<cmd>let @+ = expand('%')<cr>";
-          options = {desc = "copy the current path to clipboard";};
+          action = "<cmd>let @+ = expand('%:.')<cr>";
+          options = {desc = "copy the relative path to clipboard";};
         }
         {
           key = "<leader>W";
