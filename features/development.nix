@@ -19,9 +19,7 @@ delib.module {
       herdr.enable = true;
       jujutsu.enable = true;
       nixvim.plugins = {
-        aerial.enable = true;
         blink.enable = true;
-        conform.enable = true;
         gitlinker.enable = true;
         gitsigns.enable = true;
         # grug-far.enable = true; # temporarily disabled - ast-grep build failure

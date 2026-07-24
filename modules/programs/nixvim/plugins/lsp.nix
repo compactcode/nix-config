@@ -56,7 +56,7 @@ delib.module {
             enable = true;
             extraOptions = {
               init_options = {
-                # conform handles formatting
+                # formatting handled elsewhere
                 documentFormatting = false;
                 documentRangeFormatting = false;
               };
