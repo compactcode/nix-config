@@ -13,6 +13,7 @@ delib.module {
       bruno.enable = true;
       claude-desktop.enable = true;
       colima.enable = true;
+      eqmac.enable = true;
       kitty.enable = true;
       linear.enable = true;
       obsidian.enable = true;
