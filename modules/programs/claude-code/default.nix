@@ -20,7 +20,7 @@ delib.module {
 
       package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
 
-      plugins = [inputs.superpowers];
+      plugins.superpowers = inputs.superpowers;
 
       settings = {
         includeCoAuthoredBy = false;
