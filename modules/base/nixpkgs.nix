@@ -20,12 +20,12 @@
       ];
   };
 
-  # Workaround for https://github.com/NixOS/nixpkgs/issues/507531:
-  # cache.nixos.org is currently serving aarch64-darwin binaries with
-  # invalid macOS code signatures, so any checkPhase that exec's an
-  # affected interpreter (fish, zsh, ...) gets SIGKILLed mid-test.
-  # Disable direnv's checkPhase until the upstream Nix fix
-  # (https://github.com/NixOS/nix/pull/15638) lands and Hydra rebuilds.
+  # https://github.com/NixOS/nixpkgs/issues/507531: cache.nixos.org served
+  # aarch64-darwin binaries with corrupt Mach-O signatures, so any checkPhase
+  # exec'ing an affected interpreter (fish, zsh, ...) got SIGKILLed mid-test.
+  # Looks resolved — direnv 2.37.1 and fish 4.8.1 now substitute from cache and
+  # pass codesign --verify, so this overlay only forces a needless local
+  # rebuild. Candidate for removal.
   direnvOverlay = _final: prev: {
     direnv = prev.direnv.overrideAttrs (_: {doCheck = false;});
   };
