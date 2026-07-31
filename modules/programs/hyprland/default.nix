@@ -16,6 +16,8 @@ delib.module {
   home.ifEnabled = {
     wayland.windowManager.hyprland = {
       enable = true;
+      # delay the lua switch
+      configType = "hyprlang";
       settings = {
         "$mod" = "SUPER";
 
