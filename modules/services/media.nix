@@ -92,7 +92,7 @@ delib.module {
         extraOptions = [
           "--network=container:gluetun"
         ];
-        image = "lscr.io/linuxserver/prowlarr:2.3.0.5236-ls132";
+        image = "lscr.io/linuxserver/prowlarr:2.5.2.5491-ls158";
         volumes = [
           "${myconfig.services.nfs.shares.config.mountPath}/prowlarr:/config"
         ];
