@@ -56,6 +56,8 @@ delib.host {
       kernelModules = ["kvm-intel"];
     };
 
+    networking.hostName = "pudge";
+
     system.stateVersion = "23.05";
   };
 }
