@@ -155,7 +155,7 @@ delib.module {
         extraOptions = [
           "--network=container:gluetun"
         ];
-        image = "lscr.io/linuxserver/transmission:4.0.6-r4-ls319";
+        image = "lscr.io/linuxserver/transmission:4.1.3-r0-ls360";
         volumes = [
           "${myconfig.services.nfs.shares.config.mountPath}/transmission:/config"
           "${myconfig.services.nfs.shares.media.mountPath}:/data"
