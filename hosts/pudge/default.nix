@@ -30,6 +30,8 @@ delib.host {
 
   home.home.stateVersion = "22.11";
 
+  networking.hostName = "pudge";
+
   nixos = {
     imports = [
       # configure intel cpu
