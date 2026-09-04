@@ -67,7 +67,7 @@ delib.module {
           PGID = myconfig.services.nfs.pgid;
           TZ = myconfig.locale.timeZone;
         };
-        image = "ghcr.io/qdm12/gluetun:v3.40.3";
+        image = "ghcr.io/qdm12/gluetun:v3.41.3";
         volumes = [
           "${myconfig.services.nfs.shares.config.mountPath}/gluetun:/gluetun"
         ];
