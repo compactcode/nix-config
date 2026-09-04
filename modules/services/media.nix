@@ -113,7 +113,7 @@ delib.module {
         extraOptions = [
           "--network=container:gluetun"
         ];
-        image = "lscr.io/linuxserver/radarr:5.7.0.8882-ls229";
+        image = "lscr.io/linuxserver/radarr:6.3.0.10514-ls314";
         volumes = [
           "${myconfig.services.nfs.shares.config.mountPath}/radarr:/config"
           "${myconfig.services.nfs.shares.media.mountPath}:/data"
