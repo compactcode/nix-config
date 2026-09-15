@@ -1,4 +1,8 @@
-{delib, ...}:
+{
+  delib,
+  pkgs,
+  ...
+}:
 delib.module {
   # web browser
   name = "programs.chromium";
@@ -14,6 +18,8 @@ delib.module {
   };
 
   nixos.ifEnabled = {
+    environment.systemPackages = [pkgs.chromium];
+
     programs = {
       chromium = {
         enable = true;
