@@ -24,6 +24,7 @@ delib.module {
 
       settings = {
         effortLevel = "high";
+        modelSettings."claude-opus-5-5".effortLevel = "high";
         includeCoAuthoredBy = false;
         outputStyle = "Concise";
         tui = "fullscreen";
