@@ -23,7 +23,9 @@ delib.module {
       plugins.superpowers = inputs.superpowers;
 
       settings = {
+        effortLevel = "high";
         includeCoAuthoredBy = false;
+        outputStyle = "Concise";
         tui = "fullscreen";
         hooks.SessionStart = [
           {
