@@ -101,6 +101,7 @@ delib.module {
         windowrule = [
           # auto assign apps to workspaces
           "match:class ^(Slack)$, workspace 5"
+          "match:class ^(signal)$, workspace 6"
           "match:class ^(steam)$, workspace 9"
         ];
 
