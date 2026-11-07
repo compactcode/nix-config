@@ -13,9 +13,9 @@ main() {
     exit
   elif [[ -n $selected ]]; then
     if rg -q cachix/devenv "$selected/flake.nix"; then
-      hyprctl dispatch exec -- kitty -d "$selected" --session session-devenv.conf
+      hyprctl dispatch "hl.dsp.exec_cmd([==[kitty -d '$selected' --session session-devenv.conf]==])"
     else
-      hyprctl dispatch exec -- kitty -d "$selected" --session session-basic.conf
+      hyprctl dispatch "hl.dsp.exec_cmd([==[kitty -d '$selected' --session session-basic.conf]==])"
     fi
   fi
 }

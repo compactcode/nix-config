@@ -19,9 +19,10 @@ main() {
     exit
   else
     id=$(getId "$bookmarks" "$selected")
-    hyprctl dispatch focuswindow class:firefox
+    hyprctl dispatch "hl.dsp.focus({ window = 'class:firefox' })"
     for bm in ${id}; do
-      hyprctl dispatch exec firefox "$(buku --nostdin -p "$bm" -f 1 | awk '{print $2}')"
+      url=$(buku --nostdin -p "$bm" -f 1 | awk '{print $2}')
+      hyprctl dispatch "hl.dsp.exec_cmd([==[firefox '$url']==])"
     done
   fi
 }

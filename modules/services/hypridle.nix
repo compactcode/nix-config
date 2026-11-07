@@ -12,8 +12,8 @@ delib.module {
     lockCommand = strOption "${lib.getExe pkgs.swaylock} -f";
     idle = {
       enable = boolOption false;
-      startCommand = strOption "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch dpms off";
-      resumeCommand = strOption "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch dpms on";
+      startCommand = strOption "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch 'hl.dsp.dpms({ action = \"off\" })'";
+      resumeCommand = strOption "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch 'hl.dsp.dpms({ action = \"on\" })'";
     };
   };
 
@@ -24,7 +24,7 @@ delib.module {
         general = {
           lock_cmd = cfg.lockCommand;
           before_sleep_cmd = cfg.lockCommand;
-          after_sleep_cmd = "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch dpms on";
+          after_sleep_cmd = "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch 'hl.dsp.dpms({ action = \"on\" })'";
         };
         listener =
           [
