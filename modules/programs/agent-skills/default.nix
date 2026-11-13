@@ -30,7 +30,6 @@ delib.module {
         # local
         "pr-feedback"
         "pr-rebase"
-        "plainly"
 
         # mattpocock-skills
         "grilling"
