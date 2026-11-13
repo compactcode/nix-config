@@ -24,6 +24,8 @@ delib.module {
 
       settings = {
         effortLevel = "high";
+        # enable claude in chrome browser tools by default
+        env.CLAUDE_CODE_ENABLE_CFC = "1";
         modelSettings."claude-opus-5-5".effortLevel = "high";
         includeCoAuthoredBy = false;
         outputStyle = "Concise";

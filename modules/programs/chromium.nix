@@ -26,6 +26,7 @@ delib.module {
         extensions = [
           "aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
           "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+          "fcoeoabgfenejglbffodgkkbkcdhcgfn" # claude in chrome
         ];
       };
     };
