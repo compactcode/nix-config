@@ -1,7 +1,6 @@
 {
   delib,
   inputs,
-  pkgs,
   ...
 }:
 delib.module {
@@ -12,12 +11,7 @@ delib.module {
 
   home.always.imports = [inputs.agent-skills-nix.homeManagerModules.default];
 
-  home.ifEnabled = let
-    poppler = pkgs."poppler-utils";
-    mkPythonWrapper = env: pkgs.writeShellScriptBin "python3" ''
-      exec ${env}/bin/python3 "$@"
-    '';
-  in {
+  home.ifEnabled = {
     programs.agent-skills = {
       enable = true;
 
@@ -54,20 +48,6 @@ delib.module {
         "grilling"
         "teach"
       ];
-
-      skills.explicit = {
-        docx = {
-          from = "anthropic-skills";
-          path = "docx";
-          packages = [
-            poppler
-            pkgs.pandoc
-            (mkPythonWrapper (pkgs.python3.withPackages (ps: with ps; [
-              defusedxml
-            ])))
-          ];
-        };
-      };
 
       targets = {
         claude.enable = true;
