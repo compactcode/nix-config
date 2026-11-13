@@ -8,7 +8,6 @@ delib.module {
   myconfig.ifEnabled = {
     editorconfig.enable = true;
     programs = {
-      agent-browser.enable = true;
       agent-skills.enable = true;
       devenv.enable = true;
       direnv.enable = true;

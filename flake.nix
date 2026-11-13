@@ -6,10 +6,6 @@
       url = "github:Kyure-A/agent-skills-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    agent-browser-src = {
-      url = "github:vercel-labs/agent-browser";
-      flake = false;
-    };
     mattpocock-skills = {
       url = "github:mattpocock/skills";
       flake = false;

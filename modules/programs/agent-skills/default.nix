@@ -16,11 +16,6 @@ delib.module {
       enable = true;
 
       sources = {
-        agent-browser = {
-          path = inputs.agent-browser-src;
-          subdir = "skills";
-          filter.nameRegex = "^agent-browser$";
-        };
         local = {
           path = ./skills;
         };
@@ -32,9 +27,6 @@ delib.module {
       };
 
       skills.enable = [
-        # agent-browser
-        "agent-browser"
-
         # local
         "pr-feedback"
         "pr-rebase"

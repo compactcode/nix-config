@@ -44,17 +44,6 @@ delib.module {
         ];
         permissions = {
           allow = [
-            "Bash(agent-browser click:*)"
-            "Bash(agent-browser fill:*)"
-            "Bash(agent-browser get:*)"
-            "Bash(agent-browser network:*)"
-            "Bash(agent-browser open:*)"
-            "Bash(agent-browser reload:*)"
-            "Bash(agent-browser screenshot:*)"
-            "Bash(agent-browser scroll:*)"
-            "Bash(agent-browser skills:*)"
-            "Bash(agent-browser snapshot:*)"
-            "Bash(agent-browser wait:*)"
             "Bash(awk:*)"
             "Bash(basename:*)"
             "Bash(bin/rspec:*)"
@@ -179,7 +168,6 @@ delib.module {
             "Bash(which:*)"
             "Bash(whoami)"
             "Read(*)"
-            "Skill(agent-browser)"
             "WebFetch(domain:code.claude.com)"
             "WebFetch(domain:devenv.sh)"
             "WebFetch(domain:docs.claude.com)"

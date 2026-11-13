@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "agent-browser-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1793766057,
-        "narHash": "sha256-OlNEEl0slPZYouaxTcCg6An4lHJmgD9CeZrjrpZA8gA=",
-        "owner": "vercel-labs",
-        "repo": "agent-browser",
-        "rev": "6682da310c75bed8af340b39cc10b7f71bded155",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vercel-labs",
-        "repo": "agent-browser",
-        "type": "github"
-      }
-    },
     "agent-skills-nix": {
       "inputs": {
         "nixpkgs": [
@@ -568,7 +552,6 @@
     },
     "root": {
       "inputs": {
-        "agent-browser-src": "agent-browser-src",
         "agent-skills-nix": "agent-skills-nix",
         "denix": "denix",
         "disko": "disko",
