@@ -56,17 +56,6 @@ delib.module {
       ];
 
       skills.explicit = {
-        pdf = {
-          from = "anthropic-skills";
-          path = "pdf";
-          packages = [
-            poppler
-            pkgs.qpdf
-            (mkPythonWrapper (pkgs.python3.withPackages (ps: with ps; [
-              pypdf pdfplumber reportlab pytesseract pdf2image
-            ])))
-          ];
-        };
         docx = {
           from = "anthropic-skills";
           path = "docx";
