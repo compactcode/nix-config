@@ -24,6 +24,7 @@ delib.module {
       signal.enable = true;
       slack.enable = true;
       swaylock.enable = true;
+      voxtype.enable = true;
       waybar.enable = true;
       yazi.enable = true;
       zathura.enable = true;

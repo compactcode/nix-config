@@ -36,6 +36,7 @@ hl.bind(mod .. " + T", hl.dsp.exec_cmd("kitty"))
 hl.bind(mod .. " + F", hl.dsp.exec_cmd("kitty yazi"))
 hl.bind(mod .. " + P", hl.dsp.exec_cmd("grimblast --notify edit area"))
 hl.bind(mod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
+hl.bind(mod .. " + D", hl.dsp.exec_cmd("voxtype record toggle"))
 
 -- focused window actions
 hl.bind(mod .. " + W", hl.dsp.window.float({ action = "toggle" }))

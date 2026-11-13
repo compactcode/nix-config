@@ -12,7 +12,6 @@ delib.module {
       devenv.enable = true;
       direnv.enable = true;
       gh.enable = true;
-      handy.enable = true;
       herdr.enable = true;
       jujutsu.enable = true;
       nixvim.plugins = {
