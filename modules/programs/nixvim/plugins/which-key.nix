@@ -40,10 +40,6 @@ delib.module {
             group = "lsp";
           }
           {
-            __unkeyed-1 = "<leader>r";
-            group = "test";
-          }
-          {
             __unkeyed-1 = "<leader>s";
             group = "symbols";
           }
