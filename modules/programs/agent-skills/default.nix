@@ -39,7 +39,6 @@ delib.module {
 
       targets = {
         claude.enable = true;
-        gemini.enable = true;
       };
     };
   };

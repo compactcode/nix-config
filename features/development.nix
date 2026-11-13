@@ -11,7 +11,6 @@ delib.module {
       agent-skills.enable = true;
       devenv.enable = true;
       direnv.enable = true;
-      # gemini-cli.enable = true;
       gh.enable = true;
       handy.enable = true;
       herdr.enable = true;
