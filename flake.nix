@@ -10,10 +10,6 @@
       url = "github:vercel-labs/agent-browser";
       flake = false;
     };
-    anthropic-skills = {
-      url = "github:anthropics/skills";
-      flake = false;
-    };
     mattpocock-skills = {
       url = "github:mattpocock/skills";
       flake = false;

@@ -21,10 +21,6 @@ delib.module {
           subdir = "skills";
           filter.nameRegex = "^agent-browser$";
         };
-        anthropic-skills = {
-          path = inputs.anthropic-skills;
-          subdir = "skills";
-        };
         local = {
           path = ./skills;
         };
