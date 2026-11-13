@@ -1,86 +1,63 @@
 # Vision
 
-To craft a minimal and declarative development environment that is fast, efficient, and keyboard-centric. By favoring terminal-based tools and automating repetitive tasks, we enable developers to work at the speed of thought in a reproducible and consistent setting that encourages safe experimentation.
+A minimal, declarative development environment that is fast, efficient and keyboard-centric. Terminal tools and automation let you work at the speed of thought, in a reproducible setup that makes experimenting safe.
 
 ## Guiding Principles
 
-* Minimal. Stay simple with fewer moving parts.
-* Keyboard Focused. Utilise keyboard shortcuts to move at the speed of thought.
-* Terminal Focused. Prefer customisable terminal tools over one stop graphical applications.
-* Efficiency Focused. Commonly repeated activities should be automated away.
-* Declarative. Maintain reproducable and consistent environments that safely enable experimentation.
-* Secure. Prevent and minimize damage from compromised systems.
+* **Minimal.** Keep it simple, with few moving parts.
+* **Keyboard focused.** Use keyboard shortcuts to move at the speed of thought.
+* **Terminal focused.** Prefer customisable terminal tools over all-in-one graphical apps.
+* **Efficient.** Automate tasks you repeat often.
+* **Declarative.** Keep environments reproducible and consistent so experiments are safe.
+* **Secure.** Prevent compromise, and limit the damage when it happens.
+
+# Hosts
+
+| Host        | Platform       | Features                       |
+| ----------- | -------------- | ------------------------------ |
+| `alchemist` | aarch64-darwin | cli, development, darwin       |
+| `pheonix`   | x86_64-linux   | cli, development, hyprland     |
+| `prophet`   | x86_64-linux   | cli, development, hyprland     |
+| `pudge`     | x86_64-linux   | cli, homelab                   |
+
+Apply a configuration with `nh os switch` (NixOS) or `nh darwin switch` (macOS).
 
 # Features
 
-## Declarative Environment
+## Declarative
 
-The entire system is managed declaratively using Nix, ensuring a reproducible, consistent, and experimental environment.
+* **Nix flakes** pin every input for reproducible builds.
+* **[denix](https://github.com/yunfachi/denix)** organises NixOS, nix-darwin and home-manager config into shared modules, grouped into features and enabled per host.
+* **home-manager** manages dotfiles and user packages.
+* **nixvim** manages Neovim and its plugins.
+* **stylix** applies a shared theme ("rice") across apps.
 
-*   **Nix Flakes:** The project is built around a `flake.nix`, providing reproducible builds and dependency management.
-*   **Declarative Home:** User-level configuration is managed declaratively with `home-manager`, ensuring dotfiles and user packages are consistent across systems.
-*   **Declarative Neovim:** Neovim is configured declaratively using `nixvim`, allowing its configuration and dependencies to be versioned and managed alongside the rest of the system.
+## Keyboard-Driven
 
-## Keyboard-Driven Workflow
+* **Window management:** Hyprland on Linux, AeroSpace on macOS.
+* **Launcher:** rofi on Linux, Raycast on macOS.
+* **Terminal and editor:** kitty and a nixvim-built Neovim.
 
-The environment is heavily optimized for keyboard-centric operation, minimizing mouse usage and maximizing speed.
+## Terminal Tools
 
-*   **Tiling Window Management:**
-    *   **Hyprland:** Used on Linux for dynamic, keyboard-driven window tiling and workspace management.
-    *   **Aerospace:** Used on macOS to provide a similar tiling window manager experience.
-*   **Application Launcher:** `rofi` provides a fast, keyboard-driven way to launch applications, run scripts, and switch windows.
-*   **Terminal & Editor:**
-    *   `kitty` is the terminal emulator of choice, configured for performance and scriptability.
-    *   `nixvim` provides a deeply customized Neovim setup with a rich set of plugins for a modal, keyboard-first editing experience.
+* **Shell:** zsh with starship for the prompt and atuin for history search.
+* **CLI tools:** eza, ripgrep, fd, fzf, zoxide, bat, delta, lazygit, jujutsu and yazi.
 
-## Terminal-Centric Tooling
+## Homelab
 
-We prefer powerful, composable terminal-based tools over monolithic graphical applications.
-
-*   **Enhanced Shell:** `zsh` is paired with `starship` for a rich, informative prompt and `atuin` for powerful command history search.
-*   **Modern CLI Tools:** The system includes a suite of modern, efficient command-line utilities, such as:
-    *   `eza` (a modern `ls`)
-    *   `ripgrep` (fast `grep` alternative)
-    *   `fd` (simple `find` alternative)
-    *   `fzf` (command-line fuzzy finder)
-    *   `zoxide` (smarter `cd`)
-    *   `bat` (a `cat` clone with wings)
-    *   `lazygit` (a terminal UI for git)
-
-## Automation & Efficiency
-
-Repetitive tasks are automated to streamline workflows and reduce cognitive load.
+[`pudge`](doc/adr/homelab-containers.md) is a headless server that runs Home Assistant, Emby and a media stack as OCI containers through Podman, with data on NFS shares.
 
 ## Security
 
-In line with the principle of building a secure system, several features are in place to prevent and minimize damage from potential compromises.
-
-*   **[Secret Management](doc/adr/secrets.md):** 1Password is used to manage all secrets, ensuring nothing sensitive is ever stored on disk.
-
-## Minimalism and Performance
-
-The selection of tools and configurations prioritizes speed, simplicity, and a low resource footprint.
-
-*   **Lightweight Components:** The stack is built on lean components like `hyprland`, `rofi`, and `kitty` instead of a full desktop environment.
+* **[Secret management](doc/adr/secrets.md):** secrets live in 1Password and are never stored on disk.
 
 # Roadmap
 
-## Core Experience
-
-Our primary focus is on refining the core user experience to maximize efficiency and flow.
-
-*   **Ergonomic Keyboard System:** Design and implement a consistent, layered keyboard shortcut system built on home row modifiers.
-    *   Target both Colemak-DH and QWERTY layouts for portability.
-    *   Ensure consistency from the OS layer down through applications like Kitty and Neovim.
-    *   Develop OS-level scripts for advanced window management, such as pinning Kitty tabs to specific workspaces and switching to them directly.
-
-## System Expansion
-
-We aim to apply our declarative principles to new environments and use cases.
-
-*   **[Headless Homelab Server](doc/adr/homelab-containers.md):** Deploy a fully declarative, non-graphical homelab server.
-    *   The server runs containerized workloads, including Home Assistant and Emby, using NixOS's native OCI container support to ensure a fully declarative configuration.
+* **Ergonomic keyboard system:** a consistent, layered shortcut system built on home row modifiers.
+  * Support both Colemak-DH and QWERTY.
+  * Keep bindings consistent from the OS through kitty and Neovim.
+  * Add window management scripts, e.g. pin kitty tabs to workspaces and jump to them directly.
 
 # Architectural Decision Records
 
-Architectural decisions are documented using ADRs in the `doc/adr` directory. When creating a new ADR, use the [ADR template](../adr/template.md).
+Decisions are recorded as ADRs in [`doc/adr`](doc/adr). Start new ones from the [template](doc/adr/template.md).
