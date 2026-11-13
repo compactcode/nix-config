@@ -30,19 +30,6 @@ delib.module {
     ];
 
     plugins = {
-      # general purpose linting
-      efmls-configs = {
-        enable = true;
-        languages = {
-          json = {
-            linter = "jq";
-          };
-          yaml = {
-            linter = "yamllint";
-          };
-        };
-      };
-
       # lsp servers
       lsp = {
         enable = true;
@@ -51,17 +38,6 @@ delib.module {
         servers = {
           # bash
           bashls.enable = true;
-          # general purpose
-          efm = {
-            enable = true;
-            extraOptions = {
-              init_options = {
-                # formatting handled elsewhere
-                documentFormatting = false;
-                documentRangeFormatting = false;
-              };
-            };
-          };
           # html
           emmet_ls.enable = true;
           # nix
