@@ -196,7 +196,7 @@ delib.module {
             "Bash(git push:*)"
             "Bash(git rebase:*)"
           ];
-          defaultMode = "plan";
+          defaultMode = "auto";
         };
       };
     };
