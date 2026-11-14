@@ -167,7 +167,7 @@ delib.module {
             "Bash(wc:*)"
             "Bash(which:*)"
             "Bash(whoami)"
-            "Read(*)"
+            "Read"
             "WebFetch(domain:code.claude.com)"
             "WebFetch(domain:devenv.sh)"
             "WebFetch(domain:docs.claude.com)"
