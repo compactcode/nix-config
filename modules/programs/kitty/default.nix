@@ -14,7 +14,7 @@ delib.module {
     programs.kitty = with delib; {
       enable = boolOption false;
       listenSocket = strOption (
-        if pkgs.stdenv.isLinux
+        if pkgs.stdenv.hostPlatform.isLinux
         then "unix:@kitty"
         else "unix:/tmp/kitty"
       );

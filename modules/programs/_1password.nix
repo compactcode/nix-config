@@ -67,8 +67,8 @@ delib.module {
             ssh = {
               allowedSignersFile = "~/.ssh/allowed_signers";
               program = lib.mkMerge [
-                (lib.mkIf pkgs.stdenv.isLinux "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}")
-                (lib.mkIf pkgs.stdenv.isDarwin "/Applications/1Password.app/Contents/MacOS/op-ssh-sign")
+                (lib.mkIf pkgs.stdenv.hostPlatform.isLinux "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}")
+                (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "/Applications/1Password.app/Contents/MacOS/op-ssh-sign")
               ];
             };
             format = "ssh";
@@ -81,10 +81,10 @@ delib.module {
       ssh = {
         enable = true;
         extraConfig = lib.mkMerge [
-          (lib.mkIf pkgs.stdenv.isLinux ''
+          (lib.mkIf pkgs.stdenv.hostPlatform.isLinux ''
             IdentityAgent "~/.1password/agent.sock"
           '')
-          (lib.mkIf pkgs.stdenv.isDarwin ''
+          (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin ''
             IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
           '')
         ];

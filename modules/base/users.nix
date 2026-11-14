@@ -31,7 +31,7 @@ delib.module {
     home = {
       username = cfg.primary.id;
       homeDirectory =
-        if pkgs.stdenv.isDarwin
+        if pkgs.stdenv.hostPlatform.isDarwin
         then "/Users/${cfg.primary.id}"
         else "/home/${cfg.primary.id}";
     };

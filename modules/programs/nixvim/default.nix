@@ -105,7 +105,7 @@ delib.module {
       };
     };
 
-    xdg = lib.mkIf (pkgs.stdenv.isLinux) {
+    xdg = lib.mkIf (pkgs.stdenv.hostPlatform.isLinux) {
       # add launcher for neovim
       desktopEntries.nvim = {
         categories = ["Utility" "TextEditor"];
