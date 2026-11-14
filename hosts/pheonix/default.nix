@@ -24,6 +24,9 @@ delib.host {
       cli.enable = true;
       hyprland.enable = true;
     };
+
+    # turn the monitor off when idle
+    services.hypridle.idle.enable = true;
   };
 
   home.home.stateVersion = "23.11";
