@@ -6,18 +6,11 @@ delib.module {
   options = delib.singleEnableOption false;
 
   home.ifEnabled = {
-    programs = {
-      direnv = {
-        enable = true;
-        enableZshIntegration = true;
-        # faster nix handling
-        nix-direnv.enable = true;
-      };
-
-      # hide cache from git
-      git.ignores = [
-        ".direnv"
-      ];
+    programs.direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      # hide .direnv cache from git
+      enableGitIntegration = true;
     };
   };
 }
