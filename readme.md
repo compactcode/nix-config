@@ -35,7 +35,7 @@ Apply a configuration with `nh os switch` (NixOS) or `nh darwin switch` (macOS).
 ## Keyboard-Driven
 
 * **Window management:** Hyprland on Linux, AeroSpace on macOS.
-* **Launcher:** rofi on Linux, Raycast on macOS.
+* **Launcher:** walker on Linux, Raycast on macOS.
 * **Terminal and editor:** kitty and a nixvim-built Neovim.
 
 ## Terminal Tools

@@ -161,17 +161,16 @@ delib.module {
   myconfig.ifEnabled = {
     programs = {
       hyprland.enable = true;
-      rofi.enable = true;
       swaylock.enable = true;
+      walker.enable = true;
       waybar.enable = true;
     };
     services = {
-      cliphist.enable = true;
       greetd.enable = true;
+      hypridle.enable = true;
       hyprpaper.enable = true;
       mako.enable = true;
       polkit-gnome.enable = true;
-      swayidle.enable = true;
     };
   };
 }

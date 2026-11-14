@@ -17,12 +17,12 @@ local function focus_or_project(ws)
     hl.dispatch(hl.dsp.focus({ window = win }))
   else
     hl.dispatch(hl.dsp.focus({ workspace = ws }))
-    hl.exec_cmd("~/.local/share/rofi/project.sh")
+    hl.exec_cmd("~/.local/share/walker/project.sh")
   end
 end
 
 -- applications tied to particular workspaces
-hl.bind(mod .. " + A", hl.dsp.exec_cmd("~/.local/share/rofi/project.sh"))
+hl.bind(mod .. " + A", hl.dsp.exec_cmd("~/.local/share/walker/project.sh"))
 hl.bind(mod .. " + E", function() focus_or_project(3) end)
 hl.bind(mod .. " + N", function() focus_or_exec(1, "firefox", "firefox") end)
 hl.bind(mod .. " + O", function() focus_or_exec(4, "obsidian", "obsidian") end)
@@ -30,12 +30,12 @@ hl.bind(mod .. " + R", function() focus_or_exec(5, "Slack", "slack") end)
 hl.bind(mod .. " + S", function() focus_or_project(2) end)
 
 -- applications
-hl.bind(mod .. " + I", hl.dsp.exec_cmd("rofi -show drun"))
-hl.bind(mod .. " + B", hl.dsp.exec_cmd("~/.local/share/rofi/bookmark.sh"))
+hl.bind(mod .. " + I", hl.dsp.exec_cmd("walker"))
+hl.bind(mod .. " + B", hl.dsp.exec_cmd("walker -m bookmarks"))
 hl.bind(mod .. " + T", hl.dsp.exec_cmd("kitty"))
 hl.bind(mod .. " + F", hl.dsp.exec_cmd("kitty yazi"))
 hl.bind(mod .. " + P", hl.dsp.exec_cmd("grimblast --notify edit area"))
-hl.bind(mod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
+hl.bind(mod .. " + V", hl.dsp.exec_cmd("walker -m clipboard"))
 hl.bind(mod .. " + D", hl.dsp.exec_cmd("voxtype record toggle"))
 
 -- focused window actions

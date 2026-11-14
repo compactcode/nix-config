@@ -20,17 +20,16 @@ delib.module {
       obsidian.enable = true;
       pavucontrol.enable = true;
       pinta.enable = true;
-      rofi.enable = true;
       signal.enable = true;
       slack.enable = true;
       swaylock.enable = true;
       voxtype.enable = true;
+      walker.enable = true;
       waybar.enable = true;
       yazi.enable = true;
       zathura.enable = true;
     };
     services = {
-      cliphist.enable = true;
       flatpak.enable = true;
       greetd.enable = true;
       hyprpaper.enable = true;

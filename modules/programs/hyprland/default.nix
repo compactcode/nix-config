@@ -1,6 +1,7 @@
 {
   config,
   delib,
+  pkgs,
   ...
 }:
 delib.module {
@@ -18,6 +19,9 @@ delib.module {
   };
 
   home.ifEnabled = {
+    # clipboard cli for the shell and agents
+    home.packages = [pkgs.wl-clipboard];
+
     wayland.windowManager.hyprland = {
       enable = true;
       # reuse the nixos package rather than installing a second build, and let
