@@ -20,7 +20,6 @@ delib.module {
         gitsigns.enable = true;
         # grug-far.enable = true; # temporarily disabled - ast-grep build failure
         lsp.enable = true;
-        other.enable = true;
         snacks.enable = true;
         treesitter.development.enable = true;
         yanky.enable = true;
