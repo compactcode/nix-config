@@ -22,6 +22,16 @@ delib.module {
         options = {desc = "show lsp references";};
       }
       {
+        key = "<leader>ci";
+        action = "<cmd>lua Snacks.picker.lsp_incoming_calls()<cr>";
+        options = {desc = "show incoming calls";};
+      }
+      {
+        key = "<leader>gd";
+        action = "<cmd>lua Snacks.picker.git_diff()<cr>";
+        options = {desc = "git diff hunks";};
+      }
+      {
         key = "<leader>fo";
         action = "<cmd>lua Snacks.picker.recent()<cr>";
         options = {desc = "find last edited files";};
@@ -58,13 +68,11 @@ delib.module {
 
       settings = {
         # upgrade input prompt
-        input = {
-          enable = true;
-        };
+        input.enabled = true;
 
         # finder
         picker = {
-          enable = true;
+          enabled = true;
           # use for system generated selections
           ui_select = true;
         };
