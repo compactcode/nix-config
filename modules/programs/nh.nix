@@ -15,7 +15,7 @@ delib.module {
       # automatic garbage collection
       clean = {
         enable = true;
-        extraArgs = "--keep 10 --keep-since 30d";
+        extraArgs = ["--keep" "10" "--keep-since" "30d"];
       };
     };
 
