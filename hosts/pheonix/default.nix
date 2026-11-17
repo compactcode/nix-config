@@ -4,6 +4,7 @@
 {
   delib,
   inputs,
+  pkgs,
   ...
 }:
 delib.host {
@@ -29,7 +30,12 @@ delib.host {
     services.hypridle.idle.enable = true;
   };
 
-  home.home.stateVersion = "23.11";
+  home = {
+    # amd gpu stats
+    programs.btop.package = pkgs.btop.override {rocmSupport = true;};
+
+    home.stateVersion = "23.11";
+  };
 
   nixos = {
     imports = [
@@ -70,11 +76,6 @@ delib.host {
     };
 
     networking.hostName = "pheonix";
-
-    nixpkgs = {
-      # enable gpu support for applications like btop
-      config.rocmSupport = true;
-    };
 
     system.stateVersion = "23.11";
   };
