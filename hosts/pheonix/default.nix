@@ -31,6 +31,22 @@ delib.host {
   };
 
   home = {
+    wayland.windowManager.hyprland.settings = {
+      # scale up for the 4k monitor
+      monitor = [
+        {
+          output = "desc:Dell Inc. DELL U2725QE FH8GMF4";
+          mode = "3840x2160@120";
+          position = "auto";
+          scale = 1.5;
+        }
+      ];
+
+      # render xwayland apps at native resolution rather than upscaling them
+      # blurrily - steam needs its ui scale set in the client itself
+      config.xwayland.force_zero_scaling = true;
+    };
+
     # amd gpu stats
     programs.btop.package = pkgs.btop.override {rocmSupport = true;};
 
