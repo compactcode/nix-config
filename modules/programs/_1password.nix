@@ -1,4 +1,5 @@
 {
+  config,
   delib,
   lib,
   pkgs,
@@ -45,7 +46,7 @@ delib.module {
           after = ["graphical-session.target"];
           serviceConfig = {
             Type = "simple";
-            ExecStart = "${lib.getExe' pkgs._1password-gui "1password"} --silent";
+            ExecStart = "${lib.getExe' config.programs._1password-gui.package "1password"} --silent";
           };
         };
       };
@@ -67,7 +68,7 @@ delib.module {
             ssh = {
               allowedSignersFile = "~/.ssh/allowed_signers";
               program = lib.mkMerge [
-                (lib.mkIf pkgs.stdenv.hostPlatform.isLinux "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}")
+                (lib.mkIf pkgs.stdenv.hostPlatform.isLinux "${lib.getExe' config.programs._1password-gui.package "op-ssh-sign"}")
                 (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "/Applications/1Password.app/Contents/MacOS/op-ssh-sign")
               ];
             };
