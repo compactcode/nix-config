@@ -1,9 +1,4 @@
-{
-  delib,
-  inputs,
-  pkgs,
-  ...
-}:
+{delib, ...}:
 delib.module {
   # development environments
   name = "programs.devenv";
@@ -23,7 +18,10 @@ delib.module {
   };
 
   home.ifEnabled = {
-    home.packages = [pkgs.devenv];
+    programs.devenv = {
+      enable = true;
+      enableZshIntegration = true;
+    };
 
     # hide cache from git
     programs.git.ignores = [
