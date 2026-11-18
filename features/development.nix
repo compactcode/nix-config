@@ -18,7 +18,6 @@ delib.module {
         blink.enable = true;
         gitlinker.enable = true;
         gitsigns.enable = true;
-        # grug-far.enable = true; # temporarily disabled - ast-grep build failure
         lsp.enable = true;
         snacks.enable = true;
         treesitter.development.enable = true;
