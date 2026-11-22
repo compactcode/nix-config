@@ -45,6 +45,29 @@ delib.module {
       };
     };
 
+    # agent skill for controlling herdr, matched to the installed version
+    programs.agent-skills = {
+      sources.herdr = {
+        path = homeconfig.programs.herdr.package.src;
+        subdir = "skills";
+      };
+      skills.enable = ["herdr"];
+    };
+
+    # read-only commands claude can run without asking
+    programs.claude-code.settings.permissions.allow = [
+      "Bash(herdr agent get:*)"
+      "Bash(herdr agent list:*)"
+      "Bash(herdr agent read:*)"
+      "Bash(herdr pane current:*)"
+      "Bash(herdr pane layout:*)"
+      "Bash(herdr pane list:*)"
+      "Bash(herdr pane read:*)"
+      "Bash(herdr status:*)"
+      "Bash(herdr tab list:*)"
+      "Bash(herdr workspace list:*)"
+    ];
+
     home.shellAliases = {
       # attach to herdr focused on this dir's workspace (seeding it if new)
       h = "${homeconfig.xdg.configHome}/herdr/scripts/herdr-here.sh";
