@@ -24,6 +24,43 @@ delib.module {
       };
     };
 
+    # commands claude can run without asking (push/rebase always ask)
+    programs.claude-code.settings.permissions = {
+      allow = [
+        "Bash(git add:*)"
+        "Bash(git blame:*)"
+        "Bash(git branch:*)"
+        "Bash(git cat-file:*)"
+        "Bash(git checkout:*)"
+        "Bash(git config get user.name:*)"
+        "Bash(git config user.name:*)"
+        "Bash(git describe:*)"
+        "Bash(git diff:*)"
+        "Bash(git fetch:*)"
+        "Bash(git grep:*)"
+        "Bash(git log:*)"
+        "Bash(git ls-files:*)"
+        "Bash(git ls-tree:*)"
+        "Bash(git merge-base:*)"
+        "Bash(git mv:*)"
+        "Bash(git reflog:*)"
+        "Bash(git remote -v)"
+        "Bash(git remote show:*)"
+        "Bash(git rev-parse:*)"
+        "Bash(git shortlog:*)"
+        "Bash(git show:*)"
+        "Bash(git stash:*)"
+        "Bash(git status:*)"
+        "Bash(git tag --list:*)"
+        "Bash(git whatchanged:*)"
+        "Bash(git worktree list:*)"
+      ];
+      ask = [
+        "Bash(git push:*)"
+        "Bash(git rebase:*)"
+      ];
+    };
+
     home = {
       shellAliases = {
         g = "git";

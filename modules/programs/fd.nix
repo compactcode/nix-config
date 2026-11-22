@@ -15,5 +15,7 @@ delib.module {
         ".git/"
       ];
     };
+
+    programs.claude-code.settings.permissions.allow = ["Bash(fd:*)"];
   };
 }

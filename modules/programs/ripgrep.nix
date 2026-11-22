@@ -13,5 +13,7 @@ delib.module {
         "--glob=!.git/*"
       ];
     };
+
+    programs.claude-code.settings.permissions.allow = ["Bash(rg:*)"];
   };
 }

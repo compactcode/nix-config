@@ -28,6 +28,8 @@ delib.module {
       ".devenv"
       ".devenv.*"
     ];
+
+    programs.claude-code.settings.permissions.allow = ["WebFetch(domain:devenv.sh)"];
   };
 
   nixos.ifEnabled = {

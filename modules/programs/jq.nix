@@ -9,5 +9,7 @@ delib.module {
     programs.jq = {
       enable = true;
     };
+
+    programs.claude-code.settings.permissions.allow = ["Bash(jq:*)"];
   };
 }
