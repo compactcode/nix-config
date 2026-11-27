@@ -38,8 +38,6 @@ delib.module {
         servers = {
           # bash
           bashls.enable = true;
-          # html
-          emmet_ls.enable = true;
           # nix
           nixd.enable = true;
           # ruby
