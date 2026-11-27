@@ -22,6 +22,17 @@ delib.module {
       # password manager cli
       _1password.enable = true;
     };
+
+    # 1password replaces the browser password manager and its breach checks
+    system.defaults.CustomUserPreferences = let
+      policies = {
+        PasswordManagerEnabled = false;
+        PasswordLeakDetectionEnabled = false;
+      };
+    in {
+      "com.google.Chrome" = policies;
+      "org.chromium.Chromium" = policies;
+    };
   };
 
   nixos.ifEnabled = {myconfig, ...}: {
@@ -33,6 +44,12 @@ delib.module {
       _1password-gui = {
         enable = true;
         polkitPolicyOwners = [myconfig.users.primary.id];
+      };
+
+      # 1password replaces the browser password manager and its breach checks
+      chromium.extraOpts = {
+        PasswordManagerEnabled = false;
+        PasswordLeakDetectionEnabled = false;
       };
     };
 
