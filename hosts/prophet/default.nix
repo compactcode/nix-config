@@ -20,6 +20,8 @@ delib.host {
 
     hardware.bluetooth.enable = true;
 
+    programs.hyprlock.fingerprint.enable = true;
+
     # enable feature sets
     features = {
       development.enable = true;

@@ -22,7 +22,7 @@ delib.module {
       pinta.enable = true;
       signal.enable = true;
       slack.enable = true;
-      swaylock.enable = true;
+      hyprlock.enable = true;
       voxtype.enable = true;
       walker.enable = true;
       waybar.enable = true;

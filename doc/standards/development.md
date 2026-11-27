@@ -161,7 +161,7 @@ delib.module {
   myconfig.ifEnabled = {
     programs = {
       hyprland.enable = true;
-      swaylock.enable = true;
+      hyprlock.enable = true;
       walker.enable = true;
       waybar.enable = true;
     };

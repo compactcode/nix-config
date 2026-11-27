@@ -9,7 +9,7 @@ delib.module {
 
   options.services.hypridle = with delib; {
     enable = boolOption false;
-    lockCommand = strOption "${lib.getExe pkgs.swaylock} -f";
+    lockCommand = strOption "${lib.getExe' pkgs.procps "pidof"} hyprlock || ${lib.getExe pkgs.hyprlock}";
     idle = {
       enable = boolOption false;
       startCommand = strOption "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch 'hl.dsp.dpms({ action = \"off\" })'";
