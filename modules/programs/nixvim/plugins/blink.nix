@@ -30,7 +30,7 @@ delib.module {
 
           settings = {
             completion = {
-              # always show documentation preview, useful for snippets
+              # always show documentation preview
               documentation.auto_show = true;
 
               menu = {
@@ -68,7 +68,6 @@ delib.module {
               default = [
                 "lsp"
                 "path"
-                "snippets"
                 "buffer"
               ];
 
@@ -84,16 +83,7 @@ delib.module {
             event = ["InsertEnter" "CmdlineEnter"];
           };
         };
-
-        # default snippets
-        friendly-snippets.enable = true;
       };
-    };
-
-    # custom snippets
-    xdg.configFile."nvim/snippets/" = {
-      source = ../snippets;
-      recursive = true;
     };
   };
 }
