@@ -5,38 +5,32 @@
 
 ## Context
 
-[Describe the problem, the context, and the forces at play. This section must reference the project's [guiding principles](../../readme.md#guiding-principles) and explain how they influence the decision.
+[Describe the problem and the forces at play. Name the [guiding principles](../../readme.md#guiding-principles) that apply and how each one shapes the decision:]
 
-For example:
-The project's vision is supported by several guiding principles, including:
-*   **Principle 1:** Justification for how this principle applies.
-*   **Principle 2:** Justification for how this principle applies.]
+* **[Principle]:** [How it applies.]
 
 ## Decision
 
-[State the chosen solution. This should be a clear and concise statement of the decision made.]
+[State the chosen solution in a sentence or two.]
 
 ## Consequences
 
 * **Pros:**
-    * [List the positive outcomes of this decision.]
+    * [Positive outcomes of the decision.]
 * **Cons:**
-    * [List the negative outcomes or trade-offs of this decision.]
+    * [Negative outcomes and trade-offs.]
 
 ## Options Considered
 
-### 1. Option 1 Title (Chosen)
+### 1. [Option] (Chosen)
 
-* **Description:** [A brief description of the option.]
+* **Description:** [A brief description.]
+* **Pros and cons:** See [Consequences](#consequences).
+
+### 2. [Option]
+
+* **Description:** [A brief description.]
 * **Pros:**
-    * [List the advantages of this option.]
+    * [Advantages.]
 * **Cons:**
-    * [List the disadvantages of this option.]
-
-### 2. Option 2 Title
-
-* **Description:** [A brief description of the option.]
-* **Pros:**
-    * [List the advantages of this option.]
-* **Cons:**
-    * [List the disadvantages of this option.]
+    * [Disadvantages.]

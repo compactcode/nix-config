@@ -1,65 +1,58 @@
-# Code Structure and Conventions
+# Development Standards
 
-## Overview
-
-This project uses [denix](https://github.com/yunfachi/denix) to configure modules.
+This project uses [denix](https://yunfachi.github.io/denix/) to organise NixOS, nix-darwin and home-manager configuration into modules. denix loads every file under `hosts`, `modules`, `rices` and `features` automatically.
 
 ## Project Layout
 
-- `docs/*.md`: for documentation
-- `features/*.nix`: for configuring related sets of modules
-- `hosts/*.nix`: for host configuration
-- `modules/base/*.nix`: for top level modules e.g. boot, xdg
-- `modules/config/*.nix`: for denix configuration
-- `modules/hardware/*.nix`: for hardware configuration
-- `modules/programs/*.nix`: for program configuration
-- `modules/programs/nixvim/*.nix`: for nixvim configuration
-- `modules/services/*.nix`: for service configuration
+| Path                      | Purpose                                             |
+| ------------------------- | --------------------------------------------------- |
+| `hosts/<name>/`           | Host configuration                                  |
+| `features/*.nix`          | Sets of related modules, enabled per host           |
+| `modules/base/`           | Top-level system modules, e.g. boot, users, xdg     |
+| `modules/hardware/`       | Hardware modules                                    |
+| `modules/programs/`       | Program modules                                     |
+| `modules/programs/nixvim/`| Neovim configuration and plugins                    |
+| `modules/services/`       | Service modules                                     |
+| `rices/<name>/`           | Themes, selected per host                           |
+| `doc/`                    | Documentation                                       |
 
-## Module Structure
+## Modules
 
-Modules are generally correspond to upstream counterparts in nixpkgs/home-manager.
-
-### Example Module
+A module usually matches its upstream counterpart in nixpkgs or home-manager, and is disabled by default.
 
 ```nix
 {
   delib,
-  pkgs, # only add if needed
+  pkgs, # only if needed
   ...
 }:
 delib.module {
   name = "programs.chromium";
 
-  # modules are disabled by default
   options = delib.singleEnableOption false;
 
-  # nix-darwin only options go here, if relevant
+  # nix-darwin only
   darwin.ifEnabled = {
-    homebrew.casks = [
-      "chromium"
-    ];
+    homebrew.casks = ["chromium"];
   };
 
-  # nixos only options go here, if relevant
+  # nixos only
   nixos.ifEnabled = {
     programs.chromium.enable = true;
   };
 
-  # home-manager only options go here, if relevant
+  # home-manager only
   home.ifEnabled = {
     programs.chromium.extensions = [
       "aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
-      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
     ];
   };
 }
 ```
 
+### Options
 
-### Module Options
-
-Configuration options can be declared by a module.
+A module can declare more options than `enable`. Read its own options with `cfg`, and another module's with `myconfig`. See the [denix options reference](https://yunfachi.github.io/denix/options/introduction).
 
 ```nix
 {delib, ...}:
@@ -68,145 +61,81 @@ delib.module {
 
   options.programs.example = with delib; {
     enable = boolOption false;
-    # str with default (equivalent to lib.mkOption {type = types.str; default = "default";})
-    default = strOption "default";
-    # required str (equivalent to lib.mkOption {type = types.str;})
-    required = noDefault (strOption null);
-    # list of ports (equivalent to lib.mkOption {type = types.listOf types.port; default = [];})
-    list = listOfOption port [];
+    # string with a default
+    greeting = strOption "hello";
+    # required string
+    device = noDefault (strOption null);
+    # list of ports
+    ports = listOfOption port [];
   };
 
-  nixos.ifEnabled = {cfg, ...}: {
-    environment = {
-      sessionVariables = {
-        # use cfg to access internal options
-        DEFAULT = cfg.default;
-      };
+  nixos.ifEnabled = {cfg, myconfig, ...}: {
+    environment.sessionVariables = {
+      # this module's option
+      GREETING = cfg.greeting;
+      # another module's option
+      EMAIL = myconfig.users.primary.email;
     };
   };
 }
 ```
 
-You can request full documentation for [denix options here](https://yunfachi.github.io/denix/options/introduction).
+## Features
 
-### Using Options
+A feature is a module that enables a set of related modules, so hosts do not repeat them.
 
-Options are typically set at the host or feature level using `myconfig`.
+```nix
+{delib, ...}:
+delib.module {
+  name = "features.homelab";
+
+  options = delib.singleEnableOption false;
+
+  myconfig.ifEnabled = {
+    programs.podman.enable = true;
+    services = {
+      emby.enable = true;
+      homeassistant.enable = true;
+    };
+  };
+}
+```
+
+## Hosts
+
+A host picks a rice, enables features and sets options through `myconfig`.
 
 ```nix
 {delib, ...}:
 delib.host {
   name = "pheonix";
+  rice = "catppuccin-mocha";
 
   myconfig = {
+    features.hyprland.enable = true;
     disko = {
       enable = true;
-      device = "/dev/disk/by-id/nvme-Samsung_SSD_970_EVO_Plus_2TB_S4J4NF0NA04068A";
+      device = "/dev/disk/by-id/nvme-example";
     };
   };
 }
-```
-
-### Referencing Options
-
-Configuration can be referenced by other modules via the `myconfig` argument.
-
-```nix
-delib.module {
-  name = "users";
-
-  options.users.primary = with delib; {
-    id = strOption homeManagerUser;
-    name = strOption "Shanon McQuay";
-    email = strOption "hi@shan.dog";
-    sshkey = strOption "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDPCP4SqkSwxkX9dkk36idNz7wCtXfa84hwkkflJVuDF";
-  };
-};
-
-{delib, ...}:
-delib.module {
-  name = "programs.git";
-
-  options = delib.singleEnableOption false;
-
-  home.ifEnabled = {myconfig, ...}: {
-    programs.git = {
-      enable = true;
-      # use myconfig to access options from another module
-      userName = myconfig.users.primary.name;
-      userEmail = myconfig.users.primary.email;
-      extraConfig = {
-        user.signingkey = myconfig.users.primary.sshkey;
-      };
-    };
-  };
-}
-```
-
-
-## Features
-
-Features are high-level groupings of related modules that are enabled as a set to avoid having to duplicate them across all hosts.
-
-### Example Feature
-
-```nix
-{delib, ...}:
-delib.module {
-  # hyprland desktop and dependencies
-  name = "features.hyprland";
-
-  options = delib.singleEnableOption false;
-
-  myconfig.ifEnabled = {
-    programs = {
-      hyprland.enable = true;
-      hyprlock.enable = true;
-      walker.enable = true;
-      waybar.enable = true;
-    };
-    services = {
-      greetd.enable = true;
-      hypridle.enable = true;
-      hyprpaper.enable = true;
-      mako.enable = true;
-      polkit-gnome.enable = true;
-    };
-  };
-}
-```
-
-### Example Feature Usage
-
-In host configurations, features like this:
-
-```nix
-myconfig = {
-  features = {
-    hyprland.enable = true;
-  };
-};
 ```
 
 ## Conventions
 
-### Formatting
+### Nix Code
 
-* Use 2 spaces for indentation (never tabs)
+* Indent with 2 spaces, never tabs.
+* Do not use `imports` in modules. Hosts may import external modules such as `nixos-hardware`.
+* Take `pkgs` in the file's top-level arguments (`{delib, pkgs, ...}:`), not in the arguments of `ifEnabled`.
+* Avoid `with pkgs;`. Reference packages directly, e.g. `pkgs.nfs-utils`.
 
 ### Testing
 
-* Use `nh os build` to test the configuration on linux systems.
-* Use `nh darwin build` to test the configuration on darwin systems.
-
-### Nix Code
-
-* Do not use `imports`.
-* Import packages at the top level (e.g., `{delib, pkgs, ...}:`) rather than accessing them via function parameters.
-* Avoid using `with pkgs;` - instead reference packages directly (e.g., `pkgs.nfs-utils`).
+Build before you switch: `nh os build` on NixOS, `nh darwin build` on macOS.
 
 ### Git Commits
 
-* Use compact lowercase titles.
-* Use conventional commits with no scopes.
-  * Types: build:, chore:, ci:, docs:, style:, refactor:, perf:, test:
+* Use [conventional commits](https://www.conventionalcommits.org) with a compact lowercase title.
+* Scope the commit to the module it changes, e.g. `feat(hyprlock): unlock with fingerprint`. Omit the scope for repo-wide changes, e.g. `chore: update inputs`.
+* Types: `feat`, `fix`, `refactor`, `chore`, `docs`, `build`, `ci`, `style`, `perf`, `test`.

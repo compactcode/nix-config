@@ -58,6 +58,9 @@ Apply a configuration with `nh os switch` (NixOS) or `nh darwin switch` (macOS).
   * Keep bindings consistent from the OS through kitty and Neovim.
   * Add window management scripts, e.g. pin kitty tabs to workspaces and jump to them directly.
 
-# Architectural Decision Records
+# Documentation
 
-Decisions are recorded as ADRs in [`doc/adr`](doc/adr). Start new ones from the [template](doc/adr/template.md).
+* **[Development standards](doc/standards/development.md):** project layout, module structure and conventions.
+* **[Architectural decision records](doc/adr):** why things are the way they are. Start new ones from the [template](doc/adr/template.md).
+  1. [Secret management](doc/adr/secrets.md)
+  2. [Homelab service deployment](doc/adr/homelab-containers.md)
